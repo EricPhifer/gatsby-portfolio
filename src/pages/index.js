@@ -148,6 +148,11 @@ const HomeStyles = styled.div`
       }
     }
   }
+  @media screen and (-webkit-min-device-pixel-ratio:0) { 
+      .image {
+        bottom: -17rem;
+      }    
+  }
   .hidden {
     display: none;
   }
@@ -254,6 +259,7 @@ const TabletHomeStyles = styled.div`
       font-size: 1.25rem;
       padding: 0.25rem;
       @media only screen and (max-width: 900px) {
+        padding-bottom: 0;
         transform: rotate(180deg);
       }
     }
@@ -279,9 +285,9 @@ const TabletHomeStyles = styled.div`
     .buttonesque {
       width: 100%;
       height: 60px;
+      display: flex;
       position: fixed;
       bottom: 0;
-      display: flex;
       justify-content: center;
       align-items: center;
       background-color: var(--green);
@@ -360,6 +366,11 @@ const TabletHomeStyles = styled.div`
         width: 23vmin;
       }
     }
+  }
+  @media screen and (-webkit-min-device-pixel-ratio:0) { 
+    .image {
+      bottom: -13rem;
+    }    
   }
   .hidden {
     display: none;
@@ -445,7 +456,7 @@ const MobileHomeStyles = styled.div`
     transform: rotate(90deg);
     .scrollWords {
       font-size: 1rem;
-      padding: 0.5rem 0.25rem;
+      padding: 0.5rem 0.25rem 0;
       transform: rotate(180deg);
     }
     .triangle {

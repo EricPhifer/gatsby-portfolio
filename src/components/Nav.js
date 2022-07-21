@@ -72,7 +72,6 @@ const NavStyles = styled.div`
 
   // Footer Toggling
   #menuToggle {
-    position: absolute;
     z-index: 1;
     -webkit-user-select: none;
     user-select: none;
@@ -193,7 +192,7 @@ const TabletNavStyles = styled.div`
   }
   .bottom {
     position: absolute;
-    bottom: 7rem;
+    bottom: 0;
     margin-left: 2rem;
     align-items: center;
   }
@@ -250,7 +249,6 @@ const TabletNavStyles = styled.div`
 
   // Menu Toggling
   #menuToggle {
-    position: absolute;
     z-index: 1;
     -webkit-user-select: none;
     user-select: none;
@@ -364,10 +362,6 @@ const TabletNavStyles = styled.div`
     .triangle {
       width: 15px;
       height: 5px;
-    }
-    .bottom {
-      bottom: 0;
-      margin-left: 1rem;
     }
     input {
       width: 50px;
