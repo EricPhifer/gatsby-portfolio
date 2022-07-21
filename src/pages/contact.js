@@ -288,7 +288,7 @@ const TabletFormStyles = styled.div`
 `;
 const DangerousFormStyles = styled.div`
   /* Show compressed menu on small screens */
-  @media only screen and (min-height: 650px) and (orientation: landscape) {
+  @media only screen and (min-height: 650px) and (orientation: portrait) {
     display: none;
   }
   z-index: 2;

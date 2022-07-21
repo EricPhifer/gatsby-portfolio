@@ -148,11 +148,6 @@ const HomeStyles = styled.div`
       }
     }
   }
-  @media screen and (-webkit-min-device-pixel-ratio:0) { 
-      .image {
-        bottom: -17rem;
-      }    
-  }
   .hidden {
     display: none;
   }
@@ -366,11 +361,6 @@ const TabletHomeStyles = styled.div`
         width: 23vmin;
       }
     }
-  }
-  @media screen and (-webkit-min-device-pixel-ratio:0) { 
-    .image {
-      bottom: -13rem;
-    }    
   }
   .hidden {
     display: none;
@@ -595,7 +585,7 @@ export default function HomePage({ data }) {
           <p>
             Congratulations! 
             <br /> You found a hidden message. 
-            <br />You have earned the title: <span>Message Finder</span>.
+            <br />You are granted the title: <span>Message Finder</span>.
           </p>
         </div>
         {homepage.map((home) => (
@@ -717,7 +707,7 @@ export default function HomePage({ data }) {
           <p>
             Congratulations! 
             <br /> You found a hidden message. 
-            <br />You are bequeathed the title of <span>Message Finder</span>.
+            <br />You are granted the title: <span>Message Finder</span>.
           </p>
         </div>
       {homepage.map((home) => (
@@ -839,7 +829,7 @@ export default function HomePage({ data }) {
           <p>
             Congratulations! 
             <br /> You found a hidden message. 
-            <br />You are bequeathed the title of <span>Message Finder</span>.
+            <br />You are granted the title: <span>Message Finder</span>.
           </p>
         </div>
       {homepage.map((home) => (
