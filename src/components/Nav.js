@@ -456,7 +456,6 @@ const MobileNavStyles = styled.div`
 
   // Menu Toggling
   #menuToggle {
-    position: absolute;
     z-index: 1;
     -webkit-user-select: none;
     user-select: none;
@@ -758,6 +757,7 @@ const [checked, setChecked] = React.useState(true || '');
                     type="checkbox" 
                     checked={checked}
                     onClick={() => {setChecked(old => !old)}} 
+                    className='bottom'
                   />
                   <div className='footer trigger'>
                     <SanityImage 

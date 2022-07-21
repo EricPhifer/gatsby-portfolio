@@ -203,6 +203,9 @@ const TabletHomeStyles = styled.div`
   .landing {
     width: 100vw;
   }
+  .landingContainer {
+    display: inline-flex;
+  }
   p {
     margin: 0;
     color: var(--white);
@@ -250,6 +253,9 @@ const TabletHomeStyles = styled.div`
     .scrollWords {
       font-size: 1.25rem;
       padding: 0.25rem;
+      @media only screen and (max-width: 900px) {
+        transform: rotate(180deg);
+      }
     }
     .triangle {
       width: 75px;
@@ -440,6 +446,7 @@ const MobileHomeStyles = styled.div`
     .scrollWords {
       font-size: 1rem;
       padding: 0.5rem 0.25rem;
+      transform: rotate(180deg);
     }
     .triangle {
       width: 60px;
@@ -577,11 +584,11 @@ export default function HomePage({ data }) {
           <p>
             Congratulations! 
             <br /> You found a hidden message. 
-            <br />You are bequeathed the title of <span>Message Finder</span>.
+            <br />You have earned the title: <span>Message Finder</span>.
           </p>
         </div>
         {homepage.map((home) => (
-          <div className='nodeParser' key={home.id}>
+          <div className='nodeParser landingContainer' key={home.id}>
             <div className='landing'>
               <div className='image'>
                 <SanityImage 
