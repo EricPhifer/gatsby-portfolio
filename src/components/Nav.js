@@ -191,7 +191,7 @@ const TabletNavStyles = styled.div`
     display: inline-flex;
   }
   .bottom {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     margin-left: 2rem;
     align-items: center;
@@ -392,7 +392,7 @@ const MobileNavStyles = styled.div`
     padding: 4rem 0 0;
   }
   .bottom {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     margin-left: 1rem;
     align-items: center;
