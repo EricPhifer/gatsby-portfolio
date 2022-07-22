@@ -50,6 +50,9 @@ const DangerousContactStyles = styled.div`
   @media only screen and (min-height: 650px) {
     display: none;
   }
+  @media only screen and (orientation: portrait) {
+    display: none;
+  }
   position: fixed;
   z-index: 100;
   width: 100vw;
@@ -106,7 +109,7 @@ const FormStyles = styled.div`
     padding: 20px 0 20px;
     border-radius: 5px 100px;
     text-align: center;
-    background-color: var(--yellow);
+    background-color: var(--mint);
     &:active {
       border: 2px solid var(--blue);
     }
@@ -119,7 +122,7 @@ const FormStyles = styled.div`
     height: 73%;
     border-radius: 5px 100px;
     text-align: center;
-    background-color: var(--yellow);
+    background-color: var(--mint);
     padding: 8rem 2rem 0;
     &:active {
       border: 2px solid var(--blue);
@@ -141,11 +144,11 @@ const FormStyles = styled.div`
     width: 100%;
     margin: 1.5rem auto;
     background: var(--red);
-    color: var(--yellow);
+    color: var(--mint);
     font-size: 3rem;
     border-radius: 5px 100px;
     &:hover {
-      background: var(--yellow);
+      background: var(--mint);
       color: var(--red);
     }
   }
@@ -201,7 +204,7 @@ const TabletFormStyles = styled.div`
     padding: 20px 0 20px;
     border-radius: 5px 100px;
     text-align: center;
-    background-color: var(--yellow);
+    background-color: var(--mint);
     &:active {
       border: 2px solid var(--blue);
     }
@@ -214,7 +217,7 @@ const TabletFormStyles = styled.div`
     height: 73%;
     border-radius: 5px 100px;
     text-align: center;
-    background-color: var(--yellow);
+    background-color: var(--mint);
     padding: 8rem 2rem 0;
     &:active {
       border: 2px solid var(--blue);
@@ -236,11 +239,11 @@ const TabletFormStyles = styled.div`
     width: 100%;
     margin: 1.5rem auto;
     background: var(--red);
-    color: var(--yellow);
+    color: var(--mint);
     font-size: 3rem;
     border-radius: 5px 100px;
     &:hover {
-      background: var(--yellow);
+      background: var(--mint);
       color: var(--red);
     }
   }
@@ -287,8 +290,11 @@ const TabletFormStyles = styled.div`
   }
 `;
 const DangerousFormStyles = styled.div`
-  /* Show compressed menu on small screens */
-  @media only screen and (min-height: 650px) and (orientation: portrait) {
+  /* Don't Show on small screens */
+  @media only screen and (min-height: 650px) {
+    display: none;
+  }
+  @media only screen and (orientation: portrait) {
     display: none;
   }
   z-index: 2;
@@ -392,7 +398,7 @@ const MobileFormStyles = styled.div`
     padding: 20px 0 20px;
     border-radius: 5px 100px;
     text-align: center;
-    background-color: var(--yellow);
+    background-color: var(--mint);
     &:active {
       border: 2px solid var(--blue);
     }
@@ -408,7 +414,7 @@ const MobileFormStyles = styled.div`
     height: 73%;
     border-radius: 5px 100px;
     text-align: center;
-    background-color: var(--yellow);
+    background-color: var(--mint);
     padding: 8rem 2rem 0;
     &:active {
       border: 2px solid var(--blue);
@@ -430,11 +436,11 @@ const MobileFormStyles = styled.div`
     width: 250px;
     margin: 2.5rem auto;
     background: var(--red);
-    color: var(--yellow);
+    color: var(--mint);
     font-size: 2rem;
     border-radius: 5px 100px;
     &:hover {
-      background: var(--yellow);
+      background: var(--mint);
       color: var(--red);
     }
   }

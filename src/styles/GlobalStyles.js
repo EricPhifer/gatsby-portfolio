@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
   :root {
     --blue: #0B30DE;
-    --yellow: #DAF7DC;
+    --mint: #DAF7DC;
     --black: #000;
     --white: #fff;
     --bg: #1F0318;
@@ -50,13 +50,13 @@ const GlobalStyles = createGlobalStyle`
   }
   html {
     scrollbar-width: thin;
-    scrollbar-color: var(--yellow) #fff;
+    scrollbar-color: var(--mint) #fff;
   }
   body::-webkit-scrollbar-track {
     background: transparent;
   }
   body::-webkit-scrollbar-thumb {
-    background-color: var(--yellow) ;
+    background-color: var(--mint) ;
     border-radius: 6px;
   }
   img {

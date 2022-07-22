@@ -37,11 +37,14 @@ const HomeStyles = styled.div`
     }
   }
   .image {
-    width: 60%;
+    width: 80vmin;
     position: absolute;
     bottom: -17rem;
     right: 0;
     opacity: 0.5;
+    img {
+      width: 80vmin;
+    }
   }
   .scrollIndicator {
     position: absolute;
@@ -94,7 +97,7 @@ const HomeStyles = styled.div`
         text-align: center;
       }
       &:hover {
-        background-color: var(--yellow);
+        background-color: var(--mint);
         a {
           color: var(--green);
         }
@@ -150,6 +153,11 @@ const HomeStyles = styled.div`
   }
   .hidden {
     display: none;
+  }
+  @media only screen and (orientation: portrait) {
+    .hidden {
+      display: none;
+    }
   }
   @media only screen and (max-height: 650px) {
     .hidden {
@@ -239,8 +247,14 @@ const TabletHomeStyles = styled.div`
     bottom: -14rem;
     right: 0;
     opacity: 0.5;
+    img {
+      width: 75vmin;
+    }
     @media only screen and (max-width: 700px) {
       width: 103vmin;
+      img {
+        width: 103vmin;
+      }
     }
   }
   .scrollIndicator {
@@ -304,7 +318,7 @@ const TabletHomeStyles = styled.div`
         }
       }
       &:hover {
-        background-color: var(--yellow);
+        background-color: var(--mint);
         a {
           color: var(--green);
         }
@@ -364,6 +378,11 @@ const TabletHomeStyles = styled.div`
   }
   .hidden {
     display: none;
+  }
+  @media only screen and (orientation: portrait) {
+    .hidden {
+      display: none;
+    }
   }
   @media only screen and (max-height: 650px) and (orientation: landscape) {
     .hidden {
@@ -436,6 +455,9 @@ const MobileHomeStyles = styled.div`
     bottom: -2rem;
     right: 0;
     opacity: 0.5;
+    img {
+      width: 103vmin;
+    }
   }
   .scrollIndicator {
     position: absolute;
@@ -489,7 +511,7 @@ const MobileHomeStyles = styled.div`
         text-align: center;
       }
       &:hover {
-        background-color: var(--yellow);
+        background-color: var(--mint);
         a {
           color: var(--green);
         }
@@ -543,6 +565,11 @@ const MobileHomeStyles = styled.div`
   }
   .hidden {
     display: none;
+  }
+  @media only screen and (orientation: portrait) {
+    .hidden {
+      display: none;
+    }
   }
   @media only screen and (max-height: 650px) and (orientation: landscape) {
     .hidden {
