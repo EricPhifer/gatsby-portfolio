@@ -10,11 +10,15 @@ const TermStyles = styled.div`
   word-wrap: break-word;
   .overlord {
     max-width: 900px;
+    width: calc(100vw - 100px);
     height: 100vh;
     margin: 0 auto;
     background-color: #fff;
-    padding: 1rem 2rem;
+    padding: 1rem 0;
     overflow: scroll;
+    @media only screen and (max-width: 900px) {
+      width: calc(100vw - 50px);
+    }
   }
   p:first-child {
     padding: 0;
@@ -23,7 +27,7 @@ const TermStyles = styled.div`
   .termsContainer {
     max-width: 600px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 2rem;
   }
   .updateDate, h1 {
     text-align: center;
