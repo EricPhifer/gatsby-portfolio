@@ -191,7 +191,7 @@ const TabletNavStyles = styled.div`
     display: inline-flex;
   }
   .bottom {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     margin-left: 2rem;
     align-items: center;
@@ -392,7 +392,7 @@ const MobileNavStyles = styled.div`
     padding: 4rem 0 0;
   }
   .bottom {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     margin-left: 1rem;
     align-items: center;
@@ -592,7 +592,7 @@ const [checked, setChecked] = React.useState(true || '');
         <div className="nodeParser" key={node.id}>
           <NavStyles>
             <div className="navContainer">
-              <div className="logo">
+              <Link to='/' className="logo">
                 <SanityImage 
                   {...node.mainlogo}
                   alt={node.mainalt}
@@ -601,7 +601,7 @@ const [checked, setChecked] = React.useState(true || '');
                     auto: 'format',
                   }}
                 />
-              </div>
+              </Link>
                 <nav>
                   <ul className='navigation'>
                     {node.nativelinks.map((nlink) => (
@@ -611,7 +611,7 @@ const [checked, setChecked] = React.useState(true || '');
                     ))}
                     {node.externallinks.map((elink) => (
                       <a href={elink.pagelink} key={elink._key} rel="noreferrer">
-                        <li> {elink.pagename}</li>
+                        <li> {elink.pagename} </li>
                       </a>
                     ))}
                   </ul>
@@ -657,7 +657,7 @@ const [checked, setChecked] = React.useState(true || '');
           </NavStyles>
           <TabletNavStyles>
             <div className="navContainer">
-              <div className="logo">
+              <Link to='/' className="logo">
                 <SanityImage 
                   {...node.mainlogo}
                   alt={node.mainalt}
@@ -666,7 +666,7 @@ const [checked, setChecked] = React.useState(true || '');
                     auto: 'format',
                   }}
                 />
-              </div>
+              </Link>
                 <nav>
                   <ul className='navigation'>
                     {node.nativelinks.map((nlink) => (
@@ -722,7 +722,7 @@ const [checked, setChecked] = React.useState(true || '');
           </TabletNavStyles>
           <MobileNavStyles>
           <div className="navContainer">
-              <div className="logo">
+              <Link to='/' className="logo">
                 <SanityImage 
                   {...node.mainlogo}
                   alt={node.mainalt}
@@ -731,7 +731,7 @@ const [checked, setChecked] = React.useState(true || '');
                     auto: 'format',
                   }}
                 />
-              </div>
+              </Link>
                 <nav>
                   <ul className='navigation'>
                     {node.nativelinks.map((nlink) => (

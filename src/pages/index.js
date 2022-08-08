@@ -71,9 +71,21 @@ const HomeStyles = styled.div`
       background-position: left, right;
     }
   }
+  .responsiveFlex {
+    @media only screen and (max-height: 722px) {
+      display: inline-flex;
+      margin: auto 0;
+      .invert {
+        flex-flow: row-reverse nowrap;
+      }
+      .mobileView {
+        margin: 2rem;
+      }
+    }
+  }
   .projectContainer {
     height: 100vh;
-    width: 165%;
+    width: 100%;
     transform: translateX(100vw);
     position: relative;
     .buttonesque {
@@ -108,23 +120,23 @@ const HomeStyles = styled.div`
     height: 85%;
   }
   .project {
-    min-width: 400px;
-    margin: 5rem 7% 3rem;
+    width: 60rem;
+    margin-top: 2rem;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     .desktopView {
-     max-width: 45vmin;
+     max-width: 35rem;
     }
     .tabletView {
-      width: 24vmin;
+      width: 20rem;
       margin: 7rem 0 0 7rem;
     }
     .mobileView {
-      width: 12vmin;
+      width: 10rem;
       margin-top: 2rem;
     }
-    a {
+    .businessName {
       margin-top: 2rem;
       font-size: 3rem;
       color: var(--white);
@@ -325,6 +337,18 @@ const TabletHomeStyles = styled.div`
       }
     }
   }
+  .responsiveFlex {
+    @media only screen and (max-height: 722px) {
+      display: inline-flex;
+      margin: auto 0;
+      .invert {
+        flex-flow: row-reverse nowrap;
+      }
+      .mobileView {
+        margin: 2rem;
+      }
+    }
+  }
   .inlineContainer {
     height: 85%;
     margin-right: 5rem;
@@ -339,17 +363,17 @@ const TabletHomeStyles = styled.div`
       max-width: 400px;
     }
     .desktopView {
-      max-width: 45vmin;
+      width: 34rem;
     }
     .tabletView {
-      width: 30vmin;
+      width: 19rem;
       margin: 7rem 0 0 7rem;
     }
     .mobileView {
-      width: 15vmin;
+      width: 10rem;
       margin-top: 2rem;
     }
-    a {
+    .businessName {
       margin-top: 2rem;
       font-size: 3rem;
       color: var(--white);
@@ -442,8 +466,8 @@ const MobileHomeStyles = styled.div`
   }
   .words {
     position: absolute;
-    left: 70px;
-    bottom: 30px;
+    left: 7rem;
+    bottom: 8rem;
     .elevate:hover {
       color: var(--green);
       text-shadow: 1px 2px var(--white);
@@ -485,6 +509,19 @@ const MobileHomeStyles = styled.div`
       background-position: left, right;
     }
   }
+  .responsiveFlex {
+    @media only screen and (max-height: 722px) {
+      display: inline-flex;
+      margin: auto 0;
+      .invert {
+        flex-flow: row-reverse nowrap;
+      }
+      .mobileView {
+        margin: 2rem;
+      }
+    }
+  }
+  
   .projectContainer {
     height: 100vh;
     width: 100%;
@@ -519,41 +556,41 @@ const MobileHomeStyles = styled.div`
     }
   }
   .inlineContainer {
-    height: 85%;
     margin-right: 5rem;
   }
   .project {
-    width: 320px;
-    margin: 5vmin 15vmin;
+    height: calc(100% - 100px);
+    margin: 2rem;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     .inline {
-      max-width: 320px;
+      width: 300px;
     }
     @media only screen and (max-height: 700px) {
-      margin: 10vmin;
+      margin: 2rem;
     }
     .desktopView {
+      height: 50%;
       @media only screen and (max-height: 785px) {
         width: 80vmin;
       }
     }
     .tabletView {
-      width: 50vmin;
+      width: 30rem;
       margin: 7rem 0 0 3rem;
       @media only screen and (max-height: 785px) {
         width: 40vmin;
       }
     }
     .mobileView {
-      width: 30vmin;
+      width: 15rem;
       margin-top: 2rem;
       @media only screen and (max-height: 785px) {
         width: 22vmin;
       }
     }
-    a {
+    .businessName {
       margin-top: 2rem;
       font-size: 2rem;
       color: var(--white);
@@ -675,45 +712,43 @@ export default function HomePage({ data }) {
           <section className='projectContainer'>
             <div className='inline inlineContainer'>
               {home.projectlist.map((project) => (
-                <div className='project' key={project.id}>
-                  <div className='desktopView'>
-                    <SanityImage 
-                      {...project.desktopimage}
-                      alt={project.desktopalt}
-                      style={{
-                        objectFit: 'cover',
-                        auto: 'format',
-                      }}
-                    />
-                  </div>
-                  <div className='center inline'>
-                    <div className='mobileView'>
+                <a href={project.projectlink} rel="noreferrer" className='project' key={project.id}>
+                  <div className='responsiveFlex'>
+                    <div className='desktopView'>
                       <SanityImage 
-                        {...project.mobileimage}
+                        {...project.desktopimage}
                         alt={project.desktopalt}
                         style={{
                           objectFit: 'cover',
                           auto: 'format',
                         }}
-                      />
+                        />
                     </div>
-                    <div className='tabletView'>
-                      <SanityImage 
-                        {...project.tabletimage}
-                        alt={project.desktopalt}
-                        style={{
-                          objectFit: 'cover',
-                          auto: 'format',
-                        }}
-                      />
+                    <div className='center invert inline'>
+                      <div className='mobileView'>
+                        <SanityImage 
+                          {...project.mobileimage}
+                          alt={project.desktopalt}
+                          style={{
+                            objectFit: 'cover',
+                            auto: 'format',
+                          }}
+                          />
+                      </div>
+                      <div className='tabletView'>
+                        <SanityImage 
+                          {...project.tabletimage}
+                          alt={project.desktopalt}
+                          style={{
+                            objectFit: 'cover',
+                            auto: 'format',
+                          }}
+                          />
+                      </div>
                     </div>
                   </div>
-                  <a 
-                    href={project.projectlink}className='businessName' rel="noreferrer"
-                    >
-                    {project.projectname}
-                  </a>
-                </div>
+                  <div className='businessName'> {project.projectname} </div>
+                </a>
               ))}
               </div>
               <div className='buttonesque'>
@@ -797,45 +832,43 @@ export default function HomePage({ data }) {
           <section className='projectContainer'>
             <div className='inline inlineContainer'>
               {home.projectlist.map((project) => (
-                <div className='project' key={project.id}>
-                  <div className='desktopView'>
-                    <SanityImage 
-                      {...project.desktopimage}
-                      alt={project.desktopalt}
-                      style={{
-                        objectFit: 'cover',
-                        auto: 'format',
-                      }}
-                    />
-                  </div>
-                  <div className='center inline'>
-                    <div className='mobileView'>
+                <a href={project.projectlink} rel="noreferrer" className='project' key={project.id}>
+                  <div className='responsiveFlex'>
+                    <div className='desktopView'>
                       <SanityImage 
-                        {...project.mobileimage}
+                        {...project.desktopimage}
                         alt={project.desktopalt}
                         style={{
                           objectFit: 'cover',
                           auto: 'format',
                         }}
-                      />
+                        />
                     </div>
-                    <div className='tabletView'>
-                      <SanityImage 
-                        {...project.tabletimage}
-                        alt={project.desktopalt}
-                        style={{
-                          objectFit: 'cover',
-                          auto: 'format',
-                        }}
-                      />
+                    <div className='center invert inline'>
+                      <div className='mobileView'>
+                        <SanityImage 
+                          {...project.mobileimage}
+                          alt={project.desktopalt}
+                          style={{
+                            objectFit: 'cover',
+                            auto: 'format',
+                          }}
+                          />
+                      </div>
+                      <div className='tabletView'>
+                        <SanityImage 
+                          {...project.tabletimage}
+                          alt={project.desktopalt}
+                          style={{
+                            objectFit: 'cover',
+                            auto: 'format',
+                          }}
+                          />
+                      </div>
                     </div>
                   </div>
-                  <a 
-                    href={project.projectlink}className='businessName' rel="noreferrer"
-                    >
-                    {project.projectname}
-                  </a>
-                </div>
+                  <div className='businessName'>{project.projectname}</div>
+                </a>
               ))}
               </div>
               <div className='buttonesque'>
@@ -919,21 +952,11 @@ export default function HomePage({ data }) {
           <section className='projectContainer'>
             <div className='inline inlineContainer'>
               {home.projectlist.map((project) => (
-                <div className='project' key={project.id}>
-                  <div className='desktopView'>
-                    <SanityImage 
-                      {...project.desktopimage}
-                      alt={project.desktopalt}
-                      style={{
-                        objectFit: 'cover',
-                        auto: 'format',
-                      }}
-                    />
-                  </div>
-                  <div className='center inline'>
-                    <div className='mobileView'>
+                <a href={project.projectlink} rel="noreferrer" className='project' key={project.id}>
+                  <div className='responsiveFlex'>
+                    <div className='desktopView'>
                       <SanityImage 
-                        {...project.mobileimage}
+                        {...project.desktopimage}
                         alt={project.desktopalt}
                         style={{
                           objectFit: 'cover',
@@ -941,23 +964,31 @@ export default function HomePage({ data }) {
                         }}
                       />
                     </div>
-                    <div className='tabletView'>
-                      <SanityImage 
-                        {...project.tabletimage}
-                        alt={project.desktopalt}
-                        style={{
-                          objectFit: 'cover',
-                          auto: 'format',
-                        }}
-                      />
+                    <div className='center invert inline'>
+                      <div className='mobileView'>
+                        <SanityImage 
+                          {...project.mobileimage}
+                          alt={project.desktopalt}
+                          style={{
+                            objectFit: 'cover',
+                            auto: 'format',
+                          }}
+                        />
+                      </div>
+                      <div className='tabletView'>
+                        <SanityImage 
+                          {...project.tabletimage}
+                          alt={project.desktopalt}
+                          style={{
+                            objectFit: 'cover',
+                            auto: 'format',
+                          }}
+                        />
+                      </div>
                     </div>
                   </div>
-                  <a 
-                    href={project.projectlink}className='businessName' rel="noreferrer"
-                    >
-                    {project.projectname}
-                  </a>
-                </div>
+                  <div className='businessName'>{project.projectname}</div>
+                </a>
               ))}
               </div>
               <div className='buttonesque'>
