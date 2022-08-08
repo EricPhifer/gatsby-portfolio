@@ -85,7 +85,8 @@ const HomeStyles = styled.div`
   .responsiveFlex {
     @media only screen and (max-height: 722px) {
       display: inline-flex;
-      margin: auto 0;
+      height: 65vh;
+      align-items: baseline;
       .invert {
         flex-flow: row-reverse nowrap;
       }
@@ -363,7 +364,8 @@ const TabletHomeStyles = styled.div`
   .responsiveFlex {
     @media only screen and (max-height: 722px) {
       display: inline-flex;
-      margin: auto 0;
+      height: 65vh;
+      align-items: baseline;
       .invert {
         flex-flow: row-reverse nowrap;
       }
@@ -546,7 +548,8 @@ const MobileHomeStyles = styled.div`
   .responsiveFlex {
     @media only screen and (max-height: 722px) {
       display: inline-flex;
-      margin: auto 0;
+      height: 65vh;
+      align-items: baseline;
       .invert {
         flex-flow: row-reverse nowrap;
       }
