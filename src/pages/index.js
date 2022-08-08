@@ -63,14 +63,25 @@ const HomeStyles = styled.div`
       background-image: linear-gradient(
           to bottom right,
           transparent 50%,
-          var(--green) 0
+          var(--white) 0
         ),
-        linear-gradient(to top right, var(--green) 50%, transparent 0);
-      background-size: 50% 100%;
+        linear-gradient(to top right, var(--white) 50%, transparent 0);
+      background-size: 50% 70%;
       background-repeat: no-repeat;
       background-position: left, right;
+      animation: bounce 1s infinite alternate;
     }
   }
+  
+    @keyframes bounce {
+      from {
+        transform: translateY(-5px);
+      }
+      to {
+        transform: translateY(0);
+      }
+    }
+
   .responsiveFlex {
     @media only screen and (max-height: 722px) {
       display: inline-flex;
@@ -146,6 +157,7 @@ const HomeStyles = styled.div`
       }
     }
   }
+
   @media only screen and (max-height: 815px) {
     .inlineContainer {
       height: 92%;
@@ -290,14 +302,25 @@ const TabletHomeStyles = styled.div`
       background-image: linear-gradient(
           to bottom right,
           transparent 50%,
-          var(--green) 0
+          var(--white) 0
         ),
-        linear-gradient(to top right, var(--green) 50%, transparent 0);
-      background-size: 50% 100%;
+        linear-gradient(to top right, var(--white) 50%, transparent 0);
+      background-size: 50% 70%;
       background-repeat: no-repeat;
       background-position: left, right;
+      animation: bounce 1s infinite alternate;
     }
   }
+
+  @keyframes bounce {
+    from {
+      transform: translateY(-5px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
   .projectContainer {
     height: 100vh;
     width: 100%;
@@ -501,14 +524,25 @@ const MobileHomeStyles = styled.div`
       background-image: linear-gradient(
           to bottom right,
           transparent 50%,
-          var(--green) 0
+          var(--white) 0
         ),
-        linear-gradient(to top right, var(--green) 50%, transparent 0);
-      background-size: 50% 100%;
+        linear-gradient(to top right, var(--white) 50%, transparent 0);
+      background-size: 50% 70%;
       background-repeat: no-repeat;
       background-position: left, right;
+      animation: bounce 1s infinite alternate;
     }
   }
+
+  @keyframes bounce {
+    from {
+      transform: translateY(-5px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
   .responsiveFlex {
     @media only screen and (max-height: 722px) {
       display: inline-flex;
@@ -649,7 +683,7 @@ export default function HomePage({ data }) {
           <p>
             Congratulations! 
             <br /> You found a hidden message. 
-            <br />You are granted the title: <span>Message Finder</span>.
+            <br />You are granted the title: <span>Message Finder</span>. Now turn to portrait mode to view the website.
           </p>
         </div>
         {homepage.map((home) => (
@@ -769,7 +803,7 @@ export default function HomePage({ data }) {
           <p>
             Congratulations! 
             <br /> You found a hidden message. 
-            <br />You are granted the title: <span>Message Finder</span>.
+            <br />You are granted the title: <span>Message Finder</span>. Now turn to portrait mode to view the website.
           </p>
         </div>
       {homepage.map((home) => (
@@ -889,7 +923,7 @@ export default function HomePage({ data }) {
           <p>
             Congratulations! 
             <br /> You found a hidden message. 
-            <br />You are granted the title: <span>Message Finder</span>.
+            <br />You are granted the title: <span>Message Finder</span>. Now turn to portrait mode to view the website.
           </p>
         </div>
       {homepage.map((home) => (
