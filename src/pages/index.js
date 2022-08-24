@@ -184,7 +184,7 @@ const HomeStyles = styled.div`
       display: none;
     }
   }
-  @media only screen and (max-height: 650px) and (orientation: landscape) {
+  @media only screen and (max-height: 500px) and (orientation: landscape) {
     .hidden {
       width: 100vw;
       height: 100vh;
