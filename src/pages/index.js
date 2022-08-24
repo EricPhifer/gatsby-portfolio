@@ -176,6 +176,14 @@ const HomeStyles = styled.div`
       }
     }
   }
+  @media only screen and (max-height: 650px) {
+    .image {
+      bottom: -9rem;
+    }
+    .words p {
+      font-size: 5rem;
+    }
+  }
   .hidden {
     display: none;
   }
@@ -433,7 +441,7 @@ const TabletHomeStyles = styled.div`
       display: none;
     }
   }
-  @media only screen and (max-height: 650px) and (orientation: landscape) {
+  @media only screen and (max-height: 500px) and (orientation: landscape) {
     .hidden {
       width: 100vw;
       height: 100vh;
@@ -737,9 +745,6 @@ export default function HomePage({ data }) {
                   <span className='elevate'>R</span> 
                   {'.'}
                 </p>
-                <p className='hint'>
-                  Hint: scroll right
-                </p>
               </div>
             <div className='scrollIndicator'>
               <div className='triangle' />
@@ -857,9 +862,6 @@ export default function HomePage({ data }) {
                   <span className='elevate'>R</span> 
                   {'.'}
                 </p>
-                <p className='hint'>
-                  Hint: scroll right
-                </p>
               </div>
             <div className='scrollIndicator'>
               <div className='triangle' />
@@ -976,9 +978,6 @@ export default function HomePage({ data }) {
                   <span className='elevate'>E</span> 
                   <span className='elevate'>R</span> 
                   {'.'}
-                </p>
-                <p className='hint'>
-                  Hint: scroll right
                 </p>
               </div>
             <div className='scrollIndicator'>

@@ -47,7 +47,7 @@ const TabletContactStyles = styled.div`
 
 const DangerousContactStyles = styled.div`
   /* Show compressed menu on small screens */
-  @media only screen and (min-height: 650px) {
+  @media only screen and (min-height: 625px) {
     display: none;
   }
   @media only screen and (orientation: portrait) {
@@ -88,6 +88,7 @@ const FormStyles = styled.div`
   z-index: 2;
   .formContainer {
     display: inline-flex;
+    justify-content: center;
   }
   legend {
     color: var(--white);
@@ -183,6 +184,7 @@ const TabletFormStyles = styled.div`
   z-index: 2;
   .formContainer {
     display: inline-flex;
+    justify-content: center;
   }
   legend {
     color: var(--white);
@@ -266,6 +268,7 @@ const TabletFormStyles = styled.div`
     .formContainer {
       display: flex;
       flex-flow: column nowrap;
+      align-items: center;
     }
     .submitButton {
       margin: 2.5rem auto;
@@ -371,6 +374,7 @@ const MobileFormStyles = styled.div`
   .formContainer {
     display: flex;
     flex-flow: column nowrap;
+    align-items: center;
   }
   legend {
     color: var(--white);
@@ -391,6 +395,9 @@ const MobileFormStyles = styled.div`
   }
   .inputContainer {
     max-width: 300px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
   }
   input {
     width: 250px;
