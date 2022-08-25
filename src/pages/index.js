@@ -35,6 +35,10 @@ const HomeStyles = styled.div`
       color: var(--green);
       text-shadow: 1px 2px var(--white);
     }
+    .hint {
+      color: var(--white);
+      font-size: 1.5rem;
+    }
   }
   .image {
     width: 80vmin;
@@ -266,6 +270,10 @@ const TabletHomeStyles = styled.div`
     position: absolute;
     left: 125px;
     bottom: 30px;
+    .hint {
+      color: var(--white);
+      font-size: 1.5rem;
+    }
     .elevate:hover {
       color: var(--green);
       text-shadow: 1px 2px var(--white);
@@ -501,6 +509,10 @@ const MobileHomeStyles = styled.div`
     position: absolute;
     left: 7rem;
     bottom: 8rem;
+    .hint {
+      color: var(--white);
+      font-size: 1.5rem;
+    }
     .elevate:hover {
       color: var(--green);
       text-shadow: 1px 2px var(--white);
@@ -745,6 +757,7 @@ export default function HomePage({ data }) {
                   <span className='elevate'>R</span> 
                   {'.'}
                 </p>
+                <div className='hint'>hint: scroll right</div>
               </div>
             <div className='scrollIndicator'>
               <div className='triangle' />
@@ -862,6 +875,7 @@ export default function HomePage({ data }) {
                   <span className='elevate'>R</span> 
                   {'.'}
                 </p>
+                <div className='hint'>hint: scroll right</div>
               </div>
             <div className='scrollIndicator'>
               <div className='triangle' />
@@ -979,6 +993,7 @@ export default function HomePage({ data }) {
                   <span className='elevate'>R</span> 
                   {'.'}
                 </p>
+                <div className='hint'>hint: scroll right</div>
               </div>
             <div className='scrollIndicator'>
               <div className='triangle' />
