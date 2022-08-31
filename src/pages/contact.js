@@ -672,7 +672,7 @@ export default function Contact() {
               method="post"
               netlify-honeypot="bot-field"
               data-netlify="true"
-              name="contact"
+              name="dangerous-contact"
             >
               <input type="hidden" name="bot-field" />
               <input type="hidden" name="form-name" value="contact" />
