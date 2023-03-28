@@ -549,7 +549,7 @@ const MobileNavStyles = styled.div`
 `;
 
 
-export default function Nav() {
+export default function NavLeft() {
   const { navigation } = useStaticQuery(graphql`
     query {
       navigation: allSanityNavigation {
@@ -605,12 +605,12 @@ const [checked, setChecked] = React.useState(true || '');
                 <nav>
                   <ul className='navigation'>
                     {node.nativelinks.map((nlink) => (
-                      <Link to={nlink.pagelink} key={nlink._key} rel="noreferrer">
+                      <Link to={nlink.pagelink} key={nlink._key} rel="noopener">
                         <li> {nlink.pagename}</li>
                       </Link>
                     ))}
                     {node.externallinks.map((elink) => (
-                      <a href={elink.pagelink} key={elink._key} rel="noreferrer">
+                      <a href={elink.pagelink} key={elink._key} rel="noopener">
                         <li> {elink.pagename} </li>
                       </a>
                     ))}

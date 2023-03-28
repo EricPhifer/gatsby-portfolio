@@ -31,12 +31,25 @@ const GlobalStyles = createGlobalStyle`
     color: white;
     border: 0;
     cursor: pointer;
-    text-shadow: 0.5px 0.5px 0 rgba(0,0,0,0.2);
+    box-shadow:
+      .28rem .28rem .22rem rgba(0, 0, 0, 0.02),
+      .67rem .67rem .53rem rgba(0, 0, 0, 0.028),
+      1.25rem 1.25rem. 1rem rgba(0, 0, 0, 0.035),
+      2.23rem 2.23rem 1.79rem rgba(0, 0, 0, 0.042),
+      4.18rem 4.18rem 3.34rem rgba(0, 0, 0, 0.05),
+      10rem 10rem 1rem rgba(0, 0, 0, 0.07)
+    ;
     transition: all 0.05s;
     a {
       text-decoration: none;
       color: white;
       font-size: 2.25rem;
+    }
+    &:hover {
+      background: transparent;
+      border: .125rem solid tomato;
+      color: tomato;
+      box-shadow: none;
     }
   }
   .gatsby-image-wrapper img[src*=base64\\,] {

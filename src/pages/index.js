@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import SanityImage from 'gatsby-plugin-sanity-image';
 import styled from 'styled-components';
+import NavLeft from '../components/NavLeft';
 import Seo from '../components/Seo';
 import contactbg from '../assets/images/contactbg.png';
 
@@ -700,6 +701,7 @@ export default function HomePage({ data }) {
   return (
     <>
       <Seo title="Home Page" />
+      <NavLeft />
       <HomeStyles>
         <div className='hidden'>
           <div className='curvelayer' />
