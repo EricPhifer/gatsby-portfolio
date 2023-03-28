@@ -40,9 +40,11 @@ const InlineField = styled.fieldset`
     border-bottom: .4rem inset var(--black);
     background: transparent;
   }
-  @media screen only and (max-width: 500px) {
+  @media only screen and (max-width: 900px) {
+    display: flex;
+    flex-flow: column nowrap;
     input {
-      width: 100%;
+      width: 90%;
     }
   }
 `;
@@ -69,6 +71,11 @@ const FullField = styled.fieldset`
     border-right: .4rem inset var(--black);
     background: transparent;
   }
+  @media only screen and (max-width: 900px) {
+    textarea, input {
+      width: 90%;
+    }
+  }
 `;
 
 const Submit = styled.button`
@@ -79,6 +86,9 @@ const Submit = styled.button`
   font-size: 1.85rem;
   &:focus {
     border: .2rem dotted blue;
+  }
+  @media only screen and (max-width: 900px) {
+    margin-right: 2rem;
   }
 `;
 
@@ -95,6 +105,9 @@ const Buttonesque = styled.a`
     background: transparent;
     border: .125rem solid var(--green);
     color: var(--green);
+  }
+  @media only screen and (max-width: 900px) {
+    margin-bottom: 2rem;
   }
 `;
 

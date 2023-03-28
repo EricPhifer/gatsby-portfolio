@@ -77,6 +77,7 @@ const MobileNavigation = styled.nav`
   position: fixed;
   top: 0;
   left: 0;
+  background: var(--bg);
   box-shadow: .3rem .3rem 1rem var(--black);
   z-index: 107;
   .inline {
@@ -401,7 +402,7 @@ const [checked, setChecked] = React.useState(false || '');
             <span />
             <div id="menu" className="menuContainer">
               <div className="navList flex center">
-                <ul className='inline'>
+                <ul className='flex'>
                   {node.nativelinks.map((nlink) => (
                     <li>
                       <Link to={nlink.pagelink} key={nlink._key}>
