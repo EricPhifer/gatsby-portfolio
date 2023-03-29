@@ -23,6 +23,17 @@ const Form = styled.form`
     text-align: center;
     margin-bottom: 3rem;
   }
+  @media only screen and (max-width: 900px) {
+    width: 98vw;
+    margin-left: -49vw;
+    top: 42%;
+  }
+  @media only screen and (max-width: 500px) {
+    margin-left: -52vw;
+    legend {
+      margin-left: 1rem;
+    }
+  }
 `;
 
 const InlineField = styled.fieldset`
@@ -42,7 +53,7 @@ const InlineField = styled.fieldset`
   }
   @media only screen and (max-width: 900px) {
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: column-reverse nowrap;
     input {
       width: 90%;
     }
@@ -88,7 +99,8 @@ const Submit = styled.button`
     border: .2rem dotted blue;
   }
   @media only screen and (max-width: 900px) {
-    margin-right: 2rem;
+    width: 80%;
+    margin-bottom: 2rem;
   }
 `;
 
@@ -107,6 +119,7 @@ const Buttonesque = styled.a`
     color: var(--green);
   }
   @media only screen and (max-width: 900px) {
+    margin-right: 0;
     margin-bottom: 2rem;
   }
 `;
