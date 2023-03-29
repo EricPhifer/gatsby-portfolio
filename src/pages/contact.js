@@ -9,8 +9,9 @@ import ContactForm from '../components/ContactForm.js';
 
 const ContactStyles = styled.div`
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-color: azure;
+  margin-top: 8rem;
 `;
 
 // const DangerousContactStyles = styled.div`

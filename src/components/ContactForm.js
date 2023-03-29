@@ -6,9 +6,8 @@ import useContact from '../utils/useContact';
 const Form = styled.form`
   width: 80vw;
   position: absolute;
-  top: 50%;
   left: 50%;
-  margin-top: -21rem;
+  margin-top: 8rem;
   margin-left: -40vw;
   transition: .5s all ease;
   label {
@@ -26,7 +25,6 @@ const Form = styled.form`
   @media only screen and (max-width: 900px) {
     width: 98vw;
     margin-left: -49vw;
-    top: 42%;
     .buttons {
       flex-flow: column-reverse nowrap;
     }
@@ -34,7 +32,14 @@ const Form = styled.form`
   @media only screen and (max-width: 500px) {
     margin-left: -52vw;
     legend {
+      font-size: 4rem;
       margin-left: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+  @media only screen and (max-height: 750px) {
+    legend {
+      font-size: 2rem;
     }
   }
 `;
@@ -59,6 +64,17 @@ const InlineField = styled.fieldset`
     flex-flow: column nowrap;
     input {
       width: 90%;
+    }
+  }
+  @media only screen and (max-height: 750px) {
+    top: 53%;
+    margin-bottom: 1rem;
+    input {
+      font-size: 1.25rem;
+    }
+    a, button {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
     }
   }
 `;
@@ -88,6 +104,12 @@ const FullField = styled.fieldset`
   @media only screen and (max-width: 900px) {
     textarea, input {
       width: 90%;
+    }
+  }
+  @media only screen and (max-height: 750px) {
+    margin-bottom: 1rem;
+    input, textarea {
+      font-size: 1.25rem;
     }
   }
 `;
@@ -182,7 +204,7 @@ export default function ContactForm() {
             id="website"
             value={values.website}
             onChange={updateValue}
-            placeholder="What website do you need help with?"
+            placeholder="Website Address"
             className="required"
           />
         </FullField>

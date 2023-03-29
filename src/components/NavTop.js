@@ -104,7 +104,7 @@ const MobileNavigation = styled.nav`
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 25px;
+    top: 40px;
     right: 25px;
     z-index: 101;
     -webkit-user-select: none;
@@ -118,8 +118,8 @@ const MobileNavigation = styled.nav`
     cursor: pointer;
     opacity: 0;
     z-index: 102;
-    bottom: 5px;
-    right: 5px;
+    bottom: 2px;
+    right: 0;
   }
   #menuToggle span {
     display: flex;
