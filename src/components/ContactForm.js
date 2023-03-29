@@ -27,6 +27,9 @@ const Form = styled.form`
     width: 98vw;
     margin-left: -49vw;
     top: 42%;
+    .buttons {
+      flex-flow: column-reverse nowrap;
+    }
   }
   @media only screen and (max-width: 500px) {
     margin-left: -52vw;
@@ -53,7 +56,7 @@ const InlineField = styled.fieldset`
   }
   @media only screen and (max-width: 900px) {
     display: flex;
-    flex-flow: column-reverse nowrap;
+    flex-flow: column nowrap;
     input {
       width: 90%;
     }
