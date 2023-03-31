@@ -31,6 +31,15 @@ require("dotenv").config({
           dataset: process.env.SANITY_DATASET,
         },
       },
+      {
+        resolve: "gatsby-plugin-simple-analytics",
+        options: {
+          trackPageViews: true,
+          events: true,
+          eventsGlobal: "sa_event",
+          ignorePages: [],
+        },
+      },
     ],
   }
   

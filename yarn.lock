@@ -5515,6 +5515,11 @@ gatsby-plugin-sanity-image@^0.13.4:
     "@emotion/react" "^11.10.0"
     "@sanity/image-url" "^1.0.1"
 
+gatsby-plugin-simple-analytics@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.npmjs.org/gatsby-plugin-simple-analytics/-/gatsby-plugin-simple-analytics-1.0.4.tgz"
+  integrity sha512-Routbv22mlVybTafCJD6iby9/1NH26e3+r3Byr1LO1EB1y7xqn8gSre+2LQOLhBY3kaeVoB0iOaPtuL6YYLeCw==
+
 gatsby-plugin-styled-components@^6.8.0:
   version "6.8.0"
   resolved "https://registry.npmjs.org/gatsby-plugin-styled-components/-/gatsby-plugin-styled-components-6.8.0.tgz"
