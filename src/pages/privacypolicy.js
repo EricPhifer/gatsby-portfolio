@@ -61,7 +61,7 @@ export default function PrivacyPolicy({ data }) {
                   value={policy._rawContent}
                   components={defaultComponents}
                   className="answer flex"
-                  />
+                />
               </section>
             </section>
           ))}

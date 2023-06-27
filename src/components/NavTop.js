@@ -1,18 +1,17 @@
-import React from 'react';
-import { graphql, Link, useStaticQuery } from 'gatsby';
-import styled from 'styled-components';
-import SanityImage from 'gatsby-plugin-sanity-image';
+import React from 'react'
+import { graphql, Link, useStaticQuery } from 'gatsby'
+import styled from 'styled-components'
+import SanityImage from 'gatsby-plugin-sanity-image'
 
 const Navigation = styled.nav`
-  width: 98vw;
+  width: 100vw;
   height: 8rem;
   position: fixed;
   top: 0;
   left: 0;
   background: var(--bg);
   display: inline-flex;
-  padding: 1rem;
-  box-shadow: .3rem .3rem 1rem var(--black);
+  box-shadow: 0.3rem 0.3rem 1rem var(--black);
   color: var(--white);
   z-index: 99;
   .inline {
@@ -33,8 +32,8 @@ const Navigation = styled.nav`
     width: 50vw;
   }
   .right {
-    display: right;
-    justify-content: end;
+    display: flex;
+    align-items: center;
   }
   ul {
     width: 100%;
@@ -59,7 +58,7 @@ const Navigation = styled.nav`
       cursor: pointer;
       transition: all 0.5s ease;
       &:hover {
-        font-size: 2rem;  
+        font-size: 2rem;
       }
     }
   }
@@ -68,12 +67,11 @@ const Navigation = styled.nav`
   @media only screen and (max-width: 900px) {
     display: none;
   }
-`;
+`
 
 const MobileNavigation = styled.nav`
-  width: 98vw;
+  width: 100vw;
   height: 8rem;
-  padding: 1rem;
   position: fixed;
   top: 0;
   left: 0;
@@ -104,8 +102,8 @@ const MobileNavigation = styled.nav`
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 40px;
-    right: 25px;
+    top: 2.7rem;
+    right: 2.5rem;
     z-index: 101;
     -webkit-user-select: none;
     user-select: none;
@@ -300,53 +298,52 @@ const MobileNavigation = styled.nav`
   @media only screen and (min-width: 901px) {
     display: none;
   }
-`;
-
+`
 
 export default function NavTop() {
   const { navigation } = useStaticQuery(graphql`
     query {
       navigation: allSanityNavigation {
-          nodes {
-            id
-            mainalt
-            footeralt
-            externallinks {
-              pagelink
-              _key
-              pagename
+        nodes {
+          id
+          mainalt
+          footeralt
+          externallinks {
+            pagelink
+            _key
+            pagename
+          }
+          nativelinks {
+            pagename
+            pagelink
+            _key
+          }
+          mainlogo {
+            asset {
+              id
             }
-            nativelinks {
-              pagename
-              pagelink
-              _key
+            ...ImageWithPreview
+          }
+          footericon {
+            asset {
+              id
             }
-            mainlogo {
-              asset {
-                id
-              }
-              ...ImageWithPreview
-            }
-            footericon {
-              asset {
-                id
-              }
-              ...ImageWithPreview
-            }
+            ...ImageWithPreview
           }
         }
       }
+    }
   `)
 
-const nodes = navigation.nodes;
-const [checked, setChecked] = React.useState(false || '');
+  const { nodes } = navigation
+  const [checked, setChecked] = React.useState(false || '')
   return (
     <>
-      {nodes.map((node) => (
+      {nodes.map(node => (
         <Navigation key={node.id}>
-          <Link to='/' className="half" id="logo">
-            <SanityImage 
-              {...node.mainlogo} 
+          <Link to="/" className="half" id="logo">
+            <SanityImage
+              {...node.mainlogo}
               alt={node.mainalt}
               style={{
                 width: '7.7rem',
@@ -357,15 +354,15 @@ const [checked, setChecked] = React.useState(false || '');
             />
           </Link>
           <div className="half right">
-            <ul className='inline'>
-              {node.nativelinks.map((nlink) => (
+            <ul className="inline">
+              {node.nativelinks.map(nlink => (
                 <li>
                   <Link to={nlink.pagelink} key={nlink._key}>
                     {nlink.pagename}
                   </Link>
                 </li>
               ))}
-              {node.externallinks.map((elink) => (
+              {node.externallinks.map(elink => (
                 <li key={elink._key}>
                   <a href={elink.pagelink} rel="noopener">
                     {elink.pagename}
@@ -376,11 +373,11 @@ const [checked, setChecked] = React.useState(false || '');
           </div>
         </Navigation>
       ))}
-      {nodes.map((node) => (
+      {nodes.map(node => (
         <MobileNavigation key={node.id}>
-          <Link to='/' className="inline half" id="logo">
-            <SanityImage 
-              {...node.mainlogo} 
+          <Link to="/" className="inline half" id="logo">
+            <SanityImage
+              {...node.mainlogo}
               alt={node.mainalt}
               style={{
                 width: '100%',
@@ -391,26 +388,28 @@ const [checked, setChecked] = React.useState(false || '');
             />
           </Link>
           <div id="menuToggle" key={node.id}>
-            <input 
-              type="checkbox" 
-              className='menuInput'
+            <input
+              type="checkbox"
+              className="menuInput"
               checked={checked}
-              onClick={() => {setChecked(old => !old)}} 
+              onClick={() => {
+                setChecked(old => !old)
+              }}
             />
             <span />
             <span />
             <span />
             <div id="menu" className="menuContainer">
               <div className="navList flex center">
-                <ul className='flex'>
-                  {node.nativelinks.map((nlink) => (
+                <ul className="flex">
+                  {node.nativelinks.map(nlink => (
                     <li>
                       <Link to={nlink.pagelink} key={nlink._key}>
                         {nlink.pagename}
                       </Link>
                     </li>
                   ))}
-                  {node.externallinks.map((elink) => (
+                  {node.externallinks.map(elink => (
                     <li key={elink._key}>
                       <a href={elink.pagelink} rel="noopener">
                         {elink.pagename}
@@ -424,5 +423,5 @@ const [checked, setChecked] = React.useState(false || '');
         </MobileNavigation>
       ))}
     </>
-  );
+  )
 }

@@ -1,17 +1,35 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
+/* CSS Reset by Mirkov Sasa https://github.com/mirkovsasa/CSS-Reset/blob/main/Reset.css */
+
+/* Resetting defaults */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    box-sizing: border-box;
+}
+
+/* Setting border box model for easier sizing of elements */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
   :root {
     --blue: #0B30DE;
     --mint: #DAF7DC;
     --black: #000;
-    --white: #fff;
+    --white: #FAF9F6;
     --bg: #1F0318;
     --red: #EB5E55;
     --green: #00916E;
   }
   html {
-    background-color: var(--bg);
+    background-color: var(--white);
     font-size: 10px;
   }
 
@@ -26,18 +44,18 @@ const GlobalStyles = createGlobalStyle`
     display: flex;
     padding: 2rem;
     justify-content: center;
-    box-shadow: 3px 3px 10px black;
     color: white;
     border: 0;
     cursor: pointer;
     box-shadow:
-      .28rem .28rem .22rem rgba(0, 0, 0, 0.02),
-      .67rem .67rem .53rem rgba(0, 0, 0, 0.028),
-      1.25rem 1.25rem. 1rem rgba(0, 0, 0, 0.035),
-      2.23rem 2.23rem 1.79rem rgba(0, 0, 0, 0.042),
-      4.18rem 4.18rem 3.34rem rgba(0, 0, 0, 0.05),
-      10rem 10rem 1rem rgba(0, 0, 0, 0.07)
-    ;
+      1.2px 1.2px 1.9px rgba(0, 0, 0, 0.031),
+      2.7px 2.7px 4.3px rgba(0, 0, 0, 0.045),
+      4.8px 4.8px 7.7px rgba(0, 0, 0, 0.055),
+      8px 8px 12.8px rgba(0, 0, 0, 0.065),
+      13.2px 13.2px 21.2px rgba(0, 0, 0, 0.075),
+      23.1px 23.1px 37px rgba(0, 0, 0, 0.089),
+      50px 50px 80px rgba(0, 0, 0, 0.12)
+    ;  
     transition: all 0.05s;
     a {
       text-decoration: none;
@@ -79,6 +97,6 @@ const GlobalStyles = createGlobalStyle`
       font-size: 2rem;
     }
   }
-`;
+`
 
-export default GlobalStyles;
+export default GlobalStyles
