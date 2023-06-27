@@ -14,7 +14,7 @@ const Section = styled.section`
 
 const Slider = styled.div`
   max-width: 80rem;
-  max-height: 40rem;
+  max-height: 50rem;
   height: 100%;
   margin: 0 auto;
   text-align: center;
