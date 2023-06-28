@@ -32,7 +32,7 @@ const HR = styled.hr`
 
 const Title = styled.h1`
   font-size: 2.5rem;
-  padding: 0 1rem;
+  padding: 1.5rem;
   text-align: center;
   font-variant: small-caps;
   font-weight: 600;

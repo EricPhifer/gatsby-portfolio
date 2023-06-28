@@ -1,10 +1,10 @@
-import React from 'react';
-import { graphql, Link, useStaticQuery } from 'gatsby';
-import styled from 'styled-components';
-import SanityImage from 'gatsby-plugin-sanity-image';
+import React from 'react'
+import { graphql, Link, useStaticQuery } from 'gatsby'
+import styled from 'styled-components'
+import SanityImage from 'gatsby-plugin-sanity-image'
 
 const NavStyles = styled.div`
-  height: 100vh;
+  height: 100dvh;
   width: 100px;
   position: absolute;
   display: fixed;
@@ -87,7 +87,7 @@ const NavStyles = styled.div`
   }
   #menuToggle .trigger {
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
-    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+      background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
   }
   #menu {
     width: 100vw;
@@ -169,7 +169,7 @@ const NavStyles = styled.div`
   @media only screen and (max-width: 900px) {
     display: none;
   }
-`;
+`
 
 const TabletNavStyles = styled.div`
   /* Show compressed menu on small screens */
@@ -179,7 +179,7 @@ const TabletNavStyles = styled.div`
   @media only screen and (max-width: 500px) {
     display: none;
   }
-  height: 100vh;
+  height: 100dvh;
   width: 100px;
   position: absolute;
   display: fixed;
@@ -264,7 +264,7 @@ const TabletNavStyles = styled.div`
   }
   #menuToggle .trigger {
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
-    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+      background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
   }
   #menu {
     width: 100vw;
@@ -368,14 +368,14 @@ const TabletNavStyles = styled.div`
       height: 50px;
     }
   }
-`;
+`
 
 const MobileNavStyles = styled.div`
   /* Show compressed menu on small screens */
   @media only screen and (min-width: 501px) {
     display: none;
   }
-  height: 100vh;
+  height: 100dvh;
   width: 50px;
   position: absolute;
   display: fixed;
@@ -465,7 +465,7 @@ const MobileNavStyles = styled.div`
   }
   #menuToggle .trigger {
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
-    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+      background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
   }
   #menu {
     width: 100vw;
@@ -546,54 +546,53 @@ const MobileNavStyles = styled.div`
       border-bottom: 1px solid var(--red);
     }
   }
-`;
-
+`
 
 export default function NavLeft() {
   const { navigation } = useStaticQuery(graphql`
     query {
       navigation: allSanityNavigation {
-          nodes {
-            id
-            mainalt
-            footeralt
-            externallinks {
-              pagelink
-              _key
-              pagename
+        nodes {
+          id
+          mainalt
+          footeralt
+          externallinks {
+            pagelink
+            _key
+            pagename
+          }
+          nativelinks {
+            pagename
+            pagelink
+            _key
+          }
+          mainlogo {
+            asset {
+              id
             }
-            nativelinks {
-              pagename
-              pagelink
-              _key
+            ...ImageWithPreview
+          }
+          footericon {
+            asset {
+              id
             }
-            mainlogo {
-              asset {
-                id
-              }
-              ...ImageWithPreview
-            }
-            footericon {
-              asset {
-                id
-              }
-              ...ImageWithPreview
-            }
+            ...ImageWithPreview
           }
         }
       }
+    }
   `)
 
-const nodes = navigation.nodes;
-const [checked, setChecked] = React.useState(true || '');
+  const { nodes } = navigation
+  const [checked, setChecked] = React.useState(true || '')
   return (
     <>
-      {nodes.map((node) => (
+      {nodes.map(node => (
         <div className="nodeParser" key={node.id}>
           <NavStyles>
             <div className="navContainer">
-              <Link to='/' className="logo">
-                <SanityImage 
+              <Link to="/" className="logo">
+                <SanityImage
                   {...node.mainlogo}
                   alt={node.mainalt}
                   style={{
@@ -602,63 +601,61 @@ const [checked, setChecked] = React.useState(true || '');
                   }}
                 />
               </Link>
-                <nav>
-                  <ul className='navigation'>
-                    {node.nativelinks.map((nlink) => (
-                      <Link to={nlink.pagelink} key={nlink._key} rel="noopener">
-                        <li> {nlink.pagename}</li>
-                      </Link>
-                    ))}
-                    {node.externallinks.map((elink) => (
-                      <a href={elink.pagelink} key={elink._key} rel="noopener">
-                        <li> {elink.pagename} </li>
-                      </a>
-                    ))}
-                  </ul>
-                </nav>
-                <div className='inline bottom' id="menuToggle">
-                  <input 
-                    type="checkbox" 
-                    checked={checked}
-                    onClick={() => {setChecked(old => !old)}} 
+              <nav>
+                <ul className="navigation">
+                  {node.nativelinks.map(nlink => (
+                    <Link to={nlink.pagelink} key={nlink._key} rel="noopener">
+                      <li> {nlink.pagename}</li>
+                    </Link>
+                  ))}
+                  {node.externallinks.map(elink => (
+                    <a href={elink.pagelink} key={elink._key} rel="noopener">
+                      <li> {elink.pagename} </li>
+                    </a>
+                  ))}
+                </ul>
+              </nav>
+              <div className="inline bottom" id="menuToggle">
+                <input
+                  type="checkbox"
+                  checked={checked}
+                  onClick={() => {
+                    setChecked(old => !old)
+                  }}
+                />
+                <div className="footer trigger">
+                  <SanityImage
+                    {...node.footericon}
+                    alt={node.footeralt}
+                    style={{
+                      objectFit: 'cover',
+                      auto: 'format',
+                    }}
                   />
-                  <div className='footer trigger'>
-                    <SanityImage 
-                      {...node.footericon}
-                      alt={node.footeralt}
-                      style={{
-                        objectFit: 'cover',
-                        auto: 'format',
-                      }}
-                      />
-                  </div>
-                  <div className='triangle trigger' />
-                  <div id="menu" className="menuContainer">
+                </div>
+                <div className="triangle trigger" />
+                <div id="menu" className="menuContainer">
                   <div className="footerContainer" key={node.id}>
                     <ul className="footerCredits column">
-                        <li>
-                          &copy; Eric Phifer LLC {new Date().getFullYear()}
+                      <li>&copy; Eric Phifer LLC {new Date().getFullYear()}</li>
+                      <li>
+                        <li className="inline privTerms">
+                          <Link to="/privacypolicy">Privacy Policy</Link>
+                          <Link to="/termsconditions">
+                            Terms &amp; Conditions
+                          </Link>
                         </li>
-                        <li>
-                          <li className="inline privTerms">
-                            <Link to='/privacypolicy'>
-                                Privacy Policy
-                            </Link> 
-                            <Link to='/termsconditions'>
-                                Terms &amp; Conditions
-                            </Link> 
-                          </li>
-                        </li>
-                      </ul>
-                    </div>
+                      </li>
+                    </ul>
                   </div>
                 </div>
+              </div>
             </div>
           </NavStyles>
           <TabletNavStyles>
             <div className="navContainer">
-              <Link to='/' className="logo">
-                <SanityImage 
+              <Link to="/" className="logo">
+                <SanityImage
                   {...node.mainlogo}
                   alt={node.mainalt}
                   style={{
@@ -667,63 +664,61 @@ const [checked, setChecked] = React.useState(true || '');
                   }}
                 />
               </Link>
-                <nav>
-                  <ul className='navigation'>
-                    {node.nativelinks.map((nlink) => (
-                      <Link to={nlink.pagelink} key={nlink._key} rel="noreferrer">
-                        <li> {nlink.pagename}</li>
-                      </Link>
-                    ))}
-                    {node.externallinks.map((elink) => (
-                      <a href={elink.pagelink} key={elink._key} rel="noreferrer">
-                        <li> {elink.pagename}</li>
-                      </a>
-                    ))}
-                  </ul>
-                </nav>
-                <div className='inline bottom' id="menuToggle">
-                  <input 
-                    type="checkbox" 
-                    checked={checked}
-                    onClick={() => {setChecked(old => !old)}} 
+              <nav>
+                <ul className="navigation">
+                  {node.nativelinks.map(nlink => (
+                    <Link to={nlink.pagelink} key={nlink._key} rel="noreferrer">
+                      <li> {nlink.pagename}</li>
+                    </Link>
+                  ))}
+                  {node.externallinks.map(elink => (
+                    <a href={elink.pagelink} key={elink._key} rel="noreferrer">
+                      <li> {elink.pagename}</li>
+                    </a>
+                  ))}
+                </ul>
+              </nav>
+              <div className="inline bottom" id="menuToggle">
+                <input
+                  type="checkbox"
+                  checked={checked}
+                  onClick={() => {
+                    setChecked(old => !old)
+                  }}
+                />
+                <div className="footer trigger">
+                  <SanityImage
+                    {...node.footericon}
+                    alt={node.footeralt}
+                    style={{
+                      objectFit: 'cover',
+                      auto: 'format',
+                    }}
                   />
-                  <div className='footer trigger'>
-                    <SanityImage 
-                      {...node.footericon}
-                      alt={node.footeralt}
-                      style={{
-                        objectFit: 'cover',
-                        auto: 'format',
-                      }}
-                      />
-                  </div>
-                  <div className='triangle trigger' />
-                  <div id="menu" className="menuContainer">
+                </div>
+                <div className="triangle trigger" />
+                <div id="menu" className="menuContainer">
                   <div className="footerContainer" key={node.id}>
                     <ul className="footerCredits column">
-                        <li>
-                          &copy; Eric Phifer LLC {new Date().getFullYear()}
+                      <li>&copy; Eric Phifer LLC {new Date().getFullYear()}</li>
+                      <li>
+                        <li className="inline privTerms">
+                          <Link to="/privacypolicy">Privacy Policy</Link>
+                          <Link to="/termsconditions">
+                            Terms &amp; Conditions
+                          </Link>
                         </li>
-                        <li>
-                          <li className="inline privTerms">
-                            <Link to='/privacypolicy'>
-                                Privacy Policy
-                            </Link> 
-                            <Link to='/termsconditions'>
-                                Terms &amp; Conditions
-                            </Link> 
-                          </li>
-                        </li>
-                      </ul>
-                    </div>
+                      </li>
+                    </ul>
                   </div>
                 </div>
+              </div>
             </div>
           </TabletNavStyles>
           <MobileNavStyles>
-          <div className="navContainer">
-              <Link to='/' className="logo">
-                <SanityImage 
+            <div className="navContainer">
+              <Link to="/" className="logo">
+                <SanityImage
                   {...node.mainlogo}
                   alt={node.mainalt}
                   style={{
@@ -732,62 +727,60 @@ const [checked, setChecked] = React.useState(true || '');
                   }}
                 />
               </Link>
-                <nav>
-                  <ul className='navigation'>
-                    {node.nativelinks.map((nlink) => (
-                      <Link to={nlink.pagelink} key={nlink._key} rel="noreferrer">
-                        <li> {nlink.pagename}</li>
-                      </Link>
-                    ))}
-                    {node.externallinks.map((elink) => (
-                      <a href={elink.pagelink} key={elink._key} rel="noreferrer">
-                        <li> {elink.pagename}</li>
-                      </a>
-                    ))}
-                  </ul>
-                </nav>
-                <div className='inline bottom' id="menuToggle">
-                  <input 
-                    type="checkbox" 
-                    checked={checked}
-                    onClick={() => {setChecked(old => !old)}} 
-                    className='bottom'
+              <nav>
+                <ul className="navigation">
+                  {node.nativelinks.map(nlink => (
+                    <Link to={nlink.pagelink} key={nlink._key} rel="noreferrer">
+                      <li> {nlink.pagename}</li>
+                    </Link>
+                  ))}
+                  {node.externallinks.map(elink => (
+                    <a href={elink.pagelink} key={elink._key} rel="noreferrer">
+                      <li> {elink.pagename}</li>
+                    </a>
+                  ))}
+                </ul>
+              </nav>
+              <div className="inline bottom" id="menuToggle">
+                <input
+                  type="checkbox"
+                  checked={checked}
+                  onClick={() => {
+                    setChecked(old => !old)
+                  }}
+                  className="bottom"
+                />
+                <div className="footer trigger">
+                  <SanityImage
+                    {...node.footericon}
+                    alt={node.footeralt}
+                    style={{
+                      objectFit: 'cover',
+                      auto: 'format',
+                    }}
                   />
-                  <div className='footer trigger'>
-                    <SanityImage 
-                      {...node.footericon}
-                      alt={node.footeralt}
-                      style={{
-                        objectFit: 'cover',
-                        auto: 'format',
-                      }}
-                      />
-                  </div>
-                  <div className='triangle trigger' />
-                  <div id="menu" className="menuContainer">
+                </div>
+                <div className="triangle trigger" />
+                <div id="menu" className="menuContainer">
                   <div className="footerContainer" key={node.id}>
                     <ul className="footerCredits column">
-                        <li>
-                          &copy; Eric Phifer LLC {new Date().getFullYear()}
+                      <li>&copy; Eric Phifer LLC {new Date().getFullYear()}</li>
+                      <li>
+                        <li className="inline privTerms">
+                          <Link to="/privacypolicy">Privacy Policy</Link>
+                          <Link to="/termsconditions">
+                            Terms &amp; Conditions
+                          </Link>
                         </li>
-                        <li>
-                          <li className="inline privTerms">
-                            <Link to='/privacypolicy'>
-                                Privacy Policy
-                            </Link> 
-                            <Link to='/termsconditions'>
-                                Terms &amp; Conditions
-                            </Link> 
-                          </li>
-                        </li>
-                      </ul>
-                    </div>
+                      </li>
+                    </ul>
                   </div>
                 </div>
+              </div>
             </div>
           </MobileNavStyles>
         </div>
-      ))} 
+      ))}
     </>
-  );
+  )
 }

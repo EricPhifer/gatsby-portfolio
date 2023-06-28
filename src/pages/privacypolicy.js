@@ -1,8 +1,8 @@
-import { defaultComponents, PortableText } from '@portabletext/react';
-import { graphql } from 'gatsby';
-import React from 'react';
-import styled from 'styled-components';
-import Seo from '../components/Seo';
+import { defaultComponents, PortableText } from '@portabletext/react'
+import { graphql, useStaticQuery } from 'gatsby'
+import React from 'react'
+import styled from 'styled-components'
+import Seo from '../components/Seo'
 
 const PolicyStyles = styled.div`
   position: absolute;
@@ -11,7 +11,7 @@ const PolicyStyles = styled.div`
   .overlord {
     max-width: 900px;
     width: calc(100vw - 100px);
-    height: 100vh;
+    height: 100dvh;
     margin: 0 auto;
     background-color: #fff;
     padding: 1rem 0;
@@ -29,7 +29,8 @@ const PolicyStyles = styled.div`
     margin: 0 auto;
     padding: 0 2rem;
   }
-  .updateDate, h1 {
+  .updateDate,
+  h1 {
     text-align: center;
   }
   @media only screen and (max-width: 900px) {
@@ -43,21 +44,32 @@ const PolicyStyles = styled.div`
       font-size: 2rem;
     }
   }
-`;
+`
 
-export default function PrivacyPolicy({ data }) {
-  const policies = data.policies.nodes;
+export default function PrivacyPolicy() {
+  const { policies } = useStaticQuery(graphql`
+    query {
+      policies: allSanityPrivacyPolicy {
+        nodes {
+          id
+          title
+          _rawContent
+        }
+      }
+    }
+  `)
+  const { nodes } = policies
   return (
     <>
       <Seo title="Privacy Policy" />
       <PolicyStyles>
-        <div className='overlord'>
+        <div className="overlord">
           <p className="updateDate">Last updated: May 17, 2022</p>
-          {policies.map((policy) => (
+          {nodes.map(policy => (
             <section key={policy.id}>
               <h1>{policy.title}</h1>
               <section className="policyContainer">
-                <PortableText 
+                <PortableText
                   value={policy._rawContent}
                   components={defaultComponents}
                   className="answer flex"
@@ -68,17 +80,5 @@ export default function PrivacyPolicy({ data }) {
         </div>
       </PolicyStyles>
     </>
-  );
+  )
 }
-
-export const query = graphql`
-  query {
-    policies: allSanityPrivacyPolicy {
-      nodes {
-        id
-        title
-        _rawContent
-      }
-    }
-  }
-`;
