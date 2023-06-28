@@ -174,6 +174,7 @@ export default function Portfolio() {
           projectlist {
             projectname
             projectlink
+            githublink
             desktopimage {
               asset {
                 id
@@ -225,10 +226,7 @@ export default function Portfolio() {
                     >
                       {project.projectname}
                     </Business>
-                    <Github
-                      href="https://www.github.com/EricPhifer"
-                      rel="noreferrer noopener"
-                    >
+                    <Github href={project.githublink} rel="noreferrer noopener">
                       <FaGithub />
                     </Github>
                   </LinkContainer>
