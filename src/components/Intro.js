@@ -4,38 +4,31 @@ import SanityImage from 'gatsby-plugin-sanity-image'
 import styled from 'styled-components'
 
 const Container = styled.div`
+  max-width: 80rem;
   width: 100vw;
   min-height: 40rem;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(auto, 1fr));
-  gap: 1rem;
-  justify-items: center;
-  align-content: center;
+  padding: 0 2rem;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
 `
 
 const Image = styled.div`
-  width: 20rem;
-  grid-column: 1 / span 1;
   img {
-    width: 20rem;
-    border: 1.5rem solid var(--black);
+    width: 80rem;
+    border: 1rem solid var(--black);
     border-radius: 5rem;
     &:hover {
-      border: 1.5rem solid var(--green);
+      border: 1rem solid var(--green);
       box-shadow: 0.1rem 0.2rem var(--black);
     }
-  }
-  @media only screen and (max-width: 777px) {
-    grid-column: 1 / span 3;
   }
 `
 
 const Words = styled.div`
   position: relative;
-  grid-column: 2 / span 2;
-  @media only screen and (max-width: 777px) {
-    grid-column: 1 / span 3;
-  }
+  text-align: left;
+  margin: 2rem 0;
 `
 
 const Elevate = styled.span`
@@ -45,20 +38,21 @@ const Elevate = styled.span`
   }
 `
 
-const ContainedElevation = styled.p`
-  max-width: 50rem;
+const ContainedElevation = styled.h1`
   margin: 0;
   color: var(--black);
   text-transform: uppercase;
-  font-size: 6rem;
+  font-size: 5rem;
   font-weight: bold;
   cursor: default;
   @media only screen and (max-width: 777px) {
     font-size: 3rem;
   }
-  @media only screen and (max-width: 410px) {
-    max-width: 22rem;
-  }
+`
+
+const Paragraph = styled.p`
+  padding: 1rem 0;
+  font-size: 1.75rem;
 `
 
 export default function Intro() {
@@ -130,26 +124,13 @@ export default function Intro() {
               <Elevate>C</Elevate>
               <Elevate>.</Elevate>
             </ContainedElevation>
-            <ContainedElevation>
-              <Elevate>D</Elevate>
-              <Elevate>E</Elevate>
-              <Elevate>S</Elevate>
-              <Elevate>I</Elevate>
-              <Elevate>G</Elevate>
-              <Elevate>N</Elevate>
-              <Elevate>E</Elevate>
-              <Elevate>R</Elevate>
-              <Elevate>.</Elevate> <Elevate>D</Elevate>
-              <Elevate>E</Elevate>
-              <Elevate>V</Elevate>
-              <Elevate>E</Elevate>
-              <Elevate>L</Elevate>
-              <Elevate>O</Elevate>
-              <Elevate>P</Elevate>
-              <Elevate>E</Elevate>
-              <Elevate>R</Elevate>
-              <Elevate>.</Elevate>
-            </ContainedElevation>
+            <Paragraph>
+              I'm a designer, developer and dad. I started Phifer Web Solutions
+              working with micro-businesses and non-profits because I wanted to
+              provide for my family while doing something I love. And I love
+              solving problems for people; digging into all the technical things
+              so you don't have to.
+            </Paragraph>
           </Words>
         </Container>
       ))}

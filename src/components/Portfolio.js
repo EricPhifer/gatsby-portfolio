@@ -14,15 +14,12 @@ const Section = styled.section`
 
 const Slider = styled.div`
   max-width: 80rem;
-  max-height: 50rem;
-  height: 100%;
   margin: 0 auto;
   text-align: center;
   overflow: hidden;
 `
 
 const Slides = styled.div`
-  height: 90%;
   display: flex;
   align-items: center;
   text-align: left;
@@ -50,8 +47,6 @@ const Slides = styled.div`
 
 const Slide = styled.a`
   width: 100%;
-  height: 100%;
-  margin-right: 5rem;
   scroll-snap-align: start;
   scroll-snap-stop: always;
   flex-shrink: 0;
@@ -127,21 +122,22 @@ const Business = styled.a`
 `
 
 const Pagination = styled.div`
-  display: inline-flex;
-  margin: 2rem 0;
-  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+  margin-top: 2rem;
+  display: flex;
+  gap: 2rem;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
 `
 
 const Nav = styled(Link)`
-  width: 1.5rem;
   height: 1.5rem;
-  margin: 0.25rem 0.75rem 0.5rem;
+  flex: 0 0 1.5rem;
   padding: 2.15rem 2rem 2rem;
-  display: inline-flex;
-  position: relative;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  border-radius: 50%;
+  border-radius: 0.5rem;
   background: lightgray;
   color: var(--black);
   text-decoration: none;
@@ -237,7 +233,10 @@ export default function Portfolio() {
           <Pagination>
             {home.projectlist.map((node, index) => (
               <Nav to={`#slide${index}`} key={node.id}>
-                {index + 1}
+                {node.projectname
+                  .split(' ')
+                  .map(n => n[0])
+                  .join('')}
               </Nav>
             ))}
           </Pagination>
