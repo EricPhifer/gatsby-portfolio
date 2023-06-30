@@ -4,7 +4,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { TbSocial } from 'react-icons/tb'
 
-const SMContained = styled.div`
+const SMContained = styled.aside`
   width: 5rem;
   min-height: 5rem;
   padding: 0.25rem;
@@ -21,6 +21,23 @@ const SMContained = styled.div`
     0px 0px 35.7px rgba(0, 0, 0, 0.074), 0px 0px 80px rgba(0, 0, 0, 0.1);
   background: #f4f0ec;
   z-index: 102;
+  #social {
+    width: 5.5rem;
+    max-height: 75vh;
+    margin: 0;
+    padding: 0.5rem;
+    position: absolute;
+    top: -46rem;
+    right: -0.25rem;
+    background: var(--white);
+    transform-origin: 0% 0%;
+    transform: translate(0%, 130%);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    overflow: hidden auto;
+  }
+  #social li {
+    transition-delay: 2s;
+  }
 `
 
 const SocialIcon = styled.a`
@@ -31,8 +48,8 @@ const SocialIcon = styled.a`
 `
 
 const ToggleIcon = styled.div`
-  width: 4.68rem;
-  height: 4rem;
+  width: 4.5rem;
+  height: 3.8rem;
   border-radius: 50%;
   margin: 1rem 0;
   font-size: 4rem;
@@ -61,24 +78,24 @@ const SocialToggle = styled.div`
     right: 0;
   }
   span {
-    display: none;
-    position: relative;
+    opacity: 0;
+    position: absolute;
+    top: 1.3rem;
+    left: 0.7rem;
     width: 40px;
     height: 5px;
     margin-bottom: 5px;
     border-radius: 3px;
     z-index: 101;
     transform-origin: 5px 0;
-    background: var(--black);
+    color: var(--black);
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-size: 4rem;
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
       background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
   }
-  span:first-child {
-    transform: rotate(45deg) translate(-6px, -12px);
-  }
-  span:nth-last-child(2) {
-    transform: rotate(-45deg) translate(1px, 0);
-  }
+
   input:checked ~ span {
     opacity: 1;
     transform: rotate(360deg);
@@ -87,28 +104,7 @@ const SocialToggle = styled.div`
     transform: rotate(360deg);
     opacity: 0;
   }
-
-  #social {
-    width: 50vw;
-    height: 100%;
-    margin: 0;
-    position: fixed;
-    top: 0;
-    right: 0;
-    background: var(--white);
-    display: flex;
-    flex-flow: column nowrap;
-    box-shadow: 0.5rem 0 1rem #85888c;
-    transform-origin: 0% 0%;
-    transform: translate(100%, 0%);
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-  #social li {
-    transition-delay: 2s;
-  }
-  input:checked ~ .menuContainer {
+  input:checked ~ #social {
     transform: none;
   }
 `
@@ -148,9 +144,8 @@ export default function SocialMedia() {
         <ToggleIcon>
           <TbSocial />
         </ToggleIcon>
-        <span />
-        <span />
-        <div id="social" className="socialContainer">
+        <span>X</span>
+        <aside id="social" className="socialContainer">
           {nodes.map(node => (
             <SocialIcon
               href={node.sitelink}
@@ -169,7 +164,7 @@ export default function SocialMedia() {
               />
             </SocialIcon>
           ))}
-        </div>
+        </aside>
       </SocialToggle>
     </SMContained>
   )
