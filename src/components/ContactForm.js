@@ -46,16 +46,14 @@ const Form = styled.form`
 `
 
 const InlineField = styled.fieldset`
-  width: 98%;
+  width: 100%;
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  gap: 3rem;
   border: none;
-  margin-bottom: 2rem;
   input {
     width: 30%;
-    padding: 1rem;
-    margin: 0 0.5rem;
     border: none;
     border-bottom: 0.4rem inset var(--black);
     background: transparent;
@@ -64,12 +62,11 @@ const InlineField = styled.fieldset`
     display: flex;
     flex-flow: column nowrap;
     input {
-      width: 90%;
+      width: 100%;
     }
   }
   @media only screen and (max-height: 750px) {
     top: 53%;
-    margin-bottom: 1rem;
     input {
       font-size: 1.25rem;
     }
@@ -84,20 +81,16 @@ const InlineField = styled.fieldset`
 const FullField = styled.fieldset`
   display: flex;
   justify-content: center;
+  margin: 2rem 0;
   border: none;
-  margin-bottom: 2rem;
   input {
-    width: 58%;
-    padding: 1rem;
-    margin: 0 0.5rem;
+    width: 65%;
     border: none;
     border-bottom: 0.4rem inset var(--black);
     background: transparent;
   }
   textarea {
-    width: calc(53% - 2.5rem);
-    margin-left: 0.5rem;
-    padding: 1rem;
+    width: 65%;
     border: none;
     border-bottom: 0.4rem inset var(--black);
     border-right: 0.4rem inset var(--black);
@@ -106,7 +99,7 @@ const FullField = styled.fieldset`
   @media only screen and (max-width: 900px) {
     textarea,
     input {
-      width: 90%;
+      width: 100%;
     }
   }
   @media only screen and (max-height: 750px) {
@@ -229,7 +222,7 @@ export default function ContactForm() {
           rel="noopener noreferrer"
           target="_blank"
         >
-          Get a Consultation
+          Set a Meeting
         </Buttonesque>
         <Submit type="submit" value="Submit">
           Submit
