@@ -132,25 +132,21 @@ const Pagination = styled.div`
 `
 
 const Nav = styled(Link)`
-  height: 1.5rem;
-  flex: 0 0 1.5rem;
-  padding: 2.15rem 2rem 2rem;
+  width: 5rem;
+  height: 5rem;
   display: flex;
   align-items: center;
   border-radius: 0.5rem;
   background: lightgray;
-  color: var(--black);
   text-decoration: none;
   &:active {
     top: 0.1rem;
   }
   &:focus {
     background: var(--green);
-    color: var(--white);
   }
   &:hover {
     background: var(--green);
-    color: var(--white);
   }
 `
 
@@ -171,6 +167,12 @@ export default function Portfolio() {
             projectname
             projectlink
             githublink
+            logo {
+              asset {
+                id
+              }
+              ...ImageWithPreview
+            }
             desktopimage {
               asset {
                 id
@@ -233,10 +235,16 @@ export default function Portfolio() {
           <Pagination>
             {home.projectlist.map((node, index) => (
               <Nav to={`#slide${index}`} key={node.id}>
-                {node.projectname
-                  .split(' ')
-                  .map(n => n[0])
-                  .join('')}
+                <SanityImage
+                  {...node.logo}
+                  alt={node.projectname}
+                  style={{
+                    width: '5rem',
+                    height: '5rem',
+                    objectFit: 'contain',
+                    auto: 'format',
+                  }}
+                />
               </Nav>
             ))}
           </Pagination>
