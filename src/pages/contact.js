@@ -16,7 +16,6 @@ export default function Contact() {
   return (
     <>
       <Seo title="Contact Us" />
-      <NavTop />
       <ContactStyles>
         <ContactForm />
       </ContactStyles>

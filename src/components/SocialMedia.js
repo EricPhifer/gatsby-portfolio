@@ -23,7 +23,7 @@ const SMContained = styled.aside`
   z-index: 102;
   #social {
     width: 5.5rem;
-    max-height: 75vh;
+    max-height: 75dvh;
     margin: 0;
     padding: 0.5rem;
     position: absolute;
