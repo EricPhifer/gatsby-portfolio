@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import Seo from '../components/Seo'
-import NavTop from '../components/NavTop.js'
 import ContactForm from '../components/ContactForm.js'
 import SocialMedia from '../components/SocialMedia.js'
 
