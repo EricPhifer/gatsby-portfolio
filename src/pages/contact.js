@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Seo from '../components/Seo'
 import ContactForm from '../components/ContactForm.js'
 import SocialMedia from '../components/SocialMedia.js'
+import NavTop from '../components/NavTop'
 
 const ContactStyles = styled.div`
   width: 100vw;
@@ -14,6 +15,7 @@ const ContactStyles = styled.div`
 export default function Contact() {
   return (
     <>
+      <NavTop />
       <Seo title="Contact Us" />
       <ContactStyles>
         <ContactForm />

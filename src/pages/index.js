@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import Intro from '../components/Intro'
 import Portfolio from '../components/Portfolio'
+import NavTop from '../components/NavTop'
 
 const HomeStyles = styled.div`
   max-width: 108rem;
@@ -82,16 +83,19 @@ export default function HomePage() {
   `)
   const { nodes } = homepage
   return (
-    <HomeStyles>
-      {nodes.map(home => (
-        <LandingContainer key={home.id}>
-          <Intro />
-          <HR />
-          <Title>My Portfolio</Title>
-          <HR />
-          <Portfolio />
-        </LandingContainer>
-      ))}
-    </HomeStyles>
+    <>
+      <NavTop />
+      <HomeStyles>
+        {nodes.map(home => (
+          <LandingContainer key={home.id}>
+            <Intro />
+            <HR />
+            <Title>My Portfolio</Title>
+            <HR />
+            <Portfolio />
+          </LandingContainer>
+        ))}
+      </HomeStyles>
+    </>
   )
 }

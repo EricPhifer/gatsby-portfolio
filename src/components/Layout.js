@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import 'normalize.css'
 import GlobalStyles from '../styles/GlobalStyles'
 import Typography from '../styles/Typography'
-import NavTop from './NavTop'
 
 const SiteStyles = styled.div`
   width: 100vw;
@@ -17,10 +16,7 @@ export default function Layout({ children }) {
     <>
       <GlobalStyles />
       <Typography />
-      <SiteStyles>
-        <NavTop />
-        {children}
-      </SiteStyles>
+      <SiteStyles>{children}</SiteStyles>
     </>
   )
 }

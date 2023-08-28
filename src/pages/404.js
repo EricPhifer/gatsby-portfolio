@@ -1,6 +1,7 @@
-import { Link } from 'gatsby';
-import React from 'react';
-import styled from 'styled-components';
+import { Link } from 'gatsby'
+import React from 'react'
+import styled from 'styled-components'
+import NavTop from '../components/NavTop'
 
 const FourOhFourStyles = styled.div`
   position: absolute;
@@ -101,11 +102,12 @@ const FourOhFourStyles = styled.div`
       font-size: 22px;
     }
   }
-`;
+`
 
 export default function FourOhFour() {
   return (
     <>
+      <NavTop />
       <FourOhFourStyles id="notfound">
         <div className="notfound">
           <div className="notfound-404">
@@ -117,5 +119,5 @@ export default function FourOhFour() {
       </FourOhFourStyles>
       {/* Adapted from template made by Colorlib (https://colorlib.com) */}
     </>
-  );
+  )
 }

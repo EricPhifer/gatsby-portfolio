@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 import Seo from '../components/Seo'
+import NavTop from '../components/NavTop'
 
 const TermStyles = styled.div`
   position: absolute;
@@ -62,6 +63,7 @@ export default function TermsConditions() {
   const { nodes } = terms
   return (
     <>
+      <NavTop />
       <Seo title="Terms &amp; Conditions" />
       <TermStyles>
         <div className="overlord">

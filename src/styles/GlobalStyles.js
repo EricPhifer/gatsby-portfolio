@@ -27,6 +27,7 @@ const GlobalStyles = createGlobalStyle`
     --bg: #1F0318;
     --red: #EB5E55;
     --green: #00916E;
+    --lightgray: #ebebeb;
   }
   html {
     background-color: var(--white);
@@ -80,7 +81,7 @@ const GlobalStyles = createGlobalStyle`
   }
   html {
     scrollbar-width: thin;
-    scrollbar-color: var(--mint) #fff;
+    scrollbar-color: var(--lightgray) #fff;
   }
   body::-webkit-scrollbar-track {
     background: transparent;

@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 import Seo from '../components/Seo'
+import NavTop from '../components/NavTop'
 
 const PolicyStyles = styled.div`
   position: absolute;
@@ -61,6 +62,7 @@ export default function PrivacyPolicy() {
   const { nodes } = policies
   return (
     <>
+      <NavTop />
       <Seo title="Privacy Policy" />
       <PolicyStyles>
         <div className="overlord">
