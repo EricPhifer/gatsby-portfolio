@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 // Icons
 import { PiCaretRightBold } from 'react-icons/pi'
+
 // Logo Image
 import { Link } from 'gatsby'
 import lightninglogo from '../../../../assets/images/lightning-icon.png'
@@ -87,7 +88,7 @@ const FullBar = styled.div`
 
 const ProgressBar = styled.div`
   width: 1.2rem;
-  height: 1.2rem;
+  height: 1.3rem;
   border-radius: 5rem;
   margin: 0.5rem 0;
   background-color: var(--intake-background);
@@ -99,7 +100,7 @@ const ProgressIndicator = styled.p`
   align-self: end;
 `
 
-const BusinessType = styled.fieldset`
+const BusinessType = styled.section`
   width: 100%;
   display: flex;
   flex-flow: column wrap;
@@ -110,7 +111,7 @@ const BusinessType = styled.fieldset`
   }
 `
 
-const TypeSplit = styled(Link)`
+const DonateOption = styled(Link)`
   width: 60rem;
   height: 8rem;
   margin-bottom: 2rem;
@@ -140,7 +141,7 @@ const TypeSplit = styled(Link)`
   }
 `
 
-export default function IntakeForm() {
+export default function Payments() {
   return (
     <EntireForm>
       <Border>
@@ -149,16 +150,17 @@ export default function IntakeForm() {
         </LogoContainer>
         <FlexContainer>
           <BusinessType>
-            <p>Are you a small business or non-profit?</p>
-            <TypeSplit to="/bundles/lightning/intake/payments">
-              We're a small or micro business <PiCaretRightBold />
-            </TypeSplit>
-            <TypeSplit to="/bundles/lightning/intake/donations">
-              We're a 501(c)(3) non-profit <PiCaretRightBold />{' '}
-            </TypeSplit>
+            <DonateOption to="/bundles/lightning/intake/business-with-payments">
+              We need a payment option set up
+              <PiCaretRightBold />
+            </DonateOption>
+            <DonateOption to="/bundles/lightning/intake/business">
+              We do not need a payment option set up
+              <PiCaretRightBold />
+            </DonateOption>
           </BusinessType>
           <ProgressContainer>
-            <ProgressIndicator>0%</ProgressIndicator>
+            <ProgressIndicator>2%</ProgressIndicator>
             <FullBar>
               <ProgressBar />
             </FullBar>
