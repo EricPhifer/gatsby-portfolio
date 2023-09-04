@@ -920,7 +920,7 @@ export default function BusinessIntake() {
               name="map"
               id="map"
               type="checkbox"
-              value={values.map}
+              value="Include a Map"
               onChange={updateValue}
             />
             Add a map to this address
@@ -957,7 +957,7 @@ export default function BusinessIntake() {
                 name="radiotoggle"
                 id="emailprovideryes"
                 type="radio"
-                value={values.radiotoggle}
+                value="Yes"
                 onChange={updateValue}
               />
             </label>
@@ -967,7 +967,7 @@ export default function BusinessIntake() {
                 name="radiotoggle"
                 id="emailproviderno"
                 type="radio"
-                value={values.radiotoggle}
+                value="No"
                 onChange={updateValue}
               />
             </label>
@@ -1525,7 +1525,7 @@ export default function BusinessIntake() {
               name="pmttype"
               id="onetimepmt"
               type="radio"
-              value={values.pmttype}
+              value="One-Time Payment of $3,497"
               onChange={updateValue}
             />
             <label className="pmtradio" htmlFor="onetimepmt">
@@ -1537,7 +1537,7 @@ export default function BusinessIntake() {
               name="pmttype"
               id="subscriptionpmt"
               type="radio"
-              value={values.pmttype}
+              value="$697/month for 6 mo."
               onChange={updateValue}
             />
             <label className="pmtradio" htmlFor="subscriptionpmt">
@@ -1567,7 +1567,7 @@ export default function BusinessIntake() {
               name="termsagreement"
               id="termsagreement"
               type="checkbox"
-              value={values.termsagreement}
+              value="Yes, I agree"
               onChange={e => {
                 updateValue(e)
                 setTermsAgreed(e.target.checked)
