@@ -748,7 +748,7 @@ export default function BusinessIntake() {
     const previews = files.map(file => URL.createObjectURL(file))
 
     // update logos
-    setLogoPreviews(previews)
+    setLogoPreviews(prevPreviews => [...prevPreviews, ...previews])
   }
   // sets up the previews for docs uploaded
   const handleDocChange = e => {

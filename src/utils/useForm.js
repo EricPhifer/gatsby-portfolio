@@ -18,4 +18,4 @@ export default function useForm(defaults) {
 }
 
 // Provided by Wes Bos @ wesbos.com/courses (Master Gatsby Course)
-// Modified August 2023 to handle dynamic fields using ChatGPT v.3.5
+// Modified September 2023 to handle dynamic fields using ChatGPT v.3.5
