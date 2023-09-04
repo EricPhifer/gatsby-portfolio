@@ -4,9 +4,15 @@ export default function useForm(defaults) {
   const [values, setValues] = useState(defaults)
 
   function updateValue(e) {
-    let { name, value } = e.target
-    if (e.target.type === 'number') {
+    let { name, value, type, checked } = e.target
+    if (type === 'number') {
       value = parseInt(value)
+    }
+    if (type === 'checkbox') {
+      setValues({
+        ...values,
+        [name]: checked ? 'yes' : 'no',
+      })
     }
     setValues({
       ...values,

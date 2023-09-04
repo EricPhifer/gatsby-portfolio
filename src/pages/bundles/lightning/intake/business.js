@@ -564,7 +564,7 @@ const PaymentType = styled.fieldset`
   p {
     margin-bottom: 2rem;
   }
-  label.radio {
+  label.pmtradio {
     width: 100%;
     height: 8rem;
     border: 0.5rem solid var(--intake-foreground);
@@ -572,6 +572,7 @@ const PaymentType = styled.fieldset`
     position: relative;
     display: flex;
     justify-content: center;
+    align-items: center;
     cursor: pointer;
   }
   input[type='radio'] {
@@ -580,10 +581,10 @@ const PaymentType = styled.fieldset`
     height: 86%;
     position: absolute;
     z-index: 150;
-  }
-  input[type='radio']:checked + label.radio {
-    background-color: var(--intake-foreground);
-    color: var(--intake-background);
+    &:checked + label.pmtradio {
+      background-color: var(--intake-foreground);
+      color: var(--intake-background);
+    }
   }
 `
 
@@ -692,8 +693,7 @@ export default function BusinessIntake() {
     // Domain Info
     domainname: '',
     emailprovider: '',
-    emailproviderno: '',
-    emailprovideryes: '',
+    radiotoggle: '',
     // Tagline Info
     tagline: '',
     // Sevice Info
@@ -725,8 +725,7 @@ export default function BusinessIntake() {
     // Miscellaneous Documents
     miscdocs: '',
     // Miscellaneous Documents
-    onetimepmt: '',
-    subscriptionpmt: '',
+    pmttype: '',
     // Agreement to Terms
     termsagreement: '',
   })
@@ -916,8 +915,7 @@ export default function BusinessIntake() {
             onChange={updateValue}
             placeholder="Address (for website use, optional)"
           />
-          <label className="full checkbox" htmlFor="map">
-            Add a map to this address
+          <label className="full checkbox">
             <input
               name="map"
               id="map"
@@ -925,6 +923,7 @@ export default function BusinessIntake() {
               value={values.map}
               onChange={updateValue}
             />
+            Add a map to this address
             <Checkmark className="checkmark" />
           </label>
         </BasicInfo>
@@ -952,23 +951,23 @@ export default function BusinessIntake() {
             Do you have email set up with your domain? (e.g bob@domainname.com)
           </p>
           <SideBySide>
-            <label className="radio" htmlFor="emailprovideryes">
+            <label className="radio">
               Yes
               <input
-                name="radio-toggle"
+                name="radiotoggle"
                 id="emailprovideryes"
                 type="radio"
-                value={values.emailprovideryes}
+                value={values.radiotoggle}
                 onChange={updateValue}
               />
             </label>
-            <label className="radio pad-left" htmlFor="emailproviderno">
+            <label className="radio pad-left">
               No
               <input
-                name="radio-toggle"
+                name="radiotoggle"
                 id="emailproviderno"
                 type="radio"
-                value={values.emailproviderno}
+                value={values.radiotoggle}
                 onChange={updateValue}
               />
             </label>
@@ -1523,25 +1522,25 @@ export default function BusinessIntake() {
           <p>How would you prefer to pay?</p>
           <RadioContainer>
             <input
-              name="paymenttype"
+              name="pmttype"
               id="onetimepmt"
               type="radio"
-              value={values.onetimepmt}
+              value={values.pmttype}
               onChange={updateValue}
             />
-            <label className="radio" htmlFor="onetimepmt">
+            <label className="pmtradio" htmlFor="onetimepmt">
               One-Time Payment of $3,497
             </label>
           </RadioContainer>
           <RadioContainer>
             <input
-              name="paymenttype"
+              name="pmttype"
               id="subscriptionpmt"
               type="radio"
-              value={values.subscriptionpmt}
+              value={values.pmttype}
               onChange={updateValue}
             />
-            <label className="radio" htmlFor="subscriptionpmt">
+            <label className="pmtradio" htmlFor="subscriptionpmt">
               $697/month for 6 mo.
             </label>
           </RadioContainer>
@@ -1563,11 +1562,7 @@ export default function BusinessIntake() {
           <ScrollableTerms>
             <IntakeTerms />
           </ScrollableTerms>
-          <label
-            className="full checkbox termsagreement"
-            htmlFor="termsagreement"
-          >
-            I Agree to the Terms
+          <label className="full checkbox termsagreement">
             <input
               name="termsagreement"
               id="termsagreement"
@@ -1578,6 +1573,7 @@ export default function BusinessIntake() {
                 setTermsAgreed(e.target.checked)
               }}
             />
+            I Agree to the Terms
             <Checkmark className="checkmark" />
           </label>
           <button type="submit" className="submit" disabled={!termsAgreed}>
