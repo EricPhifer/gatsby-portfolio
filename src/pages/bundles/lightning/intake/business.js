@@ -1025,7 +1025,7 @@ export default function BusinessIntake() {
             value={values.serviceinfo}
             onChange={updateValue}
             rows="7"
-            placeholder="Give a short description of the product or service that you offer. If you have many produycts (e.g. retail) then describe the type of products and unique experience you offer."
+            placeholder="Give a short description of the product or service that you offer. If you have many products (e.g. retail) then describe the type of products and unique experience you offer."
           />
         </ServiceInfo>
       ),

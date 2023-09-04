@@ -341,14 +341,14 @@ export default function Testimonies() {
         <FlexContainer>
           <FormContainer>
             <Form
-              name="intake-form"
+              name="testimony-form"
               method="post"
               encType="multipart/form-data"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
             >
               <input type="hidden" name="bot-field" />
-              <input type="hidden" name="form-name" value="intake-form" />
+              <input type="hidden" name="form-name" value="testimony-form" />
               <TestimonyInfo>
                 <p>
                   Provide any testimonies from your customers, clients or
