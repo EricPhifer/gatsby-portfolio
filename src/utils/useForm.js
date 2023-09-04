@@ -1,19 +1,21 @@
-import { useState } from 'react';
+import { useState } from 'react'
 
 export default function useForm(defaults) {
-  const [values, setValues] = useState(defaults);
+  const [values, setValues] = useState(defaults)
 
   function updateValue(e) {
-    let { value } = e.target;
+    let { name, value } = e.target
     if (e.target.type === 'number') {
-      value = parseInt(value);
+      value = parseInt(value)
     }
     setValues({
-      // copy existing value into it
       ...values,
-      // update the new value that changed
-      [e.target.name]: value,
-    });
+      [name]: value,
+    })
   }
-  return { values, updateValue };
+
+  return { values, updateValue }
 }
+
+// Provided by Wes Bos @ wesbos.com/courses (Master Gatsby Course)
+// Modified August 2023 to handle dynamic fields using ChatGPT v.3.5

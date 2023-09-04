@@ -2,6 +2,12 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 // Icons
 import { PiCaretLeftBold, PiCaretRightBold } from 'react-icons/pi'
+import {
+  GrDocumentExcel,
+  GrDocumentPdf,
+  GrDocumentWord,
+  GrDocument,
+} from 'react-icons/gr'
 // Form Utities
 import useForm from '../../../../utils/useForm'
 import useContact from '../../../../utils/useContact'
@@ -290,24 +296,22 @@ const InnerSlider = styled.fieldset`
   display: flex;
   transition: transform 0.5s ease-in-out;
   padding: 0;
-  .slide {
-    flex: 0 0 100%;
-    opacity: 0;
-    pointer-events: none;
-    position: absolute;
-    transition: opacity 0.25s;
-    &.active {
-      opacity: 1;
-      pointer-events: auto;
-      position: relative;
-    }
-  }
 `
 
 const NodeParser = styled.fieldset`
   overflow-y: auto;
   overflow-x: hidden;
-  padding-right: 1.6rem;
+  flex: 0 0 100%;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transition: opacity 0.25s;
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+    position: relative;
+    padding-right: 1.6rem;
+  }
 `
 
 // Form Pages
@@ -499,7 +503,6 @@ const ImageUpload = styled.fieldset`
   width: 100%;
   display: flex;
   flex-direction: column;
-  font-variant: small-caps;
   label {
     width: 10rem;
     height: 10rem;
@@ -534,6 +537,18 @@ const InlineImgs = styled.fieldset`
 
 const DisplayImg = styled.fieldset`
   display: inline-flex;
+  flex-flow: row wrap;
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  svg {
+    font-size: 5rem;
+  }
+  & path {
+    stroke: var(--intake-foreground);
+  }
   @media only screen and (max-width: 500px) {
     display: flex;
     flex-direction: column;
@@ -641,16 +656,25 @@ const ScrollableTerms = styled.div`
 
 export default function BusinessIntake() {
   // handle image previews
-  const [imagePreviews, setImagePreviews] = useState([])
+  const [imagePreviews, setImagePreviews] = useState([[]])
+  // handle logo previews
+  const [logoPreviews, setLogoPreviews] = useState([])
+  // handle doc previews
+  const [docFiles, setDocFiles] = useState([])
+  const [docPreviews, setDocPreviews] = useState([])
   // set the agreement terms checkbox
   const [termsAgreed, setTermsAgreed] = useState(false)
-  // additional fields
-  const [inputFields, setInputFields] = useState([
+  // additional Testimonyfields
+  const [testimonyFields, setTestimonyFields] = useState([
     {
       // Testimonies
       testimonyname: '',
       writtentestimony: '',
       testimonyimgs: '',
+    },
+  ])
+  const [socialFields, setSocialFields] = useState([
+    {
       // Social Media Addition
       anothersocial: '',
     },
@@ -708,35 +732,101 @@ export default function BusinessIntake() {
   })
 
   // sets up the previews for images uploaded
-  const handleImageChange = e => {
+  const handleImageChange = (e, index) => {
     const files = Array.from(e.target.files)
     const previews = files.map(file => URL.createObjectURL(file))
 
-    setImagePreviews(prevPreviews => [...prevPreviews, ...previews])
+    setImagePreviews(prevPreviews => {
+      const updatedPreviews = [...prevPreviews]
+      updatedPreviews[index] = previews // Set the previews for the specified field group
+      return updatedPreviews
+    })
   }
-  // Creating Dynamic Fields
+  // sets up the previews for logos uploaded
+  const handleLogoChange = e => {
+    const files = Array.from(e.target.files)
+    const previews = files.map(file => URL.createObjectURL(file))
+
+    // update logos
+    setLogoPreviews(previews)
+  }
+  // sets up the previews for docs uploaded
+  const handleDocChange = e => {
+    const files = Array.from(e.target.files)
+    const previews = files.map(file => URL.createObjectURL(file))
+
+    // Update docFiles with the new file objects
+    setDocFiles(prevFiles => [...prevFiles, ...files])
+    // Update docPreviews with the new previews
+    setDocPreviews(prevPreviews => [...prevPreviews, ...previews])
+  }
+  const getIconForFile = (preview, file) => {
+    const filename = file.name
+    const extension = filename.split('.').pop().toLowerCase()
+    switch (extension) {
+      case 'pdf':
+        return <GrDocumentPdf />
+      case 'doc':
+      case 'docx':
+        return <GrDocumentWord />
+      case 'xlsx':
+      case 'xls':
+        return <GrDocumentExcel />
+      default:
+        return <GrDocument />
+    }
+  }
+
+  // Creating Dynamic Social Fields
 
   const addFields = () => {
-    const newfield = { child: '', age: '', grade: '', allergies: '' }
+    const newfield = { anothersocial: '' }
 
-    setInputFields([...inputFields, newfield])
+    setSocialFields([...socialFields, newfield])
   }
   const removeFields = index => {
-    const data = [...inputFields]
+    const data = [...socialFields]
     data.splice(index, 1)
-    setInputFields(data)
+    setSocialFields(data)
   }
-  // form handle adding a field
-  const handleFormChange = (index, event) => {
-    const data = [...inputFields]
-    data[index][event.target.name] = event.target.value
-    setInputFields(data)
+  // Creating Dynamic Testimony Fields
+
+  const addTestimonyFields = () => {
+    const newfield = {
+      testimonyname: '',
+      writtentestimony: '',
+      testimonyimgs: '',
+    }
+
+    setTestimonyFields([...testimonyFields, newfield])
   }
+  const removeTestimonyFields = index => {
+    const data = [...testimonyFields]
+    data.splice(index, 1)
+    setTestimonyFields(data)
+  }
+  // A function to update the values of dynamic fields
+  const updateDynamicFieldValue = (fieldIndex, fieldName, value) => {
+    setTestimonyFields(prevFields => {
+      // Create a copy of the previous array
+      const updatedFields = [...prevFields]
+
+      // Check if fieldIndex is within valid range
+      if (fieldIndex >= 0 && fieldIndex < updatedFields.length) {
+        // Update the specified field in the copied array
+        updatedFields[fieldIndex][fieldName] = value
+      }
+
+      return updatedFields
+    })
+  }
+
   // combine image and form handling
   const handleImageInputChange = (e, index) => {
-    handleImageChange(e)
-    updateValue(e)
-    handleFormChange(e, index)
+    handleImageChange(e, index)
+
+    // Update the corresponding dynamic field's name
+    updateDynamicFieldValue(index, 'testimonyimgs', e.target.value)
   }
 
   // Unique Pages for Form
@@ -1143,72 +1233,88 @@ export default function BusinessIntake() {
           <p>
             Provide any testimonies from your customers, clients or partners
           </p>
-          {inputFields.map((_input, index) => (
+          {testimonyFields.map((testimony, index) => (
             <fieldset key={index} className="testimonyinfo">
-              <label className="hidden" htmlFor="testimonyname">
+              {console.log(index)}
+              <label className="hidden" htmlFor={`testimonyname${index}`}>
                 Name of Satisfied Customer
               </label>
               <input
-                name="testimonyname"
-                id="testimonyname"
+                name={`testimonyname${index}`}
+                id={`testimonyname${index}`}
                 type="text"
-                value={values.testimonyname}
-                onChange={updateValue}
-                placeholder="Who's giving the testimony?"
+                value={testimony.testimonyname}
+                onChange={e =>
+                  updateDynamicFieldValue(
+                    index,
+                    'testimonyname',
+                    e.target.value
+                  )
+                }
+                placeholder="Who is giving the testimony?"
               />
-              <label className="hidden" htmlFor="writtentestimony">
+              <label className="hidden" htmlFor={`writtentestimony${index}`}>
                 Written Testimony
               </label>
               <textarea
-                name="writtentestimony"
-                id="writtentestimony"
+                name={`writtentestimony${index}`}
+                id={`writtentestimony${index}`}
                 type="text"
-                value={values.writtentestimony}
-                onChange={updateValue}
+                value={testimony.writtentestimony}
+                onChange={e =>
+                  updateDynamicFieldValue(
+                    index,
+                    'writtentestimony',
+                    e.target.value
+                  )
+                }
                 rows="3"
                 placeholder="Written testimony... (should reinforce the success your business has helped others gain with your service)"
               />
               <ImageUpload>
                 Upload a Profile Image of the Customer:
                 <InlineImgs>
-                  <label htmlFor="testimonyimgs" className="testimonyimgs">
+                  <label
+                    htmlFor={`testimonyimgs${index}`}
+                    className="testimonyimgs"
+                  >
                     +
                   </label>
                   <input
-                    id="testimonyimgs"
-                    name="testimonyimgs"
+                    id={`testimonyimgs${index}`}
+                    name={`testimonyimgs[${index}]`}
                     type="file"
                     accept="image/*"
-                    value={values.testimonyimgs}
-                    onChange={handleImageInputChange}
+                    onChange={e => handleImageInputChange(e, index)}
                     multiple
                   />
                   <DisplayImg>
-                    {imagePreviews.map((preview, i) => (
-                      <img
-                        key={i}
-                        src={preview}
-                        alt={`Preview ${i}`}
-                        style={{
-                          maxWidth: '10rem',
-                          maxHeight: '10rem',
-                          margin: '1rem',
-                        }}
-                      />
-                    ))}
+                    {imagePreviews[index] &&
+                      imagePreviews[index].map((preview, i) => (
+                        <img
+                          key={i}
+                          src={preview}
+                          alt={`Preview ${i}`}
+                          style={{
+                            maxWidth: '10rem',
+                            maxHeight: '10rem',
+                            margin: '1rem',
+                          }}
+                        />
+                      ))}
                   </DisplayImg>
                 </InlineImgs>
               </ImageUpload>
               <button
                 type="button"
                 className="removeBtn"
-                onClick={() => removeFields(index)}
+                onClick={() => removeTestimonyFields(index)}
               >
                 Remove Testimony
               </button>
             </fieldset>
           ))}
-          <button className="addBtn" type="button" onClick={addFields}>
+          <button className="addBtn" type="button" onClick={addTestimonyFields}>
             Add a Testimony +
           </button>
         </TestimonyInfo>
@@ -1276,17 +1382,23 @@ export default function BusinessIntake() {
             onChange={updateValue}
             placeholder="Instagram"
           />
-          {inputFields.map((_input, index) => (
+          {socialFields.map((input, index) => (
             <fieldset key={index} className="socialinfo">
-              <label className="hidden" htmlFor="anothersocial">
+              <label className="hidden" htmlFor={`anothersocial${index}`}>
                 Other Link
               </label>
               <input
-                name="anothersocial"
-                id="anothersocial"
+                name={`anothersocial${index}`}
+                id={`anothersocial${index}`}
                 type="text"
-                value={values.anothersocial}
-                onChange={updateValue}
+                value={values[`anothersocial${index}`]}
+                onChange={e =>
+                  updateDynamicFieldValue(
+                    index,
+                    `anothersocial${index}`,
+                    e.target.value
+                  )
+                }
                 placeholder="Other Name & Link"
               />
               <button
@@ -1322,11 +1434,11 @@ export default function BusinessIntake() {
                 type="file"
                 accept="image/*"
                 value={values.logoimgs}
-                onChange={handleImageInputChange}
+                onChange={handleLogoChange}
                 multiple
               />
               <DisplayImg>
-                {imagePreviews.map((preview, i) => (
+                {logoPreviews.map((preview, i) => (
                   <img
                     key={i}
                     src={preview}
@@ -1368,9 +1480,10 @@ export default function BusinessIntake() {
         <DocInfo>
           <p>
             Add any relevant documents for additional information or
-            downloadables for you customers here.
+            downloadables for you customers here. This will accept PDF, Word or
+            Excel Documents. You'll have a chance for other documents after the
+            application review.
           </p>
-
           <ImageUpload>
             <InlineImgs>
               <label htmlFor="miscdocs" className="miscdocs">
@@ -1380,23 +1493,23 @@ export default function BusinessIntake() {
                 id="miscdocs"
                 name="miscdocs"
                 type="file"
-                accept="*"
+                accept=".pdf, .doc, .docx, .xlsx, .xls"
                 value={values.miscdocs}
-                onChange={handleImageInputChange}
+                onChange={handleDocChange}
                 multiple
               />
               <DisplayImg>
-                {imagePreviews.map((preview, i) => (
-                  <img
+                {docPreviews.map((preview, i) => (
+                  <div
                     key={i}
-                    src={preview}
-                    alt={`Preview ${i}`}
                     style={{
                       maxWidth: '10rem',
                       maxHeight: '10rem',
                       margin: '1rem',
                     }}
-                  />
+                  >
+                    {getIconForFile(preview, docFiles[i])}
+                  </div>
                 ))}
               </DisplayImg>
             </InlineImgs>
