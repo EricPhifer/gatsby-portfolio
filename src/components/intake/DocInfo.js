@@ -95,7 +95,7 @@ const DisplayImg = styled.fieldset`
     border: 0.2rem solid var(--intake-foreground);
     border-radius: 0.5rem;
     position: absolute;
-    top: -4.8rem;
+    top: -5.8rem;
     left: -10rem;
     img {
       padding: 0.4rem;

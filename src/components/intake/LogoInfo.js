@@ -89,7 +89,7 @@ const DisplayImg = styled.fieldset`
     border: 0.2rem solid var(--intake-foreground);
     border-radius: 0.5rem;
     position: absolute;
-    top: -4.8rem;
+    top: -5.8rem;
     left: -10rem;
     img {
       padding: 0.4rem;
@@ -118,19 +118,8 @@ export default function LogoInfo() {
   const [logoFields, setLogoFields] = useState([{ logoimgs: '' }])
 
   // handle form values
-  const { values, updateValue } = useForm({
+  const { _values, updateValue } = useForm({
     // Logo & other images
-    logoimgs0: '',
-    logoimgs1: '',
-    logoimgs2: '',
-    logoimgs3: '',
-    logoimgs4: '',
-    logoimgs5: '',
-    logoimgs6: '',
-    logoimgs7: '',
-    logoimgs8: '',
-    logoimgs9: '',
-    logoimgs10: '',
   })
 
   const addFields = () => {
@@ -167,7 +156,7 @@ export default function LogoInfo() {
         website. If you need more, leave a note on the next page.
       </p>
       <ImageUpload>
-        {logoFields.map((_input, index) => (
+        {logoFields.map((input, index) => (
           <InlineImgs key={index}>
             <button
               type="button"
@@ -176,13 +165,13 @@ export default function LogoInfo() {
             >
               -
             </button>
-            <label htmlFor={`logoimgs${index}`} className="logoimgs">
+            <label htmlFor={input.logoimgs} className="logoimgs">
               +
               <input
-                name={`logoimgs${index}`}
-                id={`logoimgs${index}`}
+                name={input.logoimgs}
+                id={input.logoimgs}
                 type="file"
-                value={values[`logoimgs${index}`]}
+                value={input.logoimgs}
                 accept="image/*"
                 onChange={e => handleImageAndInput(e, index)}
               />
