@@ -488,7 +488,6 @@ export default function Testimonies() {
                           accept="image/*"
                           value={values.testimonyimgs}
                           onChange={handleImageInputChange}
-                          multiple
                         />
                         <DisplayImg>
                           {imagePreviews.map((preview, i) => (
