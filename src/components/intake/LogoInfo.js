@@ -134,6 +134,10 @@ export default function LogoInfo() {
   }
 
   const handleImageChange = (e, index) => {
+    const data = [...logoFields]
+    data[index][e.target.name] = e.target.value
+    setLogoFields(data)
+
     const files = Array.from(e.target.files)
     const previews = files.map(file => URL.createObjectURL(file))
 
