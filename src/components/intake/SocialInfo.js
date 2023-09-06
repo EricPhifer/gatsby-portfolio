@@ -127,12 +127,12 @@ export default function SocialInfo() {
       />
       {socialFields.map((input, index) => (
         <fieldset key={index} className="socialinfo">
-          <label className="hidden" htmlFor={`anothersocial${index}`}>
+          <label className="hidden" htmlFor="anothersocial">
             Other Link
           </label>
           <input
-            name={`anothersocial${index}`}
-            id={`anothersocial${index}`}
+            name="anothersocial"
+            id="anothersocial"
             type="text"
             value={input.anothersocial}
             onChange={e => handleFormChange(index, e)}
