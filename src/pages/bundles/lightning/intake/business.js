@@ -30,7 +30,6 @@ import TestimonyInfo from '../../../../components/intake/TestimonyInfo'
 import SocialInfo from '../../../../components/intake/SocialInfo'
 import LogoInfo from '../../../../components/intake/LogoInfo'
 import MiscInfo from '../../../../components/intake/MiscInfo'
-import DocInfo from '../../../../components/intake/DocInfo'
 import PaymentOption from '../../../../components/intake/PaymentOption'
 
 // Form Global Styling
@@ -473,9 +472,6 @@ export default function BusinessIntake() {
     },
     {
       content: <MiscInfo />,
-    },
-    {
-      content: <DocInfo />,
     },
     {
       content: <PaymentOption />,

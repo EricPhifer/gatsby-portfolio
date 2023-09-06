@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
-import useForm from '../../utils/useForm'
 
 const Logos = styled.fieldset`
   width: 100%;
@@ -37,7 +36,7 @@ const Logos = styled.fieldset`
     opacity: 0;
     cursor: pointer;
   }
-  .addBtn {
+  .resetbtn {
     box-shadow: none;
     &:hover {
       border: none;
@@ -113,94 +112,93 @@ const DisplayImg = styled.fieldset`
 `
 
 export default function LogoInfo() {
+  const [_selectedFile, setSelectedFile] = useState(null)
   // handle logo previews
   const [logoPreviews, setLogoPreviews] = useState([])
-  const [logoFields, setLogoFields] = useState([{ logoimgs: '' }])
+  // creates new
+  const [logoFields, _setLogoFields] = useState([{ logoimgs: '' }])
 
-  // handle form values
-  const { _values, updateValue } = useForm({
-    // Logo & other images
-  })
-
-  const addFields = () => {
-    const newfield = { logoimgs: '' }
-
-    setLogoFields([...logoFields, newfield])
-  }
-  const removeFields = index => {
-    const data = [...logoFields]
-    data.splice(index, 1)
-    setLogoFields(data)
-  }
+  // keep preview, update to upload only one image and create a reset button
 
   const handleImageChange = (e, index) => {
-    const data = [...logoFields]
-    data[index][e.target.name] = e.target.value
-    setLogoFields(data)
-
     const files = Array.from(e.target.files)
-    const previews = files.map(file => URL.createObjectURL(file))
+    const previews = URL.createObjectURL(files[0])
 
     setLogoPreviews(prevPreviews => {
       const updatedPreviews = [...prevPreviews]
-      updatedPreviews[index] = previews // Set the previews for the specified field group
+      updatedPreviews[index] = previews
       return updatedPreviews
     })
   }
 
-  const handleImageAndInput = (e, index) => {
-    updateValue(e)
+  const handleFileChange = e => {
+    setSelectedFile(e.target.files[0])
+  }
+
+  const fileInputRef = useRef(null)
+
+  // Reset Function
+  const handleResetFile = () => {
+    setSelectedFile(null)
+
+    // Clear the corresponding preview
+    setLogoPreviews(Array(logoFields.length).fill(null))
+
+    // Reset the file input using the ref
+    if (fileInputRef.current) {
+      fileInputRef.current.value = ''
+      fileInputRef.current.type = 'text'
+      fileInputRef.current.type = 'file'
+    }
+  }
+
+  const handleImageAndFile = (e, index) => {
+    handleFileChange(e)
     handleImageChange(e, index)
   }
 
   return (
     <Logos>
       <p>
-        Provide your logo and up to 10 other images you would like on the
-        website. If you need more, leave a note on the next page.
+        Provide your logo here. You'll have a chance to upload more files,
+        images and videos after your application is accepted. Only one image can
+        be transmitted here.
       </p>
       <ImageUpload>
         {logoFields.map((input, index) => (
           <InlineImgs key={index}>
-            <button
-              type="button"
-              className="removeSection"
-              onClick={() => removeFields(index)}
-            >
-              -
-            </button>
             <label htmlFor={input.logoimgs} className="logoimgs">
               +
               <input
                 name={input.logoimgs}
                 id={input.logoimgs}
                 type="file"
+                ref={fileInputRef}
                 value={input.logoimgs}
                 accept="image/*"
-                onChange={e => handleImageChange(e, index)}
+                onChange={e => handleImageAndFile(e, index)}
               />
             </label>
             <DisplayImg>
-              {logoPreviews[index] &&
-                logoPreviews[index].map((preview, i) => (
-                  <div className="prevContainer" key={i}>
-                    <img
-                      src={preview}
-                      alt={`Preview ${i}`}
-                      style={{
-                        maxWidth: '10rem',
-                        maxHeight: '10rem',
-                      }}
-                    />
-                  </div>
-                ))}
+              {logoPreviews[index] && (
+                <div className="prevContainer">
+                  <img
+                    src={logoPreviews[index]}
+                    alt={`Preview ${index}`}
+                    style={{
+                      maxWidth: '10rem',
+                      maxHeight: '10rem',
+                    }}
+                  />
+                </div>
+              )}
             </DisplayImg>
           </InlineImgs>
         ))}
       </ImageUpload>
 
-      <button className="addBtn" type="button" onClick={addFields}>
-        Add Another +
+      <button className="resetbtn" type="button" onClick={handleResetFile}>
+        Upload the wrong file?
       </button>
     </Logos>
   )

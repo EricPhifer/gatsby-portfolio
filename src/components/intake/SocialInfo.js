@@ -39,21 +39,20 @@ export default function SocialInfo() {
   ])
   // handle form values
   const { values, updateValue } = useForm({
-    anothersocial0: '',
-    anothersocial1: '',
-    anothersocial2: '',
-    anothersocial3: '',
-    anothersocial4: '',
-    anothersocial5: '',
-    anothersocial6: '',
-    anothersocial7: '',
-    anothersocial8: '',
-    anothersocial9: '',
-    anothersocial10: '',
+    calendly: '',
+    facebook: '',
+    linkedin: '',
+    twitter: '',
+    instagram: '',
   })
 
-  // Creating Dynamic Social Fields
+  const handleFormChange = (index, e) => {
+    const data = [...socialFields]
+    data[index][e.target.name] = e.target.value
+    setSocialFields(data)
+  }
 
+  // Creating Dynamic Social Fields
   const addFields = () => {
     const newfield = { anothersocial: '' }
 
@@ -64,21 +63,7 @@ export default function SocialInfo() {
     data.splice(index, 1)
     setSocialFields(data)
   }
-  // A function to update the values of dynamic fields
-  const updateDynamicFieldValue = (fieldIndex, fieldName, value) => {
-    setSocialFields(prevFields => {
-      // Create a copy of the previous array
-      const updatedFields = [...prevFields]
 
-      // Check if fieldIndex is within valid range
-      if (fieldIndex >= 0 && fieldIndex < updatedFields.length) {
-        // Update the specified field in the copied array
-        updatedFields[fieldIndex][fieldName] = value
-      }
-
-      return updatedFields
-    })
-  }
   return (
     <SocialStyles>
       <p>
@@ -149,13 +134,8 @@ export default function SocialInfo() {
             name={`anothersocial${index}`}
             id={`anothersocial${index}`}
             type="text"
-            onChange={e =>
-              updateDynamicFieldValue(
-                index,
-                `anothersocial${index}`,
-                e.target.value
-              )
-            }
+            value={input.anothersocial}
+            onChange={e => handleFormChange(index, e)}
             placeholder="Other Name & Link"
           />
           <button
