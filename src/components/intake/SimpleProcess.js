@@ -36,7 +36,7 @@ export default function SimpleProcess() {
         value={values.simpleprocess}
         onChange={updateValue}
         rows="7"
-        placeholder="List 3 or 4 steps for how your visitors can obtaina successful outcome using your product or service."
+        placeholder="List 3 or 4 steps for how your visitors can obtain a successful outcome using your product or service."
       />
     </Services>
   )

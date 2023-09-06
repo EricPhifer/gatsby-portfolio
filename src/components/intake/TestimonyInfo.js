@@ -63,23 +63,23 @@ export default function TestimonyInfo() {
       <p>Provide any testimonies from your customers, clients or partners</p>
       {testimonyFields.map((testimony, index) => (
         <fieldset key={index} className="testimonyinfo">
-          <label className="hidden" htmlFor={`testimonyname${index}`}>
+          <label className="hidden" htmlFor="testimonyname">
             Name of Happy Customer
           </label>
           <input
-            name={`testimonyname${index}`}
-            id={`testimonyname${index}`}
+            name="testimonyname"
+            id="testimonyname"
             type="text"
             value={testimony.testimonyname}
             onChange={e => handleFormChange(e, index)}
             placeholder="Who is giving the testimony?"
           />
-          <label className="hidden" htmlFor={`writtentestimony${index}`}>
+          <label className="hidden" htmlFor="writtentestimony">
             Written Testimony
           </label>
           <textarea
-            name={`writtentestimony${index}`}
-            id={`writtentestimony${index}`}
+            name="writtentestimony"
+            id="writtentestimony"
             type="text"
             value={testimony.writtentestimony}
             onChange={e => handleFormChange(e, index)}
