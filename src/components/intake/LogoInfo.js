@@ -177,7 +177,7 @@ export default function LogoInfo() {
                 type="file"
                 value={input.logoimgs}
                 accept="image/*"
-                onChange={e => handleImageAndInput(e, index)}
+                onChange={e => handleImageChange(e, index)}
               />
             </label>
             <DisplayImg>
