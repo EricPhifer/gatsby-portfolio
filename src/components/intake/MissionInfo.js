@@ -18,26 +18,25 @@ const Services = styled.fieldset`
   }
 `
 
-export default function Awards() {
+export default function MissionInfo() {
   // handle form values
   const { values, updateValue } = useForm({
-    // Awards
-    awards: '',
+    // Ideal Visitor
+    missioninfo: '',
   })
   return (
     <Services>
-      <label htmlFor="awards">
-        List any relevant accomplishments that show your authority in your
-        market.
+      <label htmlFor="missioninfo">
+        What is the mission or vision of your organization?{' '}
       </label>
       <textarea
-        name="awards"
-        id="awards"
+        name="missioninfo"
+        id="missioninfo"
         type="text"
-        value={values.awards}
+        value={values.missioninfo}
         onChange={updateValue}
         rows="7"
-        placeholder="Awards, years serving the community, etc."
+        placeholder="Who do you help and how do you help thme?"
       />
     </Services>
   )

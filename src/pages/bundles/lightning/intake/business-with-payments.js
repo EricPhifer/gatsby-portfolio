@@ -1,12 +1,38 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+
 // Icons
 import { PiCaretLeftBold, PiCaretRightBold } from 'react-icons/pi'
+
 // Form Utities
 import useForm from '../../../../utils/useForm'
 import useContact from '../../../../utils/useContact'
+
 // Logo Image
 import lightninglogo from '../../../../assets/images/lightning-icon.png'
+
+// Slide Components
+import IntakeTerms from '../../../../components/intake/TermsConditions'
+import IntakeWelcome from '../../../../components/intake/IntakeWelcome'
+import BasicInfo from '../../../../components/intake/BasicInfo'
+import DomainInfo from '../../../../components/intake/DomainInfo'
+import TaglineInfo from '../../../../components/intake/TaglineInfo'
+import IdealCustomer from '../../../../components/intake/IdealCustomer'
+import ServiceInfo from '../../../../components/intake/ServiceInfo'
+import ProductsSold from '../../../../components/intake/ProductsSold'
+import ProblemInfo from '../../../../components/intake/ProblemInfo'
+import SolutionInfo from '../../../../components/intake/SolutionInfo'
+import SimpleProcess from '../../../../components/intake/SimpleProcess'
+import Stakes from '../../../../components/intake/Stakes'
+import Resolution from '../../../../components/intake/Resolution'
+import Empathy from '../../../../components/intake/Empathy'
+import Awards from '../../../../components/intake/Awards'
+import TestimonyInfo from '../../../../components/intake/TestimonyInfo'
+import SocialInfo from '../../../../components/intake/SocialInfo'
+import LogoInfo from '../../../../components/intake/LogoInfo'
+import MiscInfo from '../../../../components/intake/MiscInfo'
+import PaymentOption from '../../../../components/intake/PaymentOption'
+import StripeSetup from '../../../../components/intake/StripeSetup'
 
 // Form Global Styling
 const EntireForm = styled.div`
@@ -31,6 +57,12 @@ const EntireForm = styled.div`
   font-size: 2.35rem;
   color: var(--intake-foreground);
   scrollbar-color: var(--intake-foreground) !important;
+  transition: all 0.2s ease-in-out;
+
+  // apply hidden option
+  .hidden {
+    display: none;
+  }
 
   // form global styles
   label,
@@ -51,13 +83,14 @@ const EntireForm = styled.div`
     border-bottom: 0.4rem solid var(--intake-foreground);
   }
   textarea {
+    width: 100%;
     padding: 0 1rem;
     border: none;
     border-top: 0.4rem solid var(--intake-foreground);
     border-right: 0.2rem solid var(--intake-foreground);
     border-bottom: 0.4rem solid var(--intake-foreground);
     border-left: 0.2rem solid var(--intake-foreground);
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   // change styling of checkboxes
@@ -160,6 +193,16 @@ const LogoContainer = styled.div`
   height: 25%;
   display: flex;
   justify-content: center;
+  @media only screen and (max-width: 815px) {
+    height: 20%;
+  }
+  @media only screen and (max-height: 700px) {
+    width: 15%;
+    position: absolute;
+  }
+  @media only screen and (min-height: 525px) and (max-height: 700px) and (max-width: 350px) {
+    width: 25%;
+  }
 `
 
 const LightningLogo = styled.div`
@@ -177,14 +220,23 @@ const FlexContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media only screen and (max-width: 815px) {
+    height: 80%;
+  }
+  @media only screen and (max-height: 700px) {
+    height: 100%;
+  }
 `
 
 const FormContainer = styled.div`
   max-width: 60rem;
+  width: 86%;
   height: 94%;
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: end;
+  z-index: 10;
   .full {
     width: 90%;
     input {
@@ -194,16 +246,33 @@ const FormContainer = styled.div`
   .hidden {
     display: none;
   }
+  @media only screen and (max-width: 570px) {
+    font-size: 2rem;
+  }
+  @media only screen and (max-width: 350px) {
+    font-size: 1.5rem;
+  }
+  @media only screen and (max-height: 525px) {
+    width: 70%;
+    margin-left: 2%;
+    font-size: 1.5rem;
+  }
+  @media only screen and (min-height: 525px) and (max-height: 700px) and (max-width: 835px) {
+    margin-top: 15rem;
+  }
 `
 
 // Progress Indicator
 const ProgressContainer = styled.div`
-  width: 5rem;
+  width: 8rem;
   height: 60dvh;
   display: flex;
   position: absolute;
   bottom: 7%;
   right: 3%;
+  @media only screen and (max-height: 700px) {
+    height: 85dvh;
+  }
 `
 
 const FullBar = styled.div`
@@ -220,10 +289,11 @@ const FullBar = styled.div`
 
 const ProgressBar = styled.div`
   width: 1.2rem;
-  height: 1.2rem;
+  height: ${({ percentage }) => percentage}%;
   border-radius: 5rem;
   margin: 0.5rem 0;
   background-color: var(--intake-background);
+  transition: height 0.5s ease-in-out;
 `
 
 const ProgressIndicator = styled.p`
@@ -233,9 +303,35 @@ const ProgressIndicator = styled.p`
 `
 
 // Form Pagination
+const Pagination = styled.fieldset`
+  width: 26rem;
+  margin-right: -13rem;
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  display: inline-flex;
+  justify-content: space-around;
+  z-index: 5;
+  @media only screen and (max-width: 350px) {
+    right: 64%;
+  }
+  @media only screen and (max-height: 790px) {
+    width: 10rem;
+    margin-right: 0;
+    right: 0;
+    left: 0;
+  }
+  @media only screen and (min-height: 525px) and (max-height: 700px) and (max-width: 350px) {
+    left: -3rem;
+  }
+  @media only screen and (max-height: 525px) {
+    left: -10rem;
+  }
+`
+
 const PaginationLeft = styled.label`
   width: 5rem;
-  height: 100%;
+  height: 5rem;
   display: flex;
   align-items: end;
   cursor: pointer;
@@ -247,7 +343,7 @@ const PaginationLeft = styled.label`
 
 const PaginationRight = styled.label`
   width: 5rem;
-  height: 100%;
+  height: 5rem;
   display: flex;
   align-items: end;
   cursor: pointer;
@@ -258,7 +354,7 @@ const PaginationRight = styled.label`
 `
 
 const Form = styled.form`
-  max-width: 100vw;
+  max-width: 100%;
   width: 60rem;
   display: inline-flex;
   justify-content: center;
@@ -266,9 +362,6 @@ const Form = styled.form`
   overflow-y: auto;
   input {
     width: 100%;
-  }
-  @media only screen and (max-width: 600px) {
-    width: 27rem;
   }
 `
 
@@ -287,52 +380,76 @@ const InnerSlider = styled.fieldset`
   display: flex;
   transition: transform 0.5s ease-in-out;
   padding: 0;
-  .slide {
-    flex: 0 0 100%;
-    opacity: 0;
-    pointer-events: none;
-    position: absolute;
-    transition: opacity 0.5s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    &.active {
-      opacity: 1;
-      pointer-events: auto;
-      position: relative;
+`
+
+const NodeParser = styled.fieldset`
+  height: calc(100% - 6.5rem);
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 100%;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transition: opacity 0.25s;
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+    position: relative;
+    padding-right: 1.6rem;
+  }
+  @media only screen and (max-width: 570px) {
+    input,
+    textarea {
+      font-size: 2rem;
+    }
+    label.checkbox,
+    p {
+      font-size: 1.75rem;
+    }
+    button.submit {
+      font-size: 3rem;
+    }
+  }
+  @media only screen and (max-width: 475px) {
+    input,
+    textarea {
+      font-size: 1.25rem;
+    }
+  }
+  @media only screen and (max-width: 350px) {
+    margin-left: 0.2rem;
+    label.checkbox,
+    p {
+      font-size: 1.5rem;
+    }
+  }
+  @media only screen and (max-height: 700px) {
+    height: 100%;
+  }
+  @media only screen and (max-height: 700px) and (max-width: 350px) {
+    input,
+    textarea {
+      font-size: 1.5rem;
+    }
+  }
+  @media only screen and (max-height: 525px) {
+    input,
+    textarea {
+      font-size: 1.5rem;
+    }
+    textarea {
+      max-height: 18rem;
+    }
+    label.checkbox,
+    p {
+      font-size: 1.75rem;
     }
   }
 `
 
-const NodeParser = styled.fieldset``
-
 // Form Pages
-const WelcomePage = styled.fieldset`
-  width: 100%;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-  p {
-    font-size: 2.25rem;
-    margin-bottom: 1.5rem;
-  }
-`
-
-const BasicInfo = styled.fieldset`
-  width: 100%;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-  p {
-    padding-bottom: 1rem;
-  }
-  label input[type='checkbox'] {
-    margin-left: 1rem;
-  }
-`
-
 const Checkmark = styled.span`
   position: absolute;
   top: 0;
@@ -348,113 +465,18 @@ const Checkmark = styled.span`
   }
 `
 
-const DomainInfo = styled.fieldset`
-  width: 100%;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-  .question {
-    margin: 1rem 0;
-  }
-  .notezero {
-    margin-bottom: 0;
-    margin-top: 2rem;
-  }
-`
-
-const Note = styled.p`
-  font-size: 1.5rem;
-  margin: 0;
-  padding: 0;
-`
-
-const SideBySide = styled.fieldset`
-  width: 95%;
-  display: inline-flex;
-  justify-content: end;
-  .pad-left {
-    padding-left: 1rem;
-  }
-`
-
-const TaglineInfo = styled.fieldset`
-  width: 100%;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-  label {
-    align-self: start;
-  }
-  p {
-    margin-bottom: 2rem;
-  }
-  input {
-    margin-top: 2rem;
-  }
-`
-
-const ServiceInfo = styled.fieldset`
-  width: 100%;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-  label {
-    align-self: start;
-  }
-  textarea {
-    width: 94%;
-    margin-top: 2rem;
-    font-size: 2.35rem;
-  }
-`
-
-const BusinessType = styled.fieldset`
-  width: 100%;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-  p {
-    margin-bottom: 2rem;
-  }
-  label.radio {
-    width: 100%;
-    height: 8rem;
-    border: 0.5rem solid var(--intake-foreground);
-    border-radius: 5rem;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-  }
-  input[type='radio'] {
-    opacity: 0;
-    width: 90%;
-    height: 86%;
-    position: absolute;
-    z-index: 150;
-  }
-  input[type='radio']:checked + label.radio {
-    background-color: var(--intake-foreground);
-    color: var(--intake-background);
-  }
-`
-
-const RadioContainer = styled.fieldset`
-  width: 100%;
-  height: 100%;
-  position: relative;
-  display: flex;
-  justify-content: center;
-`
-
 const SubmissionPage = styled.fieldset`
   width: 100%;
-  height: 100%;
   display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  p {
+    margin-bottom: 2rem;
+  }
+  .termsagreement {
+    margin-top: 2rem;
+  }
   .submit {
     width: 23rem;
     height: 5rem;
@@ -469,6 +491,7 @@ const SubmissionPage = styled.fieldset`
     justify-content: center;
     align-items: center;
     font-size: 4rem;
+    opacity: 1;
     transition: all 0.1s ease-in-out;
     svg {
       font-size: 5rem;
@@ -479,293 +502,154 @@ const SubmissionPage = styled.fieldset`
       text-shadow: 0.1rem 0.1rem 7rem var(--white);
     }
   }
+  .submit[disabled] {
+    opacity: 0.5;
+    &:hover {
+      text-shadow: none;
+      color: var(--intake-foreground);
+    }
+  }
+  @media only screen and (max-height: 790px) {
+    .submit {
+      right: 2rem;
+      bottom: 1.7rem;
+    }
+  }
+  @media only screen and (max-height: 525px) {
+    p {
+      margin-bottom: 0.75rem;
+    }
+    .termsagreement {
+      margin-top: 0.75rem;
+    }
+  }
 `
 
-export default function BusinessIntakeWithPayments() {
+const ScrollableTerms = styled.div`
+  width: 100%;
+  height: 25rem;
+  padding: 0 1rem;
+  border: none;
+  border-top: 0.4rem solid var(--intake-foreground);
+  border-right: 0.2rem solid var(--intake-foreground);
+  border-bottom: 0.4rem solid var(--intake-foreground);
+  border-left: 0.2rem solid var(--intake-foreground);
+  font-size: 2.5rem;
+  overflow-y: auto;
+  @media only screen and (max-width: 570px) {
+    font-size: 2rem;
+    overflow-x: hidden;
+  }
+  @media only screen and (max-width: 475px) {
+    width: 98%;
+    font-size: 1.25rem;
+  }
+  @media only screen and (max-height: 750px) {
+    max-height: 20rem;
+  }
+  @media only screen and (max-height: 525px) {
+    max-height: 12rem;
+  }
+`
+
+export default function BusinessWithPayment() {
+  // set the agreement terms checkbox
+  const [termsAgreed, setTermsAgreed] = useState(false)
+
   // handle form values
   const { values, updateValue } = useForm({
-    // Basic Info
-    name: '',
-    businessname: '',
-    email: '',
-    websiteemail: '',
-    phone: '',
-    address: '',
-    map: '',
-    // Domain Info
-    domainname: '',
-    emailprovider: '',
-    emailproviderno: '',
-    emailprovideryes: '',
-    // Tagline Info
-    tagline: '',
-    // Sevice Info
-    serviceinfo: '',
-    // Business Type
-    microbusiness: '',
-    nonprofit: '',
-    paymentsyes: '',
-    donationsyes: '',
-    // Next
+    // Agreement to Terms
+    termsagreement: '',
   })
+
   // Unique Pages for Form
   const slides = [
     {
-      content: (
-        <WelcomePage>
-          <p>Hooray! You are about to stand out in the crowd. </p>
-          <p>
-            No answers are required; however, the more information we have the
-            better we can build a website that’s right for you.
-          </p>
-          <p>
-            Please provide as much information as possible. Insufficient
-            information may result in a declined application.{' '}
-          </p>
-        </WelcomePage>
-      ),
+      content: <IntakeWelcome />,
     },
     {
-      content: (
-        <BasicInfo>
-          <p>Let's get some basics out of the way first:</p>
-          <label className="hidden" htmlFor="name">
-            Name
-          </label>
-          <input
-            name="name"
-            id="name"
-            type="text"
-            value={values.name}
-            onChange={updateValue}
-            placeholder="Name"
-          />
-          <label className="hidden" htmlFor="businessname">
-            Business Name
-          </label>
-          <input
-            name="businessname"
-            id="businessname"
-            type="text"
-            value={values.businessname}
-            onChange={updateValue}
-            placeholder="Business Name"
-          />
-          <label className="hidden" htmlFor="email">
-            Contact Email
-          </label>
-          <input
-            name="email"
-            id="email"
-            type="text"
-            value={values.email}
-            onChange={updateValue}
-            placeholder="Email for me to contact you (if different)"
-          />
-          <label className="hidden" htmlFor="websiteemail">
-            Website Email
-          </label>
-          <input
-            name="websiteemail"
-            id="websiteemail"
-            type="text"
-            value={values.websiteemail}
-            onChange={updateValue}
-            placeholder="Email for customers to contact you"
-          />
-          <label className="hidden" htmlFor="phone">
-            Phone Number
-          </label>
-          <input
-            name="phone"
-            id="phone"
-            type="text"
-            value={values.phone}
-            onChange={updateValue}
-            placeholder="Phone Number (for website use, optional)"
-          />
-          <label className="hidden" htmlFor="address">
-            Address
-          </label>
-          <input
-            name="address"
-            id="address"
-            type="text"
-            value={values.address}
-            onChange={updateValue}
-            placeholder="Address (for website use, optional)"
-          />
-          <label className="full checkbox" htmlFor="map">
-            Add a map to this address
-            <input
-              name="map"
-              id="map"
-              type="checkbox"
-              value={values.map}
-              onChange={updateValue}
-            />
-            <Checkmark className="checkmark" />
-          </label>
-        </BasicInfo>
-      ),
+      content: <BasicInfo />,
     },
     {
-      content: (
-        <DomainInfo>
-          <label htmlFor="domainname">
-            Tell us about your domain (e.g. domainname.com):
-          </label>
-          <input
-            name="domainname"
-            id="domainname"
-            type="text"
-            value={values.domainname}
-            onChange={updateValue}
-            className="notezero"
-            placeholder="Domain name that you currently own"
-          />
-          <Note>
-            If you don't have one, no worries. We will help you choose one.
-          </Note>
-          <p className="question">
-            Do you have email set up with your domain? (e.g bob@domainname.com)
-          </p>
-          <SideBySide>
-            <label className="radio" htmlFor="emailprovideryes">
-              Yes
-              <input
-                name="radio-toggle"
-                id="emailprovideryes"
-                type="radio"
-                value={values.emailprovideryes}
-                onChange={updateValue}
-              />
-            </label>
-            <label className="radio pad-left" htmlFor="emailproviderno">
-              No
-              <input
-                name="radio-toggle"
-                id="emailproviderno"
-                type="radio"
-                value={values.emailproviderno}
-                onChange={updateValue}
-              />
-            </label>
-          </SideBySide>
-          <label className="hidden" htmlFor="emailprovider">
-            Email Provider
-          </label>
-          <input
-            name="emailprovider"
-            id="emailprovider"
-            type="text"
-            value={values.emailprovider}
-            onChange={updateValue}
-            className="notezero"
-            placeholder="If yes, who manages your email?"
-          />
-          <Note>
-            If you're not sure, just type 'not sure'. We will find out for you.
-          </Note>
-        </DomainInfo>
-      ),
+      content: <DomainInfo />,
     },
     {
-      content: (
-        <TaglineInfo>
-          <p className="question">
-            Now we'll get some helpful information about who you are, who your
-            customers are and how you help them.
-          </p>
-          <label htmlFor="tagline">
-            What is your business motto or tagline?
-          </label>
-          <input
-            name="tagline"
-            id="tagline"
-            type="text"
-            value={values.tagline}
-            onChange={updateValue}
-            placeholder="Motto / Tagline"
-          />
-        </TaglineInfo>
-      ),
+      content: <TaglineInfo />,
     },
     {
-      content: (
-        <ServiceInfo>
-          <label htmlFor="serviceinfo">
-            Describe your product or service.{' '}
-          </label>
-          <textarea
-            name="serviceinfo"
-            id="serviceinfo"
-            type="text"
-            value={values.serviceinfo}
-            onChange={updateValue}
-            rows="7"
-            placeholder="Give a short description of the product or service that you offer. If you have many produycts (e.g. retail) then describe the type of products and unique experience you offer."
-          />
-        </ServiceInfo>
-      ),
+      content: <ServiceInfo />,
     },
     {
-      content: (
-        <BusinessType>
-          <p>Are you a small business or non-profit?</p>
-          <RadioContainer>
-            <input
-              name="businesstype"
-              id="microbusiness"
-              type="radio"
-              value={values.microbusiness}
-              onChange={updateValue}
-            />
-            <label className="radio" htmlFor="microbusiness">
-              We're a small or micro business
-            </label>
-          </RadioContainer>
-          <label className="full checkbox" htmlFor="paymentsyes">
-            We need a payment option for 5 or less products or services
-            <input
-              name="paymentsyes"
-              id="paymentsyes"
-              type="checkbox"
-              value={values.paymentsyes}
-              onChange={updateValue}
-            />
-            <Checkmark className="checkmark" />
-          </label>
-          <RadioContainer>
-            <input
-              name="businesstype"
-              id="nonprofit"
-              type="radio"
-              value={values.nonprofit}
-              onChange={updateValue}
-            />
-            <label className="radio" htmlFor="nonprofit">
-              We're a 501(c)(3) non-profit
-            </label>
-          </RadioContainer>
-          <label className="full checkbox" htmlFor="donationsyes">
-            We need a donation option set up
-            <input
-              name="donationsyes"
-              id="donationsyes"
-              type="checkbox"
-              value={values.donationsyes}
-              onChange={updateValue}
-            />
-            <Checkmark className="checkmark" />
-          </label>
-        </BusinessType>
-      ),
+      content: <ProductsSold />,
+    },
+    {
+      content: <IdealCustomer />,
+    },
+    {
+      content: <ProblemInfo />,
+    },
+    {
+      content: <SolutionInfo />,
+    },
+    {
+      content: <SimpleProcess />,
+    },
+    {
+      content: <Stakes />,
+    },
+    {
+      content: <Resolution />,
+    },
+    {
+      content: <Empathy />,
+    },
+    {
+      content: <Awards />,
+    },
+    {
+      content: <TestimonyInfo />,
+    },
+    {
+      content: <SocialInfo />,
+    },
+    {
+      content: <LogoInfo />,
+    },
+    {
+      content: <StripeSetup />,
+    },
+    {
+      content: <MiscInfo />,
+    },
+    {
+      content: <PaymentOption />,
     },
     {
       content: (
         <SubmissionPage>
-          <button type="submit" className="submit">
+          <p>
+            Congratulations, you've done great work! All that's left is the
+            terms and agreement and we will contact you after it's been
+            reviewed!
+          </p>
+          <ScrollableTerms>
+            <IntakeTerms />
+          </ScrollableTerms>
+          <label className="full checkbox termsagreement">
+            <input
+              name="termsagreement"
+              id="termsagreement"
+              type="checkbox"
+              value="Yes, I agree"
+              onChange={e => {
+                updateValue(e)
+                setTermsAgreed(e.target.checked)
+              }}
+            />
+            I Agree to the Terms
+            <Checkmark className="checkmark" />
+          </label>
+          <button type="submit" className="submit" disabled={!termsAgreed}>
             Submit <PiCaretRightBold />
           </button>
         </SubmissionPage>
@@ -773,7 +657,7 @@ export default function BusinessIntakeWithPayments() {
     },
   ]
 
-  // Carousel handling
+  // Slider Handling
   const totalSlides = slides.length
   const [activeSlide, setActiveSlide] = useState(0)
 
@@ -788,7 +672,10 @@ export default function BusinessIntakeWithPayments() {
     }
   }
 
-  // handle form errors
+  // Progress Bar Percentage
+  const progressPercentage = ((activeSlide + 1) / totalSlides) * 100
+
+  // Form Errors
   const { errMessage } = useContact({
     values,
   })
@@ -804,18 +691,10 @@ export default function BusinessIntakeWithPayments() {
         </LogoContainer>
         <FlexContainer>
           <FormContainer>
-            <PaginationLeft
-              htmlFor={`slide${
-                activeSlide === 0 ? totalSlides : activeSlide
-              }-content`}
-              className={`prev ${activeSlide === 0 ? 'hidden' : ''}`}
-              onClick={showPrevSlide}
-            >
-              <PiCaretLeftBold />
-            </PaginationLeft>
             <Form
               name="intake-business-with-payments"
               method="post"
+              action="/bundles/lightning/intake/intake-thanks"
               encType="multipart/form-data"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
@@ -840,22 +719,35 @@ export default function BusinessIntakeWithPayments() {
                 </InnerSlider>
               </Slider>
             </Form>
-            <PaginationRight
-              htmlFor={`slide${
-                activeSlide === totalSlides - 1 ? 1 : activeSlide + 2
-              }-content`}
-              className={`next ${
-                activeSlide === totalSlides - 1 ? 'hidden' : ''
-              }`}
-              onClick={showNextSlide}
-            >
-              <PiCaretRightBold />
-            </PaginationRight>
+            <Pagination className="pagination">
+              <PaginationLeft
+                htmlFor={`slide${
+                  activeSlide === 0 ? totalSlides : activeSlide
+                }-content`}
+                className={`prev ${activeSlide === 0 ? 'hidden' : ''}`}
+                onClick={showPrevSlide}
+              >
+                <PiCaretLeftBold />
+              </PaginationLeft>
+              <PaginationRight
+                htmlFor={`slide${
+                  activeSlide === totalSlides - 1 ? 1 : activeSlide + 2
+                }-content`}
+                className={`next ${
+                  activeSlide === totalSlides - 1 ? 'hidden' : ''
+                }`}
+                onClick={showNextSlide}
+              >
+                <PiCaretRightBold />
+              </PaginationRight>
+            </Pagination>
           </FormContainer>
           <ProgressContainer>
-            <ProgressIndicator>0%</ProgressIndicator>
+            <ProgressIndicator>
+              {Math.round(progressPercentage)}%
+            </ProgressIndicator>
             <FullBar>
-              <ProgressBar />
+              <ProgressBar percentage={progressPercentage - 2} />
             </FullBar>
           </ProgressContainer>
         </FlexContainer>

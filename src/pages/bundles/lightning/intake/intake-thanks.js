@@ -1,9 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-// Icons
-import { PiCaretRightBold } from 'react-icons/pi'
-// Logo Image
-import { Link } from 'gatsby'
 import lightninglogo from '../../../../assets/images/lightning-icon.png'
 
 // Form Global Styling
@@ -85,49 +81,11 @@ const FlexContainer = styled.div`
   }
 `
 
-// Progress Indicator
-const ProgressContainer = styled.div`
-  width: 8rem;
-  height: 60dvh;
-  display: flex;
-  position: absolute;
-  bottom: 7%;
-  right: 3%;
-  @media only screen and (max-height: 700px) {
-    height: 85dvh;
-  }
-`
-
-const FullBar = styled.div`
-  width: 2rem;
-  height: 100%;
-  background-color: var(--intake-foreground);
-  border-radius: 5rem;
-  position: absolute;
-  right: 0;
-  display: flex;
-  align-items: end;
-  justify-content: center;
-`
-
-const ProgressBar = styled.div`
-  width: 1.2rem;
-  height: 1.2rem;
-  border-radius: 5rem;
-  margin: 0.5rem 0;
-  background-color: var(--intake-background);
-`
-
-const ProgressIndicator = styled.p`
-  color: var(--intake-foreground);
-  justify-self: end;
-  align-self: end;
-`
-
 const BusinessType = styled.fieldset`
   max-width: 60rem;
   width: 86%;
   height: 94%;
+  margin-left: 7rem;
   padding: 0;
   padding-right: 1.6rem;
   position: relative;
@@ -177,41 +135,7 @@ const BusinessType = styled.fieldset`
   }
 `
 
-const TypeSplit = styled(Link)`
-  max-width: 60rem;
-  width: 80%;
-  height: 8rem;
-  margin-bottom: 2rem;
-  padding-left: 3rem;
-  border: 0.5rem solid var(--intake-foreground);
-  border-radius: 5rem;
-  position: relative;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  cursor: pointer;
-  color: var(--intake-foreground);
-  svg {
-    font-size: 3rem;
-  }
-  &:hover {
-    background-color: var(--intake-foreground);
-    color: var(--intake-background);
-  }
-  &:focus {
-    outline: max(0.2rem, 0.1rem) solid var(--intake-foreground);
-    outline-offset: max(0.2rem, 0.1rem);
-  }
-  &:active {
-    background-color: var(--intake-foreground);
-    color: var(--intake-background);
-  }
-  @media only screen and (max-width: 525px) {
-    width: 100%;
-  }
-`
-
-export default function IntakeForm() {
+export default function IntakeThanks() {
   return (
     <EntireForm>
       <Border>
@@ -220,20 +144,19 @@ export default function IntakeForm() {
         </LogoContainer>
         <FlexContainer>
           <BusinessType>
-            <p>Are you a small business or non-profit?</p>
-            <TypeSplit to="/bundles/lightning/intake/payments">
-              We're a small or micro business <PiCaretRightBold />
-            </TypeSplit>
-            <TypeSplit to="/bundles/lightning/intake/donations">
-              We're a 501(c)(3) non-profit <PiCaretRightBold />{' '}
-            </TypeSplit>
+            <p>
+              Great Work! You've just identified the most important parts of
+              clarifying your message and gaining customers that are fired up
+              about what you do.
+            </p>
+            <p>
+              We will review your application and ensure this bundle is a good
+              fit for you.
+            </p>
+            <p>
+              You'll receive your free Personalized Branding PDF within 7 days.
+            </p>
           </BusinessType>
-          <ProgressContainer>
-            <ProgressIndicator>0%</ProgressIndicator>
-            <FullBar>
-              <ProgressBar />
-            </FullBar>
-          </ProgressContainer>
         </FlexContainer>
       </Border>
     </EntireForm>

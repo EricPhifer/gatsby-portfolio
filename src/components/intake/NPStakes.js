@@ -18,26 +18,26 @@ const Services = styled.fieldset`
   }
 `
 
-export default function Awards() {
+export default function NPStakes() {
   // handle form values
   const { values, updateValue } = useForm({
-    // Awards
-    awards: '',
+    // Stakes
+    npstakes: '',
   })
   return (
     <Services>
-      <label htmlFor="awards">
-        List any relevant accomplishments that show your authority in your
-        market.
+      <label htmlFor="npstakes">
+        What are the negative consequences of people not supporting your cause?
+        (e.g. human trafficking)
       </label>
       <textarea
-        name="awards"
-        id="awards"
+        name="npstakes"
+        id="npstakes"
         type="text"
-        value={values.awards}
+        value={values.npstakes}
         onChange={updateValue}
         rows="7"
-        placeholder="Awards, years serving the community, etc."
+        placeholder="This will help build urgency and has two parts: the external consequence (e.g. trafficking will increase) and the internal consequence (guilt that you could have helped). What is at stake?"
       />
     </Services>
   )

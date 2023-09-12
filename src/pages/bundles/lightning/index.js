@@ -16,7 +16,7 @@ const HomeStyles = styled.div`
 export default function LightningHome() {
   return (
     <HomeStyles>
-      <div>Simple Splendid.</div>
+      <div>Simple. Splendid.</div>
     </HomeStyles>
   )
 }

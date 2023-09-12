@@ -18,26 +18,25 @@ const Services = styled.fieldset`
   }
 `
 
-export default function Awards() {
+export default function NPResolution() {
   // handle form values
   const { values, updateValue } = useForm({
-    // Awards
-    awards: '',
+    // Success
+    npresolution: '',
   })
   return (
     <Services>
-      <label htmlFor="awards">
-        List any relevant accomplishments that show your authority in your
-        market.
+      <label htmlFor="npresolution">
+        How does your mission bring relief to the negative consequences?
       </label>
       <textarea
-        name="awards"
-        id="awards"
+        name="npresolution"
+        id="npresolution"
         type="text"
-        value={values.awards}
+        value={values.npresolution}
         onChange={updateValue}
         rows="7"
-        placeholder="Awards, years serving the community, etc."
+        placeholder="What are the positive changes your community will experience by donating to your cause?"
       />
     </Services>
   )

@@ -291,6 +291,7 @@ const ProgressBar = styled.div`
   border-radius: 5rem;
   margin: 0.5rem 0;
   background-color: var(--intake-background);
+  transition: height 0.5s ease-in-out;
 `
 
 const ProgressIndicator = styled.p`
@@ -320,6 +321,9 @@ const Pagination = styled.fieldset`
   }
   @media only screen and (min-height: 525px) and (max-height: 700px) and (max-width: 350px) {
     left: -3rem;
+  }
+  @media only screen and (max-height: 525px) {
+    left: -10rem;
   }
 `
 
@@ -682,6 +686,7 @@ export default function BusinessIntake() {
             <Form
               name="intake-form"
               method="post"
+              action="/bundles/lightning/intake/intake-thanks"
               encType="multipart/form-data"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
