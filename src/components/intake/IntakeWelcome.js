@@ -6,7 +6,6 @@ const WelcomePage = styled.fieldset`
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
-  align-items: center;
   p {
     font-size: 2.25rem;
     margin-bottom: 1.5rem;

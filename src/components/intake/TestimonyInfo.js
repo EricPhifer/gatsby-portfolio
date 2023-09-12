@@ -83,7 +83,7 @@ export default function TestimonyInfo() {
             type="text"
             value={testimony.writtentestimony}
             onChange={e => handleFormChange(e, index)}
-            rows="3"
+            rows="6"
             placeholder="Written testimony... (should reinforce the success your business has helped others gain with your service)"
           />
 

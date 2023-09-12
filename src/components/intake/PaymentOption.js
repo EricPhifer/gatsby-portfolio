@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import useForm from '../../utils/useForm'
 
 const Note = styled.p`
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
   margin: 0;
   padding: 0;
 `
@@ -43,10 +43,30 @@ const PaymentType = styled.fieldset`
 
 const RadioContainer = styled.fieldset`
   width: 100%;
-  height: 100%;
   position: relative;
   display: flex;
   justify-content: center;
+  input[type='radio'] {
+    width: 100% !important;
+    margin: 0 !important;
+    position: absolute !important;
+  }
+
+  @media only screen and (max-width: 350px) {
+    label.pmtradio {
+      height: 6rem;
+    }
+  }
+  @media only screen and (max-width: 500px) {
+    label.pmtradio {
+      font-size: 1.5rem !important;
+    }
+  }
+  @media only screen and (max-height: 525px) {
+    label.pmtradio {
+      height: 5rem;
+    }
+  }
 `
 
 export default function PaymentOption() {
@@ -84,8 +104,8 @@ export default function PaymentOption() {
       </RadioContainer>
       <Note>
         This covers the first year of all technical maintenance. Maintenance
-        renews for $750/year and will chage 12 months after the launch of your
-        website.
+        renews for $750/year and will first charge 12 months after the launch of
+        your website.
       </Note>
     </PaymentType>
   )

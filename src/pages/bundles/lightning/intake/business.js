@@ -55,6 +55,7 @@ const EntireForm = styled.div`
   font-size: 2.35rem;
   color: var(--intake-foreground);
   scrollbar-color: var(--intake-foreground) !important;
+  transition: all 0.2s ease-in-out;
 
   // apply hidden option
   .hidden {
@@ -190,6 +191,16 @@ const LogoContainer = styled.div`
   height: 25%;
   display: flex;
   justify-content: center;
+  @media only screen and (max-width: 815px) {
+    height: 20%;
+  }
+  @media only screen and (max-height: 700px) {
+    width: 15%;
+    position: absolute;
+  }
+  @media only screen and (min-height: 525px) and (max-height: 700px) and (max-width: 350px) {
+    width: 25%;
+  }
 `
 
 const LightningLogo = styled.div`
@@ -207,14 +218,23 @@ const FlexContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media only screen and (max-width: 815px) {
+    height: 80%;
+  }
+  @media only screen and (max-height: 700px) {
+    height: 100%;
+  }
 `
 
 const FormContainer = styled.div`
   max-width: 60rem;
+  width: 86%;
   height: 94%;
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: end;
+  z-index: 10;
   .full {
     width: 90%;
     input {
@@ -223,6 +243,20 @@ const FormContainer = styled.div`
   }
   .hidden {
     display: none;
+  }
+  @media only screen and (max-width: 570px) {
+    font-size: 2rem;
+  }
+  @media only screen and (max-width: 350px) {
+    font-size: 1.5rem;
+  }
+  @media only screen and (max-height: 525px) {
+    width: 70%;
+    margin-left: 2%;
+    font-size: 1.5rem;
+  }
+  @media only screen and (min-height: 525px) and (max-height: 700px) and (max-width: 835px) {
+    margin-top: 15rem;
   }
 `
 
@@ -234,6 +268,9 @@ const ProgressContainer = styled.div`
   position: absolute;
   bottom: 7%;
   right: 3%;
+  @media only screen and (max-height: 700px) {
+    height: 85dvh;
+  }
 `
 
 const FullBar = styled.div`
@@ -263,9 +300,32 @@ const ProgressIndicator = styled.p`
 `
 
 // Form Pagination
+const Pagination = styled.fieldset`
+  width: 26rem;
+  margin-right: -13rem;
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  display: inline-flex;
+  justify-content: space-around;
+  z-index: 5;
+  @media only screen and (max-width: 350px) {
+    right: 64%;
+  }
+  @media only screen and (max-height: 790px) {
+    width: 10rem;
+    margin-right: 0;
+    right: 0;
+    left: 0;
+  }
+  @media only screen and (min-height: 525px) and (max-height: 700px) and (max-width: 350px) {
+    left: -3rem;
+  }
+`
+
 const PaginationLeft = styled.label`
   width: 5rem;
-  height: 100%;
+  height: 5rem;
   display: flex;
   align-items: end;
   cursor: pointer;
@@ -277,7 +337,7 @@ const PaginationLeft = styled.label`
 
 const PaginationRight = styled.label`
   width: 5rem;
-  height: 100%;
+  height: 5rem;
   display: flex;
   align-items: end;
   cursor: pointer;
@@ -288,7 +348,7 @@ const PaginationRight = styled.label`
 `
 
 const Form = styled.form`
-  max-width: 100vw;
+  max-width: 100%;
   width: 60rem;
   display: inline-flex;
   justify-content: center;
@@ -296,9 +356,6 @@ const Form = styled.form`
   overflow-y: auto;
   input {
     width: 100%;
-  }
-  @media only screen and (max-width: 600px) {
-    width: 27rem;
   }
 `
 
@@ -320,8 +377,11 @@ const InnerSlider = styled.fieldset`
 `
 
 const NodeParser = styled.fieldset`
+  height: calc(100% - 6.5rem);
   overflow-y: auto;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
   flex: 0 0 100%;
   opacity: 0;
   pointer-events: none;
@@ -332,6 +392,54 @@ const NodeParser = styled.fieldset`
     pointer-events: auto;
     position: relative;
     padding-right: 1.6rem;
+  }
+  @media only screen and (max-width: 570px) {
+    input,
+    textarea {
+      font-size: 2rem;
+    }
+    label.checkbox,
+    p {
+      font-size: 1.75rem;
+    }
+    button.submit {
+      font-size: 3rem;
+    }
+  }
+  @media only screen and (max-width: 475px) {
+    input,
+    textarea {
+      font-size: 1.25rem;
+    }
+  }
+  @media only screen and (max-width: 350px) {
+    margin-left: 0.2rem;
+    label.checkbox,
+    p {
+      font-size: 1.5rem;
+    }
+  }
+  @media only screen and (max-height: 700px) {
+    height: 100%;
+  }
+  @media only screen and (max-height: 700px) and (max-width: 350px) {
+    input,
+    textarea {
+      font-size: 1.5rem;
+    }
+  }
+  @media only screen and (max-height: 525px) {
+    input,
+    textarea {
+      font-size: 1.5rem;
+    }
+    textarea {
+      max-height: 18rem;
+    }
+    label.checkbox,
+    p {
+      font-size: 1.75rem;
+    }
   }
 `
 
@@ -395,6 +503,20 @@ const SubmissionPage = styled.fieldset`
       color: var(--intake-foreground);
     }
   }
+  @media only screen and (max-height: 790px) {
+    .submit {
+      right: 2rem;
+      bottom: 1.7rem;
+    }
+  }
+  @media only screen and (max-height: 525px) {
+    p {
+      margin-bottom: 0.75rem;
+    }
+    .termsagreement {
+      margin-top: 0.75rem;
+    }
+  }
 `
 
 const ScrollableTerms = styled.div`
@@ -408,6 +530,20 @@ const ScrollableTerms = styled.div`
   border-left: 0.2rem solid var(--intake-foreground);
   font-size: 2.5rem;
   overflow-y: auto;
+  @media only screen and (max-width: 570px) {
+    font-size: 2rem;
+    overflow-x: hidden;
+  }
+  @media only screen and (max-width: 475px) {
+    width: 98%;
+    font-size: 1.25rem;
+  }
+  @media only screen and (max-height: 750px) {
+    max-height: 20rem;
+  }
+  @media only screen and (max-height: 525px) {
+    max-height: 12rem;
+  }
 `
 
 export default function BusinessIntake() {
@@ -481,7 +617,8 @@ export default function BusinessIntake() {
         <SubmissionPage>
           <p>
             Congratulations, you've done great work! All that's left is the
-            terms and agreement and you're all set!
+            terms and agreement and we will contact you after it's been
+            reviewed!
           </p>
           <ScrollableTerms>
             <IntakeTerms />
@@ -542,15 +679,6 @@ export default function BusinessIntake() {
         </LogoContainer>
         <FlexContainer>
           <FormContainer>
-            <PaginationLeft
-              htmlFor={`slide${
-                activeSlide === 0 ? totalSlides : activeSlide
-              }-content`}
-              className={`prev ${activeSlide === 0 ? 'hidden' : ''}`}
-              onClick={showPrevSlide}
-            >
-              <PiCaretLeftBold />
-            </PaginationLeft>
             <Form
               name="intake-form"
               method="post"
@@ -574,17 +702,28 @@ export default function BusinessIntake() {
                 </InnerSlider>
               </Slider>
             </Form>
-            <PaginationRight
-              htmlFor={`slide${
-                activeSlide === totalSlides - 1 ? 1 : activeSlide + 2
-              }-content`}
-              className={`next ${
-                activeSlide === totalSlides - 1 ? 'hidden' : ''
-              }`}
-              onClick={showNextSlide}
-            >
-              <PiCaretRightBold />
-            </PaginationRight>
+            <Pagination className="pagination">
+              <PaginationLeft
+                htmlFor={`slide${
+                  activeSlide === 0 ? totalSlides : activeSlide
+                }-content`}
+                className={`prev ${activeSlide === 0 ? 'hidden' : ''}`}
+                onClick={showPrevSlide}
+              >
+                <PiCaretLeftBold />
+              </PaginationLeft>
+              <PaginationRight
+                htmlFor={`slide${
+                  activeSlide === totalSlides - 1 ? 1 : activeSlide + 2
+                }-content`}
+                className={`next ${
+                  activeSlide === totalSlides - 1 ? 'hidden' : ''
+                }`}
+                onClick={showNextSlide}
+              >
+                <PiCaretRightBold />
+              </PaginationRight>
+            </Pagination>
           </FormContainer>
           <ProgressContainer>
             <ProgressIndicator>

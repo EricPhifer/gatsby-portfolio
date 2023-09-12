@@ -21,6 +21,7 @@ export default function ProblemInfo() {
     problemtwo: '',
     problemthree: '',
   })
+
   return (
     <ProblemSolution>
       <p>List 1-3 problems you solve for your customers:</p>

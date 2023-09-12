@@ -14,6 +14,11 @@ const Basics = styled.fieldset`
   label input[type='checkbox'] {
     margin-left: 1rem;
   }
+  @media only screen and (max-height: 525px) {
+    input {
+      margin-bottom: 0.85rem !important;
+    }
+  }
 `
 
 const Checkmark = styled.span`

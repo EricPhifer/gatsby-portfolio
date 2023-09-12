@@ -11,10 +11,10 @@ const ConditionStyles = styled.div`
   color: var(--intake-foreground);
   mso-themecolor: text1;
   mso-themetint: 166;
-  font-size: 14px !important;
-  font-family: Arial !important;
+  font-size: 14px;
+  font-family: Arial;
 
-  background: transparent !important;
+  background: transparent;
 `
 
 const Container = styled.div`
@@ -22,32 +22,56 @@ const Container = styled.div`
 `
 
 const Title = styled.div`
-  font-family: Arial !important;
-  font-size: 26px !important;
+  font-family: Arial;
+  font-size: 26px;
   font-size: 19px;
   line-height: 1.5;
+  @media only screen and (max-width: 570px) {
+    font-size: 2rem;
+  }
+  @media only screen and (max-width: 475px) {
+    font-size: 1.5rem;
+  }
 `
 
 const Subtitle = styled.div`
-  font-family: Arial !important;
-  font-size: 14px !important;
+  font-family: Arial;
+  font-size: 14px;
   font-weight: bold;
+  @media only screen and (max-width: 570px) {
+    font-size: 1.75rem;
+  }
+  @media only screen and (max-width: 475px) {
+    font-size: 1.25rem;
+  }
 `
 
 const Heading1 = styled.div`
   margin-top: 2.5rem;
-  font-family: Arial !important;
+  font-family: Arial;
   font-size: 19px;
+  @media only screen and (max-width: 570px) {
+    font-size: 2rem;
+  }
+  @media only screen and (max-width: 475px) {
+    font-size: 1.35rem;
+  }
 `
 
 const Heading2 = styled.div`
-  font-family: Arial !important;
-  font-size: 17px !important;
+  font-family: Arial;
+  font-size: 17px;
+  @media only screen and (max-width: 570px) {
+    font-size: 2rem;
+  }
+  @media only screen and (max-width: 475px) {
+    font-size: 1.25rem;
+  }
 `
 
 const Anchors = styled.a`
-  font-family: Arial !important;
-  word-break: break-word !important;
+  font-family: Arial;
+  word-break: break-word;
   font-family: Arial, Calibri, sans-serif;
   opacity: 0.6;
   color: var(--blue);
@@ -55,7 +79,14 @@ const Anchors = styled.a`
   &:hover {
     opacity: 0.8;
   }
+  @media only screen and (max-width: 570px) {
+    font-size: 1.5rem;
+  }
+  @media only screen and (max-width: 475px) {
+    font-size: 1.25rem;
+  }
 `
+
 const CenteredContainer = styled.div`
   text-align: left;
   display: flex;
@@ -71,6 +102,12 @@ const TextContainer = styled.div`
   font-family: Arial, Calibri;
   mso-themecolor: text1;
   mso-themetint: 166;
+  @media only screen and (max-width: 570px) {
+    font-size: 1.5rem;
+  }
+  @media only screen and (max-width: 475px) {
+    font-size: 1.25rem;
+  }
 `
 
 const Question = styled.span``
@@ -177,10 +214,10 @@ export default function IntakeTerms() {
           <Question className="block-container question question-in-editor">
             Eric Phifer LLC
           </Question>
-          , doing business as <Question>Phifer Web Solutions</Question>
-          ("<CompanyName>Company</CompanyName>," "<CompanyName>we</CompanyName>
+          , doing business as <Question>Phifer Web Solutions</Question> ("
+          <CompanyName>Company</CompanyName>," "<CompanyName>we</CompanyName>
           ," "<CompanyName>us</CompanyName>," "<CompanyName>our</CompanyName>").
-          <Address>1123 Aquarius Ave, Fruita, CO 81521</Address>.
+          <Address> 180 S Elm St, Fruita, CO 81521</Address>.
         </TextContainer>
         <TextContainer data-custom-class="body_text">
           <div style={{ lineHeight: 1 }}>
@@ -466,9 +503,7 @@ export default function IntakeTerms() {
               style={{ textAlign: 'left', lineHeight: 1.5 }}
             >
               <strong>
-                <span id="ip" style={{ fontSize: 19 }}>
-                  2. INTELLECTUAL PROPERTY RIGHTS
-                </span>
+                <span id="ip">2. INTELLECTUAL PROPERTY RIGHTS</span>
               </strong>
             </div>
             <div style={{ lineHeight: 1.5 }}>
@@ -713,7 +748,7 @@ export default function IntakeTerms() {
             data-custom-class="body_text"
             style={{ lineHeight: 1.5 }}
           >
-            <span style={{ fontSize: 15 }}>
+            <span>
               <strong>
                 When you post Contributions, you grant us a license (including
                 use of your name, trademarks, and logos):
@@ -740,7 +775,7 @@ export default function IntakeTerms() {
             data-custom-class="body_text"
             style={{ lineHeight: 1.5 }}
           >
-            <span style={{ fontSize: 15 }}>
+            <span>
               This license includes our use of your name, company name, and
               franchise name, as applicable, and any of the trademarks, service
               marks, trade names, logos, and personal and commercial images you
@@ -755,7 +790,7 @@ export default function IntakeTerms() {
             data-custom-class="body_text"
             style={{ lineHeight: 1.5 }}
           >
-            <span style={{ fontSize: 15 }}>
+            <span>
               <strong>You are responsible for what you post or upload:</strong>{' '}
               By sending us Submissions and/or posting Contributions through any
               part of the Services or making Contributions accessible through
@@ -769,10 +804,10 @@ export default function IntakeTerms() {
               data-custom-class="body_text"
               style={{ lineHeight: 1.5 }}
             >
-              <span style={{ fontSize: 15 }}>
+              <span>
                 confirm that you have read and agree with our{' '}
                 <Anchors data-custom-class="link" href="#prohibited">
-                  <span style={{ fontSize: 15 }}>PROHIBITED ACTIVITIES</span>
+                  <span>PROHIBITED ACTIVITIES</span>
                 </Anchors>{' '}
                 and will not post, send, publish, upload, or transmit through
                 the Services any Submission nor post any Contribution that is
@@ -787,7 +822,7 @@ export default function IntakeTerms() {
               data-custom-class="body_text"
               style={{ lineHeight: 1.5 }}
             >
-              <span style={{ fontSize: 15 }}>
+              <span>
                 to the extent permissible by applicable law, waive any and all
                 moral rights to any such Submission and/or Contribution;
               </span>
@@ -797,7 +832,7 @@ export default function IntakeTerms() {
               data-custom-class="body_text"
               style={{ lineHeight: 1.5 }}
             >
-              <span style={{ fontSize: 15 }}>
+              <span>
                 warrant that any such Submission and/or Contributions are
                 original to you or that you have the necessary rights and
                 licenses to submit such Submissions and/or Contributions and
@@ -810,7 +845,7 @@ export default function IntakeTerms() {
               data-custom-class="body_text"
               style={{ lineHeight: 1.5 }}
             >
-              <span style={{ fontSize: 15 }}>
+              <span>
                 warrant and represent that your Submissions and/or Contributions
                 do not constitute confidential information.
               </span>
@@ -891,7 +926,6 @@ export default function IntakeTerms() {
                 style={{
                   lineHeight: '115%',
                   fontFamily: 'Arial',
-                  fontSize: '19px',
                 }}
               >
                 <strong>
@@ -899,7 +933,6 @@ export default function IntakeTerms() {
                     style={{
                       lineHeight: '115%',
                       fontFamily: 'Arial',
-                      fontSize: '19px',
                     }}
                   >
                     <strong>
@@ -907,7 +940,6 @@ export default function IntakeTerms() {
                         style={{
                           lineHeight: '115%',
                           fontFamily: 'Arial',
-                          fontSize: '19px',
                         }}
                       >
                         <strong>
@@ -915,7 +947,6 @@ export default function IntakeTerms() {
                             style={{
                               lineHeight: '115%',
                               fontFamily: 'Arial',
-                              fontSize: '19px',
                             }}
                           >
                             3.
@@ -930,7 +961,6 @@ export default function IntakeTerms() {
                 style={{
                   lineHeight: '115%',
                   fontFamily: 'Arial',
-                  fontSize: '19px',
                 }}
               >
                 {' '}
@@ -949,7 +979,6 @@ export default function IntakeTerms() {
             >
               <span
                 style={{
-                  fontSize: '11.0pt',
                   lineHeight: '115%',
                   fontFamily: 'Arial',
                 }}
@@ -968,7 +997,7 @@ export default function IntakeTerms() {
                     data-type="statement"
                   />
                 </span>
-                <span style={{ fontSize: '11pt' }}>
+                <span>
                   (1) you have the legal capacity and you agree to comply with
                   these Legal Terms;
                 </span>
@@ -984,7 +1013,7 @@ export default function IntakeTerms() {
                       data-type="statement"
                     />
                   </span>
-                  <span style={{ fontSize: '11pt' }}>
+                  <span>
                     (2) you are not a minor in the jurisdiction in which you
                     reside
                     <span
@@ -1025,7 +1054,6 @@ export default function IntakeTerms() {
               >
                 <span
                   style={{
-                    fontSize: '11pt',
                     lineHeight: '16.8667px',
                   }}
                 >
@@ -1045,16 +1073,16 @@ export default function IntakeTerms() {
           </div>
           <div style={{ lineHeight: 1.5, textAlign: 'left' }}>
             <span className="block-component">
-              <span style={{ fontSize: '15px' }} />
+              <span />
             </span>
-            <span style={{ fontSize: '15px' }}>
+            <span>
               <span className="block-component" />
               <span className="statement-end-if-in-editor" />
             </span>
           </div>
           <div style={{ lineHeight: 1.5, textAlign: 'left' }}>
             <span className="block-component">
-              <span style={{ fontSize: '15px' }} />
+              <span />
             </span>
           </div>
           <div style={{ lineHeight: 1.5, textAlign: 'left' }}>
@@ -1074,7 +1102,6 @@ export default function IntakeTerms() {
                 style={{
                   lineHeight: '115%',
                   fontFamily: 'Arial',
-                  fontSize: '19px',
                 }}
               >
                 <strong>
@@ -1082,7 +1109,6 @@ export default function IntakeTerms() {
                     style={{
                       lineHeight: '115%',
                       fontFamily: 'Arial',
-                      fontSize: '19px',
                     }}
                   >
                     <strong>
@@ -1090,7 +1116,6 @@ export default function IntakeTerms() {
                         style={{
                           lineHeight: '115%',
                           fontFamily: 'Arial',
-                          fontSize: '19px',
                         }}
                       >
                         <strong>
@@ -1098,7 +1123,6 @@ export default function IntakeTerms() {
                             style={{
                               lineHeight: '115%',
                               fontFamily: 'Arial',
-                              fontSize: '19px',
                             }}
                           >
                             4.
@@ -1113,7 +1137,6 @@ export default function IntakeTerms() {
                 style={{
                   lineHeight: '115%',
                   fontFamily: 'Arial',
-                  fontSize: '19px',
                 }}
               >
                 {' '}
@@ -1133,7 +1156,6 @@ export default function IntakeTerms() {
           >
             <span
               style={{
-                fontSize: '11.0pt',
                 lineHeight: '115%',
                 fontFamily: 'Arial',
                 msoThemetint: 166,
@@ -1160,7 +1182,6 @@ export default function IntakeTerms() {
           >
             <span
               style={{
-                fontSize: '11.0pt',
                 lineHeight: '115%',
                 fontFamily: 'Arial',
                 msoThemetint: 166,
@@ -1177,7 +1198,6 @@ export default function IntakeTerms() {
           >
             <span
               style={{
-                fontSize: '11.0pt',
                 lineHeight: '115%',
                 fontFamily: 'Arial',
                 msoThemetint: 166,
@@ -1194,7 +1214,6 @@ export default function IntakeTerms() {
           >
             <span
               style={{
-                fontSize: '11.0pt',
                 lineHeight: '115%',
                 fontFamily: 'Arial',
                 msoThemetint: 166,
@@ -1211,7 +1230,6 @@ export default function IntakeTerms() {
           >
             <span
               style={{
-                fontSize: '11.0pt',
                 lineHeight: '115%',
                 fontFamily: 'Arial',
                 msoThemetint: 166,
@@ -1228,7 +1246,6 @@ export default function IntakeTerms() {
           >
             <span
               style={{
-                fontSize: '11.0pt',
                 lineHeight: '115%',
                 fontFamily: 'Arial',
                 msoThemetint: 166,
@@ -1240,7 +1257,6 @@ export default function IntakeTerms() {
           <div className="MsoNormal" style={{ lineHeight: 1 }}>
             <span
               style={{
-                fontSize: '11.0pt',
                 lineHeight: '115%',
                 fontFamily: 'Arial',
                 msoThemetint: 166,
@@ -1256,7 +1272,6 @@ export default function IntakeTerms() {
           >
             <span
               style={{
-                fontSize: '11.0pt',
                 lineHeight: '115%',
                 fontFamily: 'Arial',
                 msoThemetint: 166,
@@ -1282,7 +1297,6 @@ export default function IntakeTerms() {
           >
             <span
               style={{
-                fontSize: '11.0pt',
                 lineHeight: '115%',
                 fontFamily: 'Arial',
                 msoThemetint: 166,
@@ -1345,7 +1359,6 @@ export default function IntakeTerms() {
                       >
                         <span
                           style={{
-                            fontSize: '11.0pt',
                             lineHeight: '115%',
                             fontFamily: 'Arial',
                             msoThemetint: 166,
@@ -1369,7 +1382,7 @@ export default function IntakeTerms() {
                       <div>
                         <div className="MsoNormal" style={{ lineHeight: 1.5 }}>
                           <span className="block-component">
-                            <span style={{ fontSize: '15px' }} />
+                            <span />
                           </span>
                         </div>
                         <div
@@ -1379,20 +1392,20 @@ export default function IntakeTerms() {
                           style={{ lineHeight: 1.5 }}
                         >
                           <strong>
-                            <span style={{ fontSize: '19px' }}>
+                            <span>
                               5. <span className="block-component" /> POLICY
                             </span>
                           </strong>
                         </div>
                         <div className="MsoNormal" style={{ lineHeight: 1.5 }}>
-                          <span style={{ fontSize: '15px' }}>
+                          <span>
                             All sales are final and no refund will be issued.
                             <span className="statement-end-if-in-editor" />
                           </span>
                         </div>
                         <div className="MsoNormal" style={{ lineHeight: 1.5 }}>
                           <span className="block-component">
-                            <span style={{ fontSize: '15px' }} />
+                            <span />
                           </span>
                         </div>
                         <div className="MsoNormal" style={{ lineHeight: 1.5 }}>
@@ -1417,10 +1430,7 @@ export default function IntakeTerms() {
                               }}
                             >
                               <span data-type="body">
-                                <div
-                                  className="MsoNormal"
-                                  style={{ fontSize: '15px', lineHeight: 1.5 }}
-                                >
+                                <div className="MsoNormal">
                                   <br />
                                 </div>
                               </span>
@@ -1436,7 +1446,6 @@ export default function IntakeTerms() {
                               <span
                                 style={{
                                   lineHeight: '24.5333px',
-                                  fontSize: '19px',
                                 }}
                               >
                                 <strong>
@@ -1444,7 +1453,6 @@ export default function IntakeTerms() {
                                     style={{
                                       lineHeight: '115%',
                                       fontFamily: 'Arial',
-                                      fontSize: '19px',
                                     }}
                                   >
                                     <strong>
@@ -1452,7 +1460,6 @@ export default function IntakeTerms() {
                                         style={{
                                           lineHeight: '115%',
                                           fontFamily: 'Arial',
-                                          fontSize: '19px',
                                         }}
                                       >
                                         <strong>
@@ -1460,7 +1467,6 @@ export default function IntakeTerms() {
                                             style={{
                                               lineHeight: '115%',
                                               fontFamily: 'Arial',
-                                              fontSize: '19px',
                                             }}
                                           >
                                             6.
@@ -1489,7 +1495,6 @@ export default function IntakeTerms() {
                           >
                             <span
                               style={{
-                                fontSize: '11pt',
                                 lineHeight: '16.8667px',
                               }}
                             >
@@ -1509,7 +1514,6 @@ export default function IntakeTerms() {
                           <br />
                           <span
                             style={{
-                              fontSize: '11pt',
                               lineHeight: '16.8667px',
                             }}
                           >
@@ -1517,7 +1521,7 @@ export default function IntakeTerms() {
                           </span>
                           <ul>
                             <ListItem className="MsoNormal body_text">
-                              <ContentSpan style={{ fontSize: '11pt' }}>
+                              <ContentSpan>
                                 Systematically retrieve data or other content
                                 from the Services to create or compile, directly
                                 or indirectly, a collection, compilation,
@@ -1543,38 +1547,38 @@ export default function IntakeTerms() {
                               </ContentSpan>
                             </ListItem>
                             <ListItem className="MsoNormal body_text">
-                              <ContentSpan style={{ fontSize: '15px' }}>
+                              <ContentSpan>
                                 Disparage, tarnish, or otherwise harm, in our
                                 opinion, us and/or the Services.
                               </ContentSpan>
                             </ListItem>
                             <ListItem className="MsoNormal body_text">
-                              <ContentSpan style={{ fontSize: '15px' }}>
+                              <ContentSpan>
                                 Use any information obtained from the Services
                                 in order to harass, abuse, or harm another
                                 person.
                               </ContentSpan>
                             </ListItem>
                             <ListItem className="MsoNormal body_text">
-                              <ContentSpan style={{ fontSize: '15px' }}>
+                              <ContentSpan>
                                 Make improper use of our support services or
                                 submit false reports of abuse or misconduct.
                               </ContentSpan>
                             </ListItem>
                             <ListItem className="MsoNormal body_text">
-                              <ContentSpan style={{ fontSize: '15px' }}>
+                              <ContentSpan>
                                 Use the Services in a manner inconsistent with
                                 any applicable laws or regulations.
                               </ContentSpan>
                             </ListItem>
                             <ListItem className="MsoNormal body_text">
-                              <ContentSpan style={{ fontSize: '15px' }}>
+                              <ContentSpan>
                                 Engage in unauthorized framing of or linking to
                                 the Services.
                               </ContentSpan>
                             </ListItem>
                             <ListItem className="MsoNormal body_text">
-                              <ContentSpan style={{ fontSize: '15px' }}>
+                              <ContentSpan>
                                 Upload or transmit (or attempt to upload or to
                                 transmit) viruses, Trojan horses, or other
                                 material, including excessive use of capital
@@ -1587,7 +1591,7 @@ export default function IntakeTerms() {
                               </ContentSpan>
                             </ListItem>
                             <ListItem className="MsoNormal body_text">
-                              <ContentSpan style={{ fontSize: '15px' }}>
+                              <ContentSpan>
                                 Engage in any automated use of the system, such
                                 as using scripts to send comments or messages,
                                 or using any data mining, robots, or similar
@@ -1595,19 +1599,19 @@ export default function IntakeTerms() {
                               </ContentSpan>
                             </ListItem>
                             <ListItem className="MsoNormal body_text">
-                              <ContentSpan style={{ fontSize: '15px' }}>
+                              <ContentSpan>
                                 Delete the copyright or other proprietary rights
                                 notice from any Content.
                               </ContentSpan>
                             </ListItem>
                             <ListItem className="MsoNormal body_text">
-                              <ContentSpan style={{ fontSize: '15px' }}>
+                              <ContentSpan>
                                 Attempt to impersonate another user or person or
                                 use the username of another user.
                               </ContentSpan>
                             </ListItem>
                             <ListItem className="MsoNormal body_text">
-                              <ContentSpan style={{ fontSize: '15px' }}>
+                              <ContentSpan>
                                 Upload or transmit (or attempt to upload or to
                                 transmit) any material that acts as a passive or
                                 active information collection or transmission
@@ -1619,35 +1623,35 @@ export default function IntakeTerms() {
                               </ContentSpan>
                             </ListItem>
                             <ListItem className="MsoNormal body_text">
-                              <ContentSpan style={{ fontSize: '15px' }}>
+                              <ContentSpan>
                                 Interfere with, disrupt, or create an undue
                                 burden on the Services or the networks or
                                 services connected to the Services.
                               </ContentSpan>
                             </ListItem>
                             <ListItem className="MsoNormal body_text">
-                              <ContentSpan style={{ fontSize: '15px' }}>
+                              <ContentSpan>
                                 Harass, annoy, intimidate, or threaten any of
                                 our employees or agents engaged in providing any
                                 portion of the Services to you.
                               </ContentSpan>
                             </ListItem>
                             <ListItem className="MsoNormal body_text">
-                              <ContentSpan style={{ fontSize: '15px' }}>
+                              <ContentSpan>
                                 Attempt to bypass any measures of the Services
                                 designed to prevent or restrict access to the
                                 Services, or any portion of the Services.
                               </ContentSpan>
                             </ListItem>
                             <ListItem className="MsoNormal body_text">
-                              <ContentSpan style={{ fontSize: '15px' }}>
+                              <ContentSpan>
                                 Copy or adapt the Services' software, including
                                 but not limited to Flash, PHP, HTML, JavaScript,
                                 or other code.
                               </ContentSpan>
                             </ListItem>
                             <ListItem className="MsoNormal body_text">
-                              <ContentSpan style={{ fontSize: '15px' }}>
+                              <ContentSpan>
                                 Except as permitted by applicable law, decipher,
                                 decompile, disassemble, or reverse engineer any
                                 of the software comprising or in any way making
@@ -1655,7 +1659,7 @@ export default function IntakeTerms() {
                               </ContentSpan>
                             </ListItem>
                             <ListItem className="MsoNormal body_text">
-                              <ContentSpan style={{ fontSize: '15px' }}>
+                              <ContentSpan>
                                 Except as may be the result of standard search
                                 engine or Internet browser usage, use, launch,
                                 develop, or distribute any automated system,
@@ -1732,7 +1736,6 @@ export default function IntakeTerms() {
                           >
                             <span
                               style={{
-                                fontSize: '11pt',
                                 lineHeight: '16.8667px',
                               }}
                             >
@@ -1922,7 +1925,6 @@ export default function IntakeTerms() {
                             >
                               <span
                                 style={{
-                                  fontSize: '11pt',
                                   lineHeight: '16.8667px',
                                 }}
                               >
@@ -2054,19 +2056,16 @@ export default function IntakeTerms() {
                               data-custom-class="body_text"
                             >
                               <StyledSpan>
-                                This
-                                <StyledSpanBlock />
-                                license
-                                <StyledSpanStatement />
-                                will apply to any form, media, or technology now
-                                known or hereafter developed, and includes our
-                                use of your name, company name, and franchise
-                                name, as applicable, and any of the trademarks,
-                                service marks, trade names, logos, and personal
-                                and commercial images you provide. You waive all
-                                moral rights in your Contributions, and you
-                                warrant that moral rights have not otherwise
-                                been asserted in your Contributions.
+                                This license will apply to any form, media, or
+                                technology now known or hereafter developed, and
+                                includes our use of your name, company name, and
+                                franchise name, as applicable, and any of the
+                                trademarks, service marks, trade names, logos,
+                                and personal and commercial images you provide.
+                                You waive all moral rights in your
+                                Contributions, and you warrant that moral rights
+                                have not otherwise been asserted in your
+                                Contributions.
                               </StyledSpan>
                             </TextContainer>
                           </span>
@@ -2518,46 +2517,23 @@ export default function IntakeTerms() {
                   <BodyText>
                     If for any reason, a Dispute proceeds in court rather than
                     arbitration, the Dispute shall be commenced or prosecuted in
-                    the{' '}
-                    <span
-                      className="block-component"
-                      style={{ fontSize: '15px' }}
-                    />
-                    <span style={{ fontSize: '15px' }}>
-                      state and federal courts
-                    </span>
-                    <span
-                      className="statement-end-if-in-editor"
-                      style={{ fontSize: '15px' }}
-                    />
-                    <span style={{ fontSize: '15px' }}>located in</span>
-                    <span
-                      className="block-component"
-                      style={{ fontSize: '15px' }}
-                    />
+                    the <span className="block-component" />
+                    <span>state and federal courts</span>
+                    <span className="statement-end-if-in-editor" />
+                    <span>located in</span>
+                    <span className="block-component" />
                     <span className="question">Mesa</span>
-                    <span style={{ fontSize: '15px' }}>,</span>
-                    <span
-                      className="statement-end-if-in-editor"
-                      style={{ fontSize: '15px' }}
-                    />
-                    <span
-                      className="block-component"
-                      style={{ fontSize: '15px' }}
-                    />
-                    <span className="question" style={{ fontSize: '15px' }}>
-                      Colorado
-                    </span>
-                    <span
-                      className="statement-end-if-in-editor"
-                      style={{ fontSize: '15px' }}
-                    />
-                    <span style={{ fontSize: '15px' }}>
+                    <span>,</span>
+                    <span className="statement-end-if-in-editor" />
+                    <span className="block-component" />
+                    <span className="question">Colorado</span>
+                    <span className="statement-end-if-in-editor" />
+                    <span>
                       {' '}
                       and the Parties hereby consent to, and waive all{' '}
                     </span>
                     <span className="block-component" />
-                    <span style={{ fontSize: '15px' }}>defenses</span>
+                    <span>defenses</span>
                     <span className="statement-end-if-in-editor" /> of lack of
                     personal jurisdiction, and forum non conveniens with respect
                     to venue and jurisdiction in such

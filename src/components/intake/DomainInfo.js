@@ -15,6 +15,11 @@ const Domains = styled.fieldset`
     margin-bottom: 0;
     margin-top: 2rem;
   }
+  @media only screen and (max-height: 525px) {
+    label {
+      margin-bottom: 0 !important;
+    }
+  }
 `
 
 const SideBySide = styled.fieldset`
