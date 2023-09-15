@@ -13,7 +13,7 @@ const HomeStyles = styled.div`
   }
 `
 
-export default function LightningHome() {
+export default function Bundles() {
   return (
     <HomeStyles>
       <div>Simple. Splendid.</div>
