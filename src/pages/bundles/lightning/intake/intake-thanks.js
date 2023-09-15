@@ -154,7 +154,7 @@ export default function IntakeThanks() {
               fit for you.
             </p>
             <p>
-              You'll receive your free Personalized Branding PDF within 7 days.
+              You'll receive your Personalized Branding PDF bonus within 7 days.
             </p>
           </BusinessType>
         </FlexContainer>
