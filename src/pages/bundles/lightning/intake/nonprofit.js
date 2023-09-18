@@ -617,7 +617,7 @@ export default function NonprofitIntake() {
         <SubmissionPage>
           <p>
             Congratulations, you've done great work! All that's left is the
-            terms and agreement and we will contact you after it's been
+            terms and agreement and we will contact you after it has been
             reviewed!
           </p>
           <ScrollableTerms>

@@ -28,6 +28,7 @@ export default function IdealCustomer() {
     <Services>
       <label htmlFor="idealcustomer">
         What is your ideal visitor looking for from your product or service?
+        (e.g. If you sell shoes...)
       </label>
       <textarea
         name="idealcustomer"
