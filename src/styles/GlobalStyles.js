@@ -28,6 +28,12 @@ const GlobalStyles = createGlobalStyle`
     --red: #EB5E55;
     --green: #00916E;
     --lightgray: #ebebeb;
+    --gray: #e1e1e1;
+
+    // Hero Gradient Colors
+    --hero-red: #FF1F1F;
+    --hero-orange: #FF8709;
+    --hero-yellow: #FFB100;
   }
   html {
     background-color: var(--white);
