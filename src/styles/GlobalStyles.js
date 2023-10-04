@@ -27,8 +27,8 @@ const GlobalStyles = createGlobalStyle`
     --bg: #1F0318;
     --red: #EB5E55;
     --green: #00916E;
-    --lightgray: #ebebeb;
     --gray: #e1e1e1;
+    --lightgray: #ebebeb;
 
     // Hero Gradient Colors
     --hero-red: #FF1F1F;

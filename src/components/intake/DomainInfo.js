@@ -43,12 +43,12 @@ export default function DomainInfo() {
     // Domain Info
     domainname: '',
     emailprovider: '',
-    radiotoggle: '',
+    emailsetup: '',
   })
   return (
     <Domains>
       <label htmlFor="domainname">
-        Tell us about your domain (e.g. domainname.com):
+        What is your domain (e.g. domainname.com):
       </label>
       <input
         name="domainname"
@@ -69,7 +69,7 @@ export default function DomainInfo() {
         <label className="radio">
           Yes
           <input
-            name="radiotoggle"
+            name="emailsetup"
             id="emailprovideryes"
             type="radio"
             value="Yes"
@@ -79,7 +79,7 @@ export default function DomainInfo() {
         <label className="radio pad-left">
           No
           <input
-            name="radiotoggle"
+            name="emailsetup"
             id="emailproviderno"
             type="radio"
             value="No"

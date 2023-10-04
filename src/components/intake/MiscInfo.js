@@ -27,8 +27,7 @@ export default function MiscInfo() {
   return (
     <Services>
       <label htmlFor="miscinfo">
-        Is there any other information you want me to know? You'll have a chance
-        to add documents on the next page if needed.
+        Is there any other information you want me to know?
       </label>
       <textarea
         name="miscinfo"

@@ -168,13 +168,13 @@ export default function LogoInfo() {
         {logoFields.map((input, index) => (
           <InlineImgs key={index}>
             <label htmlFor={input.logoimgs} className="logoimgs">
-              +
+              + {/* Change to Add Logo, Logo or Logo +? */}
               <input
                 name={input.logoimgs}
                 id={input.logoimgs}
                 type="file"
                 ref={fileInputRef}
-                value={input.logoimgs}
+                value="Logo" // Test this change from {input.logoimgs}
                 accept="image/*"
                 onChange={e => handleImageAndFile(e, index)}
               />
