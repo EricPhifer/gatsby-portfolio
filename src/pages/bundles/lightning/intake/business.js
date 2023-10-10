@@ -31,6 +31,7 @@ import SocialInfo from '../../../../components/intake/SocialInfo'
 import LogoInfo from '../../../../components/intake/LogoInfo'
 import MiscInfo from '../../../../components/intake/MiscInfo'
 import PaymentOption from '../../../../components/intake/PaymentOption'
+import ProgressBar from '../../../../components/intake/ProgressBar'
 
 // Form Global Styling
 const EntireForm = styled.div`
@@ -159,7 +160,7 @@ const EntireForm = styled.div`
     margin: 0;
     margin-left: 1rem;
     &::after {
-      content: '√';
+      content: '✔️';
       color: var(--intake-background);
       background-color: var(--intake-foreground);
       width: 2.5rem;
@@ -258,46 +259,6 @@ const FormContainer = styled.div`
   @media only screen and (min-height: 525px) and (max-height: 700px) and (max-width: 835px) {
     margin-top: 15rem;
   }
-`
-
-// Progress Indicator
-const ProgressContainer = styled.div`
-  width: 8rem;
-  height: 60dvh;
-  display: flex;
-  position: absolute;
-  bottom: 7%;
-  right: 3%;
-  @media only screen and (max-height: 700px) {
-    height: 85dvh;
-  }
-`
-
-const FullBar = styled.div`
-  width: 2rem;
-  height: 100%;
-  background-color: var(--intake-foreground);
-  border-radius: 5rem;
-  position: absolute;
-  right: 0;
-  display: flex;
-  align-items: end;
-  justify-content: center;
-`
-
-const ProgressBar = styled.div`
-  width: 1.2rem;
-  height: ${({ percentage }) => percentage}%;
-  border-radius: 5rem;
-  margin: 0.5rem 0;
-  background-color: var(--intake-background);
-  transition: height 0.5s ease-in-out;
-`
-
-const ProgressIndicator = styled.p`
-  color: var(--intake-foreground);
-  justify-self: end;
-  align-self: end;
 `
 
 // Form Pagination
@@ -664,9 +625,6 @@ export default function BusinessIntake() {
     }
   }
 
-  // Progress Bar Percentage
-  const progressPercentage = ((activeSlide + 1) / totalSlides) * 100
-
   // Form Errors
   const { errMessage } = useContact({
     values,
@@ -730,14 +688,7 @@ export default function BusinessIntake() {
               </PaginationRight>
             </Pagination>
           </FormContainer>
-          <ProgressContainer>
-            <ProgressIndicator>
-              {Math.round(progressPercentage)}%
-            </ProgressIndicator>
-            <FullBar>
-              <ProgressBar percentage={progressPercentage - 2} />
-            </FullBar>
-          </ProgressContainer>
+          <ProgressBar activeSlide={activeSlide} totalSlides={totalSlides} />
         </FlexContainer>
       </Border>
     </EntireForm>

@@ -1,4 +1,3 @@
-import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -19,7 +18,7 @@ const HomeStyles = styled.div`
   }
 `
 
-const LightningStyles = styled(Link)`
+const LightningStyles = styled.a`
   max-width: 27rem;
   margin: 0 2rem;
   display: flex;
@@ -61,7 +60,11 @@ const LightningStyles = styled(Link)`
 export default function Bundles() {
   return (
     <HomeStyles>
-      <LightningStyles to="/bundles/lightning">
+      <LightningStyles
+        href="https://lightningbundle.com"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
         <p>Lightning</p>
         <p>Bundle</p>
       </LightningStyles>
