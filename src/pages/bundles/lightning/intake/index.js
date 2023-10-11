@@ -5,6 +5,7 @@ import { PiCaretRightBold } from 'react-icons/pi'
 // Logo Image
 import { Link } from 'gatsby'
 import lightninglogo from '../../../../assets/images/lightning-icon.png'
+import ProgressBar from '../../../../components/intake/ProgressBar'
 
 // Form Global Styling
 const EntireForm = styled.div`
@@ -83,45 +84,6 @@ const FlexContainer = styled.div`
   @media only screen and (max-height: 700px) {
     height: 100%;
   }
-`
-
-// Progress Indicator
-const ProgressContainer = styled.div`
-  width: 8rem;
-  height: 60dvh;
-  display: flex;
-  position: absolute;
-  bottom: 7%;
-  right: 3%;
-  @media only screen and (max-height: 700px) {
-    height: 85dvh;
-  }
-`
-
-const FullBar = styled.div`
-  width: 2rem;
-  height: 100%;
-  background-color: var(--intake-foreground);
-  border-radius: 5rem;
-  position: absolute;
-  right: 0;
-  display: flex;
-  align-items: end;
-  justify-content: center;
-`
-
-const ProgressBar = styled.div`
-  width: 1.2rem;
-  height: 1.2rem;
-  border-radius: 5rem;
-  margin: 0.5rem 0;
-  background-color: var(--intake-background);
-`
-
-const ProgressIndicator = styled.p`
-  color: var(--intake-foreground);
-  justify-self: end;
-  align-self: end;
 `
 
 const BusinessType = styled.fieldset`
@@ -212,6 +174,8 @@ const TypeSplit = styled(Link)`
 `
 
 export default function IntakeForm() {
+  const activeSlide = -1
+  const totalSlides = 1
   return (
     <EntireForm>
       <Border>
@@ -228,12 +192,7 @@ export default function IntakeForm() {
               We're a 501(c)(3) non-profit <PiCaretRightBold />{' '}
             </TypeSplit>
           </BusinessType>
-          <ProgressContainer>
-            <ProgressIndicator>0%</ProgressIndicator>
-            <FullBar>
-              <ProgressBar />
-            </FullBar>
-          </ProgressContainer>
+          <ProgressBar activeSlide={activeSlide} totalSlides={totalSlides} />
         </FlexContainer>
       </Border>
     </EntireForm>

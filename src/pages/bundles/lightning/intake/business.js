@@ -28,7 +28,6 @@ import Empathy from '../../../../components/intake/Empathy'
 import Awards from '../../../../components/intake/Awards'
 import TestimonyInfo from '../../../../components/intake/TestimonyInfo'
 import SocialInfo from '../../../../components/intake/SocialInfo'
-import LogoInfo from '../../../../components/intake/LogoInfo'
 import MiscInfo from '../../../../components/intake/MiscInfo'
 import PaymentOption from '../../../../components/intake/PaymentOption'
 import ProgressBar from '../../../../components/intake/ProgressBar'
@@ -569,9 +568,6 @@ export default function BusinessIntake() {
       content: <SocialInfo />,
     },
     {
-      content: <LogoInfo />,
-    },
-    {
       content: <MiscInfo />,
     },
     {
@@ -645,7 +641,6 @@ export default function BusinessIntake() {
               name="intake-form"
               method="post"
               action="/bundles/lightning/intake/intake-thanks"
-              encType="multipart/form-data"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
             >

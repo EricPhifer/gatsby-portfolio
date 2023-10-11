@@ -174,7 +174,7 @@ export default function LogoInfo() {
                 id={input.logoimgs}
                 type="file"
                 ref={fileInputRef}
-                value="Logo" // Test this change from {input.logoimgs}
+                value="Logo"
                 accept="image/*"
                 onChange={e => handleImageAndFile(e, index)}
               />
