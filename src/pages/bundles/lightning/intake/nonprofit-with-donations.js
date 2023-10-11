@@ -51,7 +51,10 @@ const EntireForm = styled.div`
   align-items: center;
 
   // typography
-  font-family: Arbotek;
+  font-family: Arbotek, Frutiger, 'Frutiger Linotype', Univers, Calibri,
+    'Gill Sans', 'Gill Sans MT', 'Myriad Pro', Myriad, 'DejaVu Sans Condensed',
+    'Liberation Sans', 'Nimbus Sans L', Tahoma, Geneva, 'Helvetica Neue',
+    Helvetica, Arial, sans-serif;
   font-size: 2.35rem;
   color: var(--intake-foreground);
   scrollbar-color: var(--intake-foreground) !important;
@@ -119,7 +122,7 @@ const EntireForm = styled.div`
       color: var(--intake-background);
       font-weight: bolder;
       bottom: 1.7rem;
-      left: 0.5rem;
+      left: 0;
     }
   }
   input[type='checkbox'] {
@@ -159,7 +162,7 @@ const EntireForm = styled.div`
     margin: 0;
     margin-left: 1rem;
     &::after {
-      content: '√';
+      content: '✔️';
       color: var(--intake-background);
       background-color: var(--intake-foreground);
       width: 2.5rem;
@@ -181,6 +184,9 @@ const EntireForm = styled.div`
 const Border = styled.div`
   width: 96%;
   height: 96%;
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
   border: 0.1rem solid var(--intake-foreground);
   border-radius: 1rem;
 `
@@ -255,18 +261,14 @@ const FormContainer = styled.div`
     margin-left: 2%;
     font-size: 1.5rem;
   }
-  @media only screen and (min-height: 525px) and (max-height: 700px) and (max-width: 835px) {
-    margin-top: 15rem;
-  }
 `
 
 // Form Pagination
 const Pagination = styled.fieldset`
   width: 26rem;
-  margin-right: -13rem;
   position: absolute;
   bottom: 0;
-  right: 50%;
+  left: -6rem;
   display: inline-flex;
   justify-content: space-around;
   z-index: 5;
@@ -313,6 +315,7 @@ const PaginationRight = styled.label`
 
 const Form = styled.form`
   max-width: 100%;
+  max-height: 100%;
   width: 60rem;
   display: inline-flex;
   justify-content: center;
@@ -341,7 +344,7 @@ const InnerSlider = styled.fieldset`
 `
 
 const NodeParser = styled.fieldset`
-  height: calc(100% - 6.5rem);
+  height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
   display: flex;
@@ -417,7 +420,7 @@ const Checkmark = styled.span`
   border: 0.2rem solid var(--intake-foreground);
   border-radius: 0.5rem;
   &:after {
-    content: '√';
+    content: '✔️';
     position: absolute;
     display: none;
   }
@@ -439,15 +442,13 @@ const SubmissionPage = styled.fieldset`
     width: 23rem;
     height: 5rem;
     margin: 0;
-    position: absolute;
-    right: -2rem;
-    bottom: 0;
     background-color: transparent;
     color: var(--intake-foreground);
     box-shadow: none;
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    align-self: end;
     font-size: 4rem;
     opacity: 1;
     transition: all 0.1s ease-in-out;
@@ -494,6 +495,9 @@ const ScrollableTerms = styled.div`
   border-left: 0.2rem solid var(--intake-foreground);
   font-size: 2.5rem;
   overflow-y: auto;
+  p {
+    font-size: 1.5rem;
+  }
   @media only screen and (max-width: 570px) {
     font-size: 2rem;
     overflow-x: hidden;

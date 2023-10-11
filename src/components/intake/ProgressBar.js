@@ -8,23 +8,21 @@ const ProgressContainer = styled.div`
   height: 8rem;
   display: flex;
   position: absolute;
-  bottom: 7%;
-  right: 3%;
-
-  @media only screen and (max-height: 700px) {
-    height: 85dvh;
+  bottom: 4%;
+  right: 0;
+  @media only screen and (max-height: 725px) {
+    bottom: 7%;
   }
 `
 
 const Progress = styled.progress`
   border-radius: 50%;
+  // reset defaults
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
   &[value] {
-    // reset defaults
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border: none;
-
     // style progress bar
     width: 8rem;
     height: 8rem;
@@ -38,9 +36,26 @@ const Progress = styled.progress`
   }
   &[value]::-webkit-progress-value {
     background-color: var(--intake-foreground);
+    background-image: -webkit-radial-gradient(
+      circle,
+      var(--intake-foreground),
+      var(--intake-foreground) 66%,
+      transparent 66%
+    );
+    border-radius: 50%;
+  }
+  &[value]::-webkit-progress-bar {
+    background-image: -webkit-radial-gradient(
+      circle,
+      var(--intake-background),
+      var(--intake-background) 66%,
+      transparent 66%
+    );
+    border-radius: 50%;
   }
   &[value]::-moz-progress-bar {
     background-color: var(--intake-foreground);
+    border-radius: 50%;
   }
 `
 

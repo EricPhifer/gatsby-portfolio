@@ -5,18 +5,22 @@ const ConditionStyles = styled.div`
   // set values for the form
   --intake-background: #535353;
   --intake-foreground: #ebebeb;
-  font-size: 11pt;
+  font-size: 1.4rem;
+  padding: 1rem 0 1rem 1.4rem;
   line-height: 115%;
   font-family: Arial, Calibri, sans-serif;
   color: var(--intake-foreground);
-  font-size: 14px;
 `
 
-const Paragraph = styled.p``
+const Paragraph = styled.p`
+  font-size: 1.2rem;
+`
 
 const OrderedList = styled.ol``
 
-const Item = styled.li``
+const Item = styled.li`
+  padding-bottom: 1rem;
+`
 
 const Strong = styled.strong`
   text-transform: uppercase;
@@ -83,13 +87,14 @@ export default function IntakeTerms() {
           Eric Phifer LLC will own all intellectual property rights in Eric
           Phifer LLC’s proprietary codes, design techniques, technology, and
           other intellectual property rights developed by Eric Phifer LLC prior
-          to or separate from the Deliverables. Eric Phifer LLC reserves the
-          right to use any creation for marketing and portfolio purposes.
-          Nothing in this agreement is intended to restrict Eric Phifer LLC from
-          independently developing substantially similar Website(s) for any
-          other clients or third parties, provided that Eric Phifer LLC does not
-          directly copy the Website designed for you, and does not use any
-          information provided by you.
+          to or separate from the Deliverables. You agree that Eric Phifer LLC
+          will have the right to retain and use any deliverables created by Eric
+          Phifer LLC, for portfolio and marketing purposes. Nothing in this
+          agreement is intended to restrict Eric Phifer LLC from independently
+          developing substantially similar Website(s) for any other clients or
+          third parties, provided that Eric Phifer LLC does not directly copy
+          the Website designed for you, and does not use any information
+          provided by you.
         </Item>
         <Item>
           <Strong>INTELLECTUAL PROPERTY WARRANTY.</Strong> You agree that any

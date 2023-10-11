@@ -41,7 +41,10 @@ const LightningStyles = styled.a`
   p {
     line-height: 1.5;
     letter-spacing: 0.2rem;
-    font-family: Arbotek;
+    font-family: Arbotek, Frutiger, 'Frutiger Linotype', Univers, Calibri,
+      'Gill Sans', 'Gill Sans MT', 'Myriad Pro', Myriad, 'DejaVu Sans Condensed',
+      'Liberation Sans', 'Nimbus Sans L', Tahoma, Geneva, 'Helvetica Neue',
+      Helvetica, Arial, sans-serif;
     font-variant: small-caps;
     font-size: 2rem;
     font-weight: bold;

@@ -21,7 +21,10 @@ const EntireForm = styled.div`
   align-items: center;
 
   // typography
-  font-family: Arbotek;
+  font-family: Arbotek, Frutiger, 'Frutiger Linotype', Univers, Calibri,
+    'Gill Sans', 'Gill Sans MT', 'Myriad Pro', Myriad, 'DejaVu Sans Condensed',
+    'Liberation Sans', 'Nimbus Sans L', Tahoma, Geneva, 'Helvetica Neue',
+    Helvetica, Arial, sans-serif;
   font-size: 2.35rem;
   color: var(--intake-foreground);
   scrollbar-color: var(--intake-foreground) !important;
@@ -154,7 +157,8 @@ export default function IntakeThanks() {
               fit for you.
             </p>
             <p>
-              You'll receive your Personalized Branding PDF bonus within 7 days.
+              You'll receive a PDF copy of your answers for your own use within
+              7 days.
             </p>
           </BusinessType>
         </FlexContainer>

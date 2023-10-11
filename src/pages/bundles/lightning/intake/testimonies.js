@@ -22,7 +22,10 @@ const EntireForm = styled.div`
   align-items: center;
 
   // typography
-  font-family: Arbotek;
+  font-family: Arbotek, Frutiger, 'Frutiger Linotype', Univers, Calibri,
+    'Gill Sans', 'Gill Sans MT', 'Myriad Pro', Myriad, 'DejaVu Sans Condensed',
+    'Liberation Sans', 'Nimbus Sans L', Tahoma, Geneva, 'Helvetica Neue',
+    Helvetica, Arial, sans-serif;
   font-size: 2.35rem;
   color: var(--intake-foreground);
   scrollbar-color: var(--intake-foreground) !important;
@@ -124,7 +127,7 @@ const EntireForm = styled.div`
     margin: 0;
     margin-left: 1rem;
     &::after {
-      content: '√';
+      content: '✔️';
       color: var(--intake-background);
       background-color: var(--intake-foreground);
       width: 2.5rem;

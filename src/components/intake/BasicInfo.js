@@ -30,7 +30,7 @@ const Checkmark = styled.span`
   border: 0.2rem solid var(--intake-foreground);
   border-radius: 0.5rem;
   &:after {
-    content: '√';
+    content: '✔️';
     position: absolute;
     display: none;
   }
