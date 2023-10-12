@@ -36,7 +36,7 @@ export default function MissionInfo() {
         value={values.missioninfo}
         onChange={updateValue}
         rows="7"
-        placeholder="Who do you help and how do you help thme?"
+        placeholder="Who do you help and how do you help them?"
       />
     </Services>
   )
