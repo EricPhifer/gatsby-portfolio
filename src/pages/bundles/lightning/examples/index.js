@@ -2,7 +2,7 @@ import { PortableText, defaultComponents } from '@portabletext/react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import SanityImage from 'gatsby-plugin-sanity-image'
 import React from 'react'
-import { PiArrowRightBold } from 'react-icons/pi'
+import { PiArrowArcRightBold } from 'react-icons/pi'
 import styled from 'styled-components'
 
 const HomeStyles = styled.div`
@@ -64,43 +64,15 @@ const Image = styled.div`
   border-radius: 0.5rem 0.5rem 0 0;
   img {
     width: var(--card-width);
-    height: 17rem;
+    height: 20rem;
     border-radius: 0.5rem 0.5rem 0 0;
   }
-`
-
-const Source = styled.a`
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 0.25rem;
-  color: var(--white);
 `
 
 const Title = styled.h3`
   text-transform: uppercase;
   font-size: 1.75rem;
   line-height: 1.8;
-`
-
-const Landing = styled.a`
-  width: 100%;
-  height: var(--link-height);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--green);
-  color: var(--white);
-  font-variant: small-caps;
-  text-weight: bold;
-  font-size: 2.25rem;
-  transition: 0.2s ease-in-out;
-  cursor: pointer;
-  &:hover {
-    background-color: transparent;
-    color: var(--green);
-  }
 `
 
 const Examples = styled(Link)`
@@ -143,19 +115,17 @@ const Intake = styled(Link)`
   }
 `
 
-export default function Bundles() {
-  const { bundles } = useStaticQuery(graphql`
+export default function LightningExamples() {
+  const { example } = useStaticQuery(graphql`
     query {
-      bundles: allSanityBundles {
+      example: allSanityLightningex {
         nodes {
           id
           alt
           link
-          landinglink
           examplelink
+          landinglink
           title
-          source
-          sourcelink
           _rawDescription
           image {
             asset {
@@ -167,7 +137,7 @@ export default function Bundles() {
       }
     }
   `)
-  const { nodes } = bundles
+  const { nodes } = example
   return (
     <HomeStyles>
       <LightningStyles>
@@ -178,37 +148,26 @@ export default function Bundles() {
                 {...bundle.image}
                 alt={bundle.alt}
                 style={{
-                  objectFit: 'contain',
+                  objectFit: 'cover',
                   auto: 'format',
                 }}
               />
-              {bundle.source ? (
-                <Source
-                  href={bundle.sourcelink}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  {bundle.source}
-                </Source>
-              ) : (
-                <div />
-              )}
             </Image>
             <Title>{bundle.title}</Title>
             <PortableText
               value={bundle._rawDescription}
               components={defaultComponents}
             />
-            <Landing
-              href={bundle.landinglink}
+
+            <Examples
+              href={bundle.examplelink}
               rel="noopener noreferrer"
               target="_blank"
             >
-              More Info <PiArrowRightBold />
-            </Landing>
-            <Examples to={bundle.examplelink}>See Example Websites</Examples>
+              Visit Site
+            </Examples>
             <Intake to={bundle.link}>
-              Apply Now <PiArrowRightBold />
+              Apply Now <PiArrowArcRightBold />
             </Intake>
           </ProductCard>
         ))}
