@@ -82,6 +82,7 @@ const Title = styled.h3`
   text-transform: uppercase;
   font-size: 1.75rem;
   line-height: 1.8;
+  letter-spacing: 0.25rem;
 `
 
 const Landing = styled.a`
