@@ -31,6 +31,7 @@ import MissionInfo from '../../../../components/intake/MissionInfo'
 import BasicInfo from '../../../../components/intake/BasicInfo'
 import StripeSetup from '../../../../components/intake/StripeSetup'
 import ProgressBar from '../../../../components/intake/ProgressBar'
+import Referral from '../../../../components/intake/Referral'
 
 // Form Global Styling
 const EntireForm = styled.div`
@@ -571,6 +572,9 @@ export default function NonprofitWithDonations() {
 
     {
       content: <StripeSetup />,
+    },
+    {
+      content: <Referral />,
     },
     {
       content: <MiscInfo />,

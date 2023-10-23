@@ -31,6 +31,7 @@ import SocialInfo from '../../../../components/intake/SocialInfo'
 import MiscInfo from '../../../../components/intake/MiscInfo'
 import PaymentOption from '../../../../components/intake/PaymentOption'
 import ProgressBar from '../../../../components/intake/ProgressBar'
+import Referral from '../../../../components/intake/Referral'
 
 // Form Global Styling
 const EntireForm = styled.div`
@@ -565,6 +566,9 @@ export default function BusinessIntake() {
     },
     {
       content: <SocialInfo />,
+    },
+    {
+      content: <Referral />,
     },
     {
       content: <MiscInfo />,

@@ -30,6 +30,7 @@ import PaymentOption from '../../../../components/intake/PaymentOption'
 import NPProblems from '../../../../components/intake/NPProblems'
 import MissionInfo from '../../../../components/intake/MissionInfo'
 import ProgressBar from '../../../../components/intake/ProgressBar'
+import Referral from '../../../../components/intake/Referral'
 
 // Form Global Styling
 const EntireForm = styled.div`
@@ -562,7 +563,9 @@ export default function NonprofitIntake() {
     {
       content: <SocialInfo />,
     },
-
+    {
+      content: <Referral />,
+    },
     {
       content: <MiscInfo />,
     },

@@ -33,6 +33,7 @@ import MiscInfo from '../../../../components/intake/MiscInfo'
 import PaymentOption from '../../../../components/intake/PaymentOption'
 import StripeSetup from '../../../../components/intake/StripeSetup'
 import ProgressBar from '../../../../components/intake/ProgressBar'
+import Referral from '../../../../components/intake/Referral'
 
 // Form Global Styling
 const EntireForm = styled.div`
@@ -571,9 +572,11 @@ export default function BusinessWithPayment() {
     {
       content: <SocialInfo />,
     },
-
     {
       content: <StripeSetup />,
+    },
+    {
+      content: <Referral />,
     },
     {
       content: <MiscInfo />,
