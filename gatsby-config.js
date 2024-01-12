@@ -14,6 +14,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-styled-components',
     'gatsby-plugin-netlify',
+    'gatsby-plugin-sitemap',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-image',
     {
@@ -38,7 +39,15 @@ module.exports = {
         trackPageViews: true,
         events: true,
         eventsGlobal: 'sa_event',
-        ignorePages: [],
+        ignorePages: ['/faith/*'],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://ericphifer.com',
+        sitemap: 'https://ericphifer.com/sitemap/sitemap-index.xml',
+        policy: [{ userAgent: '*', disallow: '/faith/*' }],
       },
     },
   ],
